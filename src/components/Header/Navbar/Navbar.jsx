@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border border-black w-full bg-white flex items-center justify-between py-5">
+    <div className="border border-black w-full bg-white flex items-center justify-between py-5 fixed top-0 right-0 left-0 z-50">
       <DrawerButton onClick={toggleDrawer} />
       <DrawerComponent isOpen={isDrawerOpen} onClose={toggleDrawer} />
       <span className="inline-block uppercase text-center text-3xl font-medium	 flex-grow">
