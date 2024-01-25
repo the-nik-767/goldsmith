@@ -30,7 +30,10 @@ export function CarouselTransition() {
         className="rounded-xl"
         autoplay
         navigation={({ setActiveIndex, activeIndex, length }) => (
-          <div style={{right:"5%"}} className="absolute bottom-4  z-50 flex -translate-x-2/4 gap-2">
+          <div
+            style={{ right: "5%" }}
+            className="absolute bottom-4  z-50 flex -translate-x-2/4 gap-2"
+          >
             {new Array(length).fill("").map((_, i) => (
               <span
                 key={i}
@@ -38,7 +41,8 @@ export function CarouselTransition() {
                   activeIndex === i ? "w-5 h-5 bg-white" : "w-4 h-4 bg-white/50"
                 }`}
                 onClick={() => {
-                  setActiveIndex(i)}}
+                  setActiveIndex(i);
+                }}
               />
             ))}
           </div>
