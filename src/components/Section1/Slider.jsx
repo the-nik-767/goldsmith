@@ -12,12 +12,12 @@ const Slider = () => {
     setCurrentIndex(index);
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((prevIndex) => (prevIndex === 3 ? 0 : prevIndex + 1));
-  //   }, 2000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex === 3 ? 0 : prevIndex + 1));
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="custom-carousel">
