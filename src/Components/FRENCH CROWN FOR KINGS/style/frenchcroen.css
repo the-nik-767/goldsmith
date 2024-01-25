@@ -1,0 +1,19 @@
+.Maintitle{
+    position: relative;
+}
+
+.title{
+    position: absolute;
+    bottom: 300px;
+    left: 10%;
+    color: black;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.button{
+    position: absolute;
+    bottom:250px;
+    left: 10%;
+
+}

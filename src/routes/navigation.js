@@ -6,6 +6,7 @@ function MainNavigator() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        
       </Routes>
     </BrowserRouter>
   );
