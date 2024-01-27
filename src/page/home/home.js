@@ -1,17 +1,17 @@
 import React from "react";
-import Navbar from "../../components/Header/Navbar/Navbar";
-import Slider from "../../components/Section1/Slider";
-import Video from "../../components/Section2/Video";
+import Navbar from "../../Components/Header/Navbar/Navbar";
+import Slider from "../../Components/Section1/Slider";
+import Video from "../../Components/Section2/Video";
 
-import Picture1 from "../../components/newArrival/Picture1";
-import SingleImg from "../../components/FRENCHCROWNFORKINGS/SingleImg"
+import Picture1 from "../../Components/newArrival/Picture1";
+import SingleImg from "../../Components/FRENCHCROWNFORKINGS/SingleImg"
 // import SingleImgInQuenns from "../../components/FRENCH CROWN FOR QUEENS/SingleImgInQuenns"
-import AllNewsletter from "../../components/NEWSLETTER/AllNewsletter"
+import AllNewsletter from "../../Components/NEWSLETTER/AllNewsletter"
 // import SingleImgInNewCollection from "../../components/NewCollection/SingleImgInNewCollection"
-import Main from "../../components/fotter/Main"
-import SingleImgInQuenns from "../../components/FRENCHCROWNFORQUEENS/SingleImgInQuenns";
+import Main from "../../Components/fotter/Main"
+import SingleImgInQuenns from "../../Components/FRENCHCROWNFORQUEENS/SingleImgInQuenns";
 // import SingleImgInNewCollection from "../../Components/NewCollection/SingleImgInNewCollection";
-import SingleImgInNewCollection from "../../components/NewCollection/SingleImgInNewCollection"
+import SingleImgInNewCollection from "../../Components/NewCollection/SingleImgInNewCollection"
 
 const Home = () => {
   return(
