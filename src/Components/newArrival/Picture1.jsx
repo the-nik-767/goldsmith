@@ -18,7 +18,7 @@ const Picture1 = () => {
     return (
         <>
         <hr className='mt-5 mb-5 '/>
-            <div className=" text-center text-5xl font-mono "><h2>NEW ARRIVAL DESIGN</h2></div>
+            <div className=" text-center text-5xl font-mono mt-14 mb-10"><h2>NEW ARRIVAL DESIGN</h2></div>
             <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-clos-4 xl:grid:clos-4 gap-3 justify-center"> 
                 {
                     arr.map((x) => {
