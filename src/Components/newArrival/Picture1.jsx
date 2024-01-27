@@ -1,12 +1,4 @@
 import React from 'react'
-import Img1 from '../../assets/image/newArrival_img/img1.webp'
-import Img2 from '../../assets/image/newArrival_img/img2.webp'
-import Img3 from '../../assets/image/newArrival_img/img3.webp'
-import Img9 from '../../assets/image/newArrival_img/img9.webp'
-import Img11 from '../../assets/image/newArrival_img/img11.avif'
-import Img6 from '../../assets/image/newArrival_img/img6.webp'
-import Img10 from '../../assets/image/newArrival_img/img10.jpeg'
-import Img12 from '../../assets/image/newArrival_img/img12.avif'
 import AllItem from './AllItem';
 import './img.css'
 

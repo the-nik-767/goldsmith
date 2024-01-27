@@ -1,7 +1,4 @@
 import React from 'react'
-import Img1 from '../../assets/image/FRENCH CROWN FOR QUEENS/img1.avif'
-import Img4 from '../../assets/image/FRENCH CROWN FOR QUEENS/img4.avif'
-import Img3 from '../../assets/image/FRENCH CROWN FOR QUEENS/img3.avif'
 import AllImgQueens from './AllImgQueens'
 const SingleImgInQuenns = () => {
     let arr=[

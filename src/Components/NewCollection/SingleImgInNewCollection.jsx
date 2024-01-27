@@ -1,16 +1,4 @@
 import React from 'react'
-import Img1 from '../../assets/image/New Collection/img1.avif'
-import Img2 from '../../assets/image/New Collection/img2.avif'
-import Img3 from '../../assets/image/New Collection/img3.avif'
-import Img4 from '../../assets/image/New Collection/img4.avif'
-import Img5 from '../../assets/image/New Collection/img5.avif'
-import Img6 from '../../assets/image/New Collection/img6.avif'
-import Img7 from '../../assets/image/New Collection/img7.avif'
-import Img8 from '../../assets/image/New Collection/img8.avif'
-import Img9 from '../../assets/image/New Collection/img9.avif'
-import Img10 from '../../assets/image/New Collection/img10.avif'
-import Img11 from '../../assets/image/New Collection/img11.avif'
-import Img12 from '../../assets/image/New Collection/img12.avif'
 import AllImgInNewCollection from './AllImgInNewCollection'
 
 const SingleImgInNewCollection = () => {
