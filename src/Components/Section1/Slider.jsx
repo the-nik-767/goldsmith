@@ -19,26 +19,14 @@ const Slider = () => {
         "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
     },
   ]);
-  // const [currentIndex, setCurrentIndex] = useState(0);
-
-  // const handleIndicatorClick = (index) => {
-  //   setCurrentIndex(index);
-  // };
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((prevIndex) => (prevIndex === 3 ? 0 : prevIndex + 1));
-  //   }, 2000);
-  //   return () => clearInterval(interval);
-  // }, []);
-
+ 
   return (
     <div>
       <Carousel
         // style={{ justifyContent: "center", alignContent: "center" }}
         transition={{ duration: 2 }}
         className="rounded-xl"
-        // autoplay
+        autoplay
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div
             style={{ right: "5%" }}
@@ -99,43 +87,7 @@ const Slider = () => {
         })}
       </Carousel>
     </div>
-    // <div className="custom-carousel">
-    //   {[img1, img2, img3, img4].map((img, index) => (
-    //     <div
-    //       key={index}
-    //       className={`carousel-slide ${currentIndex === index ? "active" : ""}`}
-    //     >
-    //       <div
-    //         style={{
-    //           backgroundImage: "url(" + img + ")",
-    //           backgroundSize: "auto",
-    //           backgroundSize: "contain",
-    //           backgroundRepeat: "no-repeat",
-    //           backgroundPosition: "center",
-    //           width: "100vw",
-    //           height: "48vh",
-    //         }}
-    //         alt={`Slide ${index + 1}`}
-    //       >
-    //         <div className="main">
-    //           <div className="indicators">
-    //             {[img1, img2, img3, img4].map((_, index) => (
-    //               <button
-    //                 key={index}
-    //                 type="button"
-    //                 className={`indicator ${
-    //                   index === currentIndex ? "active" : ""
-    //                 }`}
-    //                 aria-current={index === currentIndex ? "true" : "false"}
-    //                 onClick={() => handleIndicatorClick(index)}
-    //               />
-    //             ))}
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   ))}
-    // </div>
+    
   );
 };
 
