@@ -4,13 +4,14 @@ import Slider from "../../components/Section1/Slider";
 import Video from "../../components/Section2/Video";
 
 import Picture1 from "../../components/newArrival/Picture1";
-import SingleImg from "../../components/FRENCH CROWN FOR KINGS/SingleImg"
+import SingleImg from "../../components/FRENCHCROWNFORKINGS/SingleImg"
 // import SingleImgInQuenns from "../../components/FRENCH CROWN FOR QUEENS/SingleImgInQuenns"
 import AllNewsletter from "../../components/NEWSLETTER/AllNewsletter"
 // import SingleImgInNewCollection from "../../components/NewCollection/SingleImgInNewCollection"
 import Main from "../../components/fotter/Main"
-import SingleImgInQuenns from "../../Components/FRENCH CROWN FOR QUEENS/SingleImgInQuenns";
-import SingleImgInNewCollection from "../../Components/NewCollection/SingleImgInNewCollection";
+import SingleImgInQuenns from "../../components/FRENCHCROWNFORQUEENS/SingleImgInQuenns";
+// import SingleImgInNewCollection from "../../Components/NewCollection/SingleImgInNewCollection";
+import SingleImgInNewCollection from "../../components/NewCollection/SingleImgInNewCollection"
 
 const Home = () => {
   return(
@@ -29,3 +30,5 @@ const Home = () => {
      );
   
   }
+
+  export default Home;
