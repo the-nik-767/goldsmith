@@ -1,14 +1,21 @@
 import React from 'react'
 import { FaPlus } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const AllItem = (props) => {
+  let navigate = useNavigate()
+  const navigateShop = ()  =>{
+    navigate('/shop')
+  }
+  
   return (
     <>
       <div className="flex justify-center mx-6 my-3 " >
         <div className=" rounded overflow-hidden mt-5 my-3 " style={{ maxWidth: '100%', maxHeight: '100%' }}>
           <div className="md:grid-cols-2">
 
-            <div
+            <div 
+              onClick={navigateShop}
               className=" object-cover bg-no-repeat origin-center  hover-effect icons " 
               style={{ backgroundImage: 'url(' + props.Img + ')', backgroundSize: "cover" ,height:'300px'  ,width:'900px'}}
 

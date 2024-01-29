@@ -38,7 +38,7 @@ const Slider = () => {
         // style={{ justifyContent: "center", alignContent: "center" }}
         transition={{ duration: 2 }}
         className="rounded-xl"
-        // autoplay
+        autoplay
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div
             style={{ right: "5%" }}

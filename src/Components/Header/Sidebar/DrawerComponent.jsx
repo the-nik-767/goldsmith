@@ -2,6 +2,39 @@ import React from "react";
 import { Dropdown } from "./Dropdown";
 
 export const DrawerComponent = ({ isOpen, onClose }) => {
+  let x = [
+    {
+        id: "1",
+        btntxt: "HOME",
+        item: ["Item 1", "Item 2"]
+    },
+    {
+        id: "2",
+        btntxt: "SHOP",
+        item: ["Item 1", "Item 2"]
+    },
+    {
+        id: "3",
+        btntxt: "PRODUCTS",
+        item: ["Item 1", "Item 2"]
+    },
+    {
+        id: "4",
+        btntxt: "TEMPLATES",
+        item: ["Item 1", "Item 2"]
+    },
+    {
+        id: "5",
+        btntxt: "PAGES",
+        item: ["Item 1", "Item 2"]
+    },
+    {
+        id: "6",
+        btntxt: "MEGA",
+        item: ["Item 1", "Item 2"]
+    }
+];
+ 
   return (
     <div
       id="drawer-navigation"
@@ -35,7 +68,7 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
       </button>
       <br />
       <br />
-      <Dropdown
+      {/* <Dropdown
         id="1"
         btntxt="HOME"
         item={[
@@ -48,12 +81,21 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
           "Item 7",
           "Item 8",
         ]}
-      />
-      <Dropdown id="2" btntxt="SHOP" item={["Item 1", "Item 2"]} />
+      /> */}
+      {/* <Dropdown id="2" btntxt="SHOP" item={["Item 1", "Item 2"]} />
       <Dropdown id="3" btntxt="PRODUCTS" item={["Item 1", "Item 2"]} />
       <Dropdown id="4" btntxt="TEMPLATES" item={["Item 1", "Item 2"]} />
       <Dropdown id="5" btntxt="PAGES" item={["Item 1", "Item 2"]} />
-      <Dropdown id="6" btntxt="MEGA" item={["Item 1", "Item 2"]} />
+      <Dropdown id="6" btntxt="MEGA" item={["Item 1", "Item 2"]} /> */}
+      {
+        x?.map((x,i) =>{ 
+          return(
+         
+          <Dropdown id={x.id} btntxt={x.btntxt} item={x.item} />
+          
+          )
+        })
+      }
     </div>
   );
 };
