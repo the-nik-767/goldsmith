@@ -68,25 +68,6 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
       </button>
       <br />
       <br />
-      {/* <Dropdown
-        id="1"
-        btntxt="HOME"
-        item={[
-          "Item 1",
-          "Item 2",
-          "Item 3",
-          "Item 4",
-          "Item 5",
-          "Item 6",
-          "Item 7",
-          "Item 8",
-        ]}
-      /> */}
-      {/* <Dropdown id="2" btntxt="SHOP" item={["Item 1", "Item 2"]} />
-      <Dropdown id="3" btntxt="PRODUCTS" item={["Item 1", "Item 2"]} />
-      <Dropdown id="4" btntxt="TEMPLATES" item={["Item 1", "Item 2"]} />
-      <Dropdown id="5" btntxt="PAGES" item={["Item 1", "Item 2"]} />
-      <Dropdown id="6" btntxt="MEGA" item={["Item 1", "Item 2"]} /> */}
       {
         x?.map((x,i) =>{ 
           return(

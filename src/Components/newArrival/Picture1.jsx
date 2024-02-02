@@ -1,8 +1,15 @@
 import React from 'react'
 import AllItem from './AllItem';
 import './img.css'
+import { useNavigate } from 'react-router-dom';
+
 
 const Picture1 = () => {
+
+    let navigate = useNavigate()
+  const navigateCategory = ()  =>{
+    navigate('/category')
+  }
    
         let arr = [
             {Img: 'https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D','title': 'Long crystal earrings'},
@@ -19,7 +26,7 @@ const Picture1 = () => {
         <>
         <hr className='mt-5 mb-5 '/>
             <div className=" text-center text-5xl font-mono mt-14 mb-10"><h2>NEW ARRIVAL DESIGN</h2></div>
-            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-clos-4 xl:grid:clos-4 gap-3 justify-center"> 
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid:cols-4 gap-3 justify-center"> 
                 {
                     arr.map((x) => {
                         return(
@@ -30,7 +37,7 @@ const Picture1 = () => {
 
                 }
             </div>
-            <div className="text-center "><a href="" className='bg-black hvr-sweep-to-right text-white  py-2 px-8 hover:bg-white  hover:border-solid border-2 border-black hover:text-black'>View All</a> </div>
+            <div className="text-center "><a href="" onClick={navigateCategory} className='bg-black hvr-sweep-to-right text-white  py-2 px-8 hover:bg-white  hover:border-solid border-2 border-black hover:text-black'>View All</a> </div>
             <hr className='mt-10 mb-10 '/>
         </>
     )

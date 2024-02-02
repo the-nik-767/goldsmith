@@ -1,0 +1,85 @@
+.hover-effect {
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+  
+  }
+  
+  .hover-effect:hover {
+    transform: scale(1.05) translate(2px, 2px);
+  
+  }
+  
+  .plus-icon-container {
+    position: relative;
+  }
+  
+  .faPlusIcon {
+    position: absolute;
+    bottom: 5%;
+    left: 89%;
+    transform: translate(-50%, -50%);
+    color: black;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0;
+  
+  }
+  
+  .faPlusIcon:hover {
+    color: white;
+    background-color: black;
+    opacity: 1;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .hvr-sweep-to-right {
+    padding: 10px 25px ;
+    background: black;
+    display: inline-block;
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    transition: color 0.3s;
+  }
+  .hvr-sweep-to-right:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: transparent;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease-out;
+  }
+  .hvr-sweep-to-right:hover {
+    color: black;
+  }
+  .hvr-sweep-to-right:hover:before {
+    transform: scaleX(1);
+  }
+  .underline{
+    content: "";
+    margin: 10px auto;
+    /* width: 60px; */
+    /* height: 3px; */
+    position: absolute;
+    bottom: 0;
+    background: var(--text);
+    opacity: 0.8;
+    left: 0;
+    right: 0;
+  }
+  
+  @media (min-width: 640px) {.hover-effect{width: 100%; height: auto}}
+  
+  @media (min-width: 768px) {.hover-effect{width: 100%; height: auto}}
+  
+  @media (min-width: 1024px) {.hover-effect{width: 100%; height: auto}}
+  
+  @media (min-width: 1280px) {.hover-effect{width: 100%; height: auto}}
+  
+  @media (min-width: 1536px) {.hover-effect{width: 100%; height: auto}}

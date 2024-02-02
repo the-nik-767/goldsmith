@@ -8,7 +8,7 @@ const Video = () => {
     >
       <video autoPlay loop playsInline muted style={{ width: "100%" }}>
         <source
-          src="https://vod-progressive.akamaized.net/exp=1706519098~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1194%2F25%2F630974928%2F2902661888.mp4~hmac=40674ed491c4070535c875b792be491a7c127ed88d75e1fc0d555b2973de4bab/vimeo-prod-skyfire-std-us/01/1194/25/630974928/2902661888.mp4"
+          src="https://player.vimeo.com/external/630974928.sd.mp4?s=d6fcff3345c5e1b2cb1b7c45c616701524a8f30a&profile_id=164&oauth2_token_id=57447761"
           type="video/mp4"
         />
       </video>
