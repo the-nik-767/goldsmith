@@ -89,7 +89,7 @@ const SideFilter = () => {
   };
 
   return (
-    <div className=" mt-32" style={{ width: "15vw" }} >
+    <div className=" mt-8" style={{ width: "15vw" }} >
       <div style={{ width: "70%", margin: "0 auto" }}>
         {accordionItems.map((item) => (
           <Accordion

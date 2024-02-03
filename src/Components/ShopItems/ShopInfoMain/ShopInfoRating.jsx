@@ -6,7 +6,7 @@ export const ShopInfoRating = () => {
     <>
       <div>
         <h1 className="mb-2 text-slate-500">Long crystal earrings</h1>
-        <h4 className="mb-3 text-slate-500">3,999</h4>
+        <h4 className="mb-3 text-slate-500">999</h4>
       </div>
       <div className="flex mb-3">
         <div>

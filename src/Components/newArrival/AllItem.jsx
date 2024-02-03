@@ -11,7 +11,7 @@ const AllItem = (props) => {
   return (
     <>
       <div className="flex justify-center " >
-        <div className=" rounded overflow-hidden mt-5 my-3 " style={{ maxWidth: '100%', maxHeight: '100%' , height:'100'  ,width:'100%'}}>
+        <div className=" rounded overflow-hidden mt-5 my-3 " style={{ maxWidth: '100%', maxHeight: '100%' , height:'100'  ,width:'100%'}}> 
           <div className="md:grid-cols-2">
 
             <div 

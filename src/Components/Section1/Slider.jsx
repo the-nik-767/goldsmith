@@ -19,13 +19,11 @@ const Slider = () => {
         "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
     },
   ]);
- 
+
   return (
     <div>
       <Carousel
-        // style={{ justifyContent: "center", alignContent: "center" }}
         transition={{ duration: 2 }}
-        className="rounded-xl"
         autoplay
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div
@@ -35,9 +33,8 @@ const Slider = () => {
             {new Array(length).fill("").map((_, i) => (
               <span
                 key={i}
-                className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                  activeIndex === i ? "w-5 h-5 bg-white" : "w-4 h-4 bg-white/50"
-                }`}
+                className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${activeIndex === i ? "w-5 h-5 bg-white" : "w-4 h-4 bg-white/50"
+                  }`}
                 onClick={() => {
                   setActiveIndex(i);
                 }}
@@ -87,7 +84,7 @@ const Slider = () => {
         })}
       </Carousel>
     </div>
-    
+
   );
 };
 

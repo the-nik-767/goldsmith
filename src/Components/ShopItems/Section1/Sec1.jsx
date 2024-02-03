@@ -31,6 +31,7 @@ const Sec1 = (props) => {
             </div>
             <div className="px-6 ">
               <div className=" text-base mb-2 text-center text-black">
+                <span>&#8377;</span>
                 {props.price}
               </div>
             </div>

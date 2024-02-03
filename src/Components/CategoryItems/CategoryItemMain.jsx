@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SideFilter from './SideFilters/SideFilter';
 import ImgComp from './ImgComponent/ImgComp';
+import "./CategoryItemMain.css"
+import Topbar from './Topbar/Topbar';
 
 const CategoryItemMain = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -20,29 +22,17 @@ const CategoryItemMain = () => {
   }, []);
 
   return (
-    <div style={{ display: 'flex' }}>
-      {isSmallScreen ? null : <SideFilter style={{ display: 'block' }} />}
-      <ImgComp />
-    </div>
+    <>
+      <div>
+        <Topbar />
+      </div>
+      <div className='flex justify-center	'>
+        {isSmallScreen ? null : <SideFilter style={{ display: 'block' }} />}
+        <ImgComp className="imgcomp" />
+      </div>
+    </>
   );
 };
 
 export default CategoryItemMain;
 
-
-
-// import React from 'react'
-// import SideFilter from './SideFilters/SideFilter'
-// import ImgComp from './ImgComponent/ImgComp'
-// import './CategoryItemMain.css'
-
-// const CategoryItemMain = () => {
-//   return (
-//     <div className='flex'>
-//         <SideFilter className="sidefilter" />
-//         <ImgComp/>
-//     </div>
-//   )
-// }
-
-// export default CategoryItemMain
