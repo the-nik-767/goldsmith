@@ -1,6 +1,7 @@
 import React from "react";
 import Sec1 from "./Sec1";
 import "./section1.css";
+import '../../CategoryItems/ImgComponent/style/ImgComp.css'
 
 const Sec1Main = () => {
   let arr = [

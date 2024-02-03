@@ -25,7 +25,7 @@ const Slider = () => {
       <Carousel
         // style={{ justifyContent: "center", alignContent: "center" }}
         transition={{ duration: 2 }}
-        className="rounded-xl"
+        className=""
         autoplay
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div

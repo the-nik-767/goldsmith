@@ -28,7 +28,7 @@ const Navbar = () => {
         goldsmith
       </span>
       <div className="text-end">
-        <span className="hidden sm:inline-block text-2xl pe-5">
+        <span className="hidden sm:inline-block text-2xl pe-5 " onClick={()=>navigate('/user')}>
           <MdOutlineAccountCircle />
         </span>
         <span className="hidden sm:inline-block text-2xl pe-10">

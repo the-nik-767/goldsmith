@@ -3,7 +3,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: end;
-    /* padding-bottom: 100px; */
 }
 .title{
 
@@ -11,22 +10,35 @@
     font-size: 30px;
     font-weight: bolder;
     z-index: 9999;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
     margin-left: 15px;
+    margin-bottom: 20px;
 }
 
 .button{
-    position: absolute;
     align-items: end;
-    margin-bottom: 50px;
     margin-left: 15px;
+    margin-top:550px;
 }
 
-.button1{
-    position: absolute;
-    /* bottom:250px;
-    left: 10%; */
-    align-items: end;
-    margin-bottom: 50px;
-    margin-left: 15px;
+.img-hover-zoom--slowmo {
+    overflow: hidden;
 }
+
+.img-hover-zoom--slowmo .img {
+    transform-origin: 50% 65%;
+    transition: transform 5s, filter 3s ease-in-out;
+}
+
+.img-hover-zoom--slowmo:hover .img {
+    filter: brightness(100%);
+    transform: scale(3);
+    height: 100%;
+}
+
+.img-hover-zoom--slowmo .img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+

@@ -13,17 +13,19 @@ const Sec1 = (props) => {
             width: "100%",
           }}
         >
-          <div className="md:grid-cols-2">
-            <div
-              className=" object-cover bg-no-repeat origin-center  hover-effect icons "
-              style={{
-                backgroundImage: "url(" + props.Img + ")",
-                backgroundSize: "cover",
-                height: "50vh",
-                width: "100%",
-              }}
-              alt={props.title}
-            />
+          <div className="md:grid-cols-2 ">
+            <div className="img-hover-zoom--slowmo">
+              <div
+                className="img object-cover bg-no-repeat origin-center  hover-effect icons bg-center"
+                style={{
+                  backgroundImage: "url(" + props.Img + ")",
+                  backgroundSize: "cover",
+                  height: "50vh",
+                  width: "100%",
+
+                }}
+                alt={props.title}
+              /></div>
             <div className="px-6 py-4">
               <div className=" text-base mb-2 text-center text-black">
                 {props.title}

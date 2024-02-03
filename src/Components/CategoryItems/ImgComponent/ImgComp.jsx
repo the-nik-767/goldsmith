@@ -1,6 +1,7 @@
 import React from 'react'
 import { ImgCompBack } from './ImgCompBack';
 import '../../newArrival/img.css'
+import './style/ImgComp.css'
 
 const ImgComp = () => {
 

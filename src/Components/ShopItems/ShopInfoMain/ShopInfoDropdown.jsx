@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Select, Option } from "@material-tailwind/react";
 import { connect } from "react-redux";
 import { addToCart } from "../../../Redux/Action/action";
+import { useNavigate } from "react-router-dom";
 
 const ShopInfoDropdown = ({ cartItems, addToCart }) => {
   const sizes = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
@@ -27,6 +28,9 @@ const ShopInfoDropdown = ({ cartItems, addToCart }) => {
       addToCart(selectedSize, selectedType);
     }
   };
+
+  const navigator = useNavigate();
+  
 
   return (
     <>
@@ -63,6 +67,7 @@ const ShopInfoDropdown = ({ cartItems, addToCart }) => {
       <Button className="capitalize mb-5" onClick={handleAddToCart}>
         Add to Cart
       </Button>
+      <Button className="capitalize mb-5 ms-5" onClick={() =>navigator('/buyNow')} >Buy Now</Button>
     </>
   );
 };

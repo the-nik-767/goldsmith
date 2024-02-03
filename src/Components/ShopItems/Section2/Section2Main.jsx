@@ -1,6 +1,7 @@
 import React from 'react'
 import Section2 from './Section2';
 import '../Section1/section1.css';
+import '../../CategoryItems/ImgComponent/style/ImgComp.css'
 
 const Section2Main = () => {
     let arr = [

@@ -1,13 +1,24 @@
-.hover-effect {
+.img-hover-zoom--slowmo {
+  overflow: hidden;
+}
+
+.img-hover-zoom--slowmo .img {
+  transform-origin: 50% 65%;
+  transition: transform 1s , filter 3s ease-in-out;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease-in-out;
-
 }
 
-.hover-effect:hover {
-  transform: scale(1.05) translate(2px, 2px);
-
+.img-hover-zoom--slowmo:hover .img {
+  filter: brightness(100%);
+  transform: scale(1);
+  height: 100%;
+  background-position: center center;
 }
+
+
+
 
 .plus-icon-container {
   position: relative;
@@ -62,7 +73,13 @@
   transform: scaleX(1);
 }
 
-@media (min-width: 640px) {.hover-effect{width: 100%; height: auto}}
+@media (min-width: 640px) {
+  .img-hover-zoom--slowmo .img,
+  .hover-effect {
+    width: 100%;
+    height: auto;
+  }
+}
 
 @media (min-width: 768px) {.hover-effect{width: 100%; height: auto}}
 

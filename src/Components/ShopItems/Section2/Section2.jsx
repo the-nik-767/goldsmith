@@ -14,8 +14,9 @@ const Section2 = (props) => {
         }}
       >
         <div className="md:grid-cols-2">
+          <div className="img-hover-zoom--slowmo">
           <div
-            className=" object-cover bg-no-repeat origin-center  hover-effect icons "
+            className="img object-cover bg-no-repeat origin-center icons  bg-center "
             style={{
               backgroundImage: "url(" + props.Img + ")",
               backgroundSize: "cover",
@@ -23,7 +24,7 @@ const Section2 = (props) => {
               width: "100%",
             }}
             alt={props.title}
-          />
+          /></div>
           <div className="px-6 py-4">
             <div className=" text-base mb-2 text-center text-black">
               {props.title}

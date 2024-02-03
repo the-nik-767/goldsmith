@@ -1,0 +1,19 @@
+.img-hover-zoom--slowmo {
+    overflow: hidden;
+  }
+  
+  .img-hover-zoom--slowmo .img {
+    transform-origin: 50% 65%;
+    transition: transform 0.3s , filter 0.3s ease-in-out;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-position: center center;
+  }
+  
+  .img-hover-zoom--slowmo:hover .img {
+    filter: brightness(100%);
+    transform: scale(1.5);
+    height: 100%;
+    background-position: center center;
+  }
