@@ -4,7 +4,7 @@ const Video = () => {
   return (
     <div
       className="relative overflow-hidden max-w-full mt-9"
-      style={{ height: "720px" }}
+      style={{ height: "auto" }}
     >
       <video autoPlay loop playsInline muted style={{ width: "100%" }}>
         <source

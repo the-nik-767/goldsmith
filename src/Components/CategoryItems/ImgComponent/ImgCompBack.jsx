@@ -21,7 +21,7 @@ export const ImgCompBack = (props) => {
                         /></div>
                         <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2 text-center text-black capitalize">
-                                {props.title}
+                                {props.title}<br/><span>&#8377;</span>{props.price}
                             </div>
                         </div>
                     </div>

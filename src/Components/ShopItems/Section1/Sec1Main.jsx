@@ -8,22 +8,22 @@ const Sec1Main = () => {
     {
       Img: "https://images.unsplash.com/photo-1549439602-43ebca2327af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8",
       title: "New Style Earrings",
-      price :"Rs. 1,499"
+      price : "999"
     },
     {
       Img: "https://images.unsplash.com/photo-1607703829739-c05b7beddf60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8",
       title: "Old Style Ring",
-      price :"Rs. 1,499"
+      price :"999"
     },
     {
       Img: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
       title: "Faceted crystal bracelet",
-      price :"Rs. 1,499"
+      price :"999"
     },
     {
       Img: "https://images.unsplash.com/photo-1561828995-aa79a2db86dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
       title: "Rhinestone crystal earring",
-      price :"Rs. 1,499"
+      price :"999"
       
     },
   ];
