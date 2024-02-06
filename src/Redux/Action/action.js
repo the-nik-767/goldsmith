@@ -1,18 +1,22 @@
-import { ADD_TO_CART } from "../Type/type";
+import { ADD_TO_CART,REMOVE_FROM_CART, UPDATE_CART_ITEMS } from "../Type/type";
 
-export const addToCart = (size, Img, title,price) => {
+export const addToCart = (item) => {
   return {
     type: ADD_TO_CART,
-    payload: { size,Img,title,price},
+    payload: item,
   };
 };
 
-export const updateCartItemQuantity = (index, quantity) => {
+export const removeFromCart = (item) => {
   return {
-    type: "UPDATE_CART_ITEM_QUANTITY",
-    payload: {
-      index,
-      quantity,
-    },
+    type: REMOVE_FROM_CART,
+    payload: item,
+  };
+};
+
+export const updateCartItems = (cartItems) => {
+  return {
+    type: UPDATE_CART_ITEMS,
+    payload: cartItems,
   };
 };
