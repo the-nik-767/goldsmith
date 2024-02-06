@@ -4,7 +4,7 @@ import Shop from "../page/shop/shop";
 import Category from "../page/category/category";
 import UserLogo from "../Components/Header/User/UserLogo";
 import ByuNow from "../Components/ShopItems/BuyNow/ByuNow";
-import { ShopImg } from "../Components/ShopItems/ShopImg";
+// import { ShopImg } from "../Components/ShopItems/ShopImg";
 
 function MainNavigator() {
   return (

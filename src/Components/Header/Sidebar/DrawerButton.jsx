@@ -1,7 +1,9 @@
 import React from "react";
 import { TfiAlignJustify } from "react-icons/tfi";
+// import './style/Sidebar.css'
 
 export const DrawerButton = ({ onClick }) => {
+
   return (
     <div>
       <button
@@ -11,6 +13,7 @@ export const DrawerButton = ({ onClick }) => {
       >
         <TfiAlignJustify />
       </button>
+      
     </div>
   );
 };
