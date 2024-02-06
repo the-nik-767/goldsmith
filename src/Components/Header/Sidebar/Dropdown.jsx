@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom/dist";
 
-export const Dropdown = ({ id ,btntxt, item }) => {
+export const Dropdown = ({ id, btntxt, item, handleOnClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
     setIsOpen((prevState) => !prevState);
   };
+  // console.log("item is open",item)
 
   return (
+    <>
     <div id={`accordion-collapse-${id}`} data-accordion="collapse">
       <h2 id={`accordion-collapse-heading-${id}`}>
         <button
@@ -43,13 +46,19 @@ export const Dropdown = ({ id ,btntxt, item }) => {
         aria-labelledby={`accordion-collapse-heading-${id}`}
       >
         <div className="ps-5 pt-2 divide-y divide-solid">
+
           {item.map((items, index) => (
-            <p key={index} className="mb-2 text-gray-800 pt-3">
+            <p key={index} className="mb-2 text-gray-800 pt-3" onClick={handleOnClick(id)}>
               {items}
             </p>
           ))}
+          {/* {item.map((items, index) => (
+            <Link index={2} className="mb-2 text-gray-800 pt-3">
+            sdfcsdfsd
+            </Link>
+          ))} */}
         </div>
       </div>
     </div>
-  );
-};
+          </>
+  )}

@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+
+import React from 'react';
 import SideFilter from './SideFilters/SideFilter';
 import ImgComp from './ImgComponent/ImgComp';
 import "./CategoryItemMain.css"
 import Topbar from './Topbar/Topbar';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const CategoryItemMain = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [viewStyle, setViewStyle] = useState('grid');
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,15 +28,14 @@ const CategoryItemMain = () => {
   return (
     <>
       <div>
-        <Topbar />
+        <Topbar  setViewStyle={setViewStyle} />
       </div>
       <div className='flex justify-center	'>
         {isSmallScreen ? null : <SideFilter style={{ display: 'block' }} />}
-        <ImgComp className="imgcomp" />
+        <ImgComp className="imgcomp" viewStyle={viewStyle}  />
       </div>
     </>
   );
 };
 
 export default CategoryItemMain;
-

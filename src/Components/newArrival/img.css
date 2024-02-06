@@ -81,6 +81,8 @@
   }
 }
 
+@media (min-width: 1320px) {.\32xl\:min-w-\[40\%\]{max-width: 0%; background: transparent}}
+
 @media (min-width: 768px) {.hover-effect{width: 100%; height: auto}}
 
 @media (min-width: 1024px) {.hover-effect{width: 100%; height: auto}}

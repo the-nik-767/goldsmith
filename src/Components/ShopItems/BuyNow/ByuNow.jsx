@@ -1,44 +1,75 @@
 import React from 'react'
 import Navbar from '../../Header/Navbar/Navbar'
 import './style/buyNow.css'
+import { connect } from "react-redux";
 
-const ByuNow = () => {
+const ByuNow = ({ cartItems, updateCartItemQuantity }) => {
+
+  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
+  const productId = 'yourProductId';
+
+  const product = cartItems.find(item => item.id === productId);
+
+  const quantity = product ? product.quantity : 0;
+  console.log('cartItems', cartItems)
   return (
     <div>
-         <Navbar />
-         <div className="">
-         <title>Day 002 - Credit Card Checkout</title>
-        <div className="checkout-container">
+      <Navbar />
+      <div className="backSide">
+        <title>Day 002 - Credit Card Checkout</title>
+        <div className="checkout-container" style={{ marginTop: '100px' }}>
           <div className="left-side">
+            {/* {cartItems.map((item, index) => (
+              <div key={index} className="text-sm flex">
+                <div className="me-3">
+                  <img
+                    src={item.Img}
+                    alt={`Product ${index}`}
+                    style={{ height: "80px", width: "80px" }}
+                  />
+                  
+                  </div>
+                </div>
+                  ))} */}
           </div>
           <div className="right-side">
             <div className="receipt">
               <h2 className="receipt-heading">Receipt Summary</h2>
               <div>
                 <table className="table">
-                  <tbody><tr>
-                      <td>249.50 x 2 nights</td>
-                      <td className="price">499.00 USD</td>
-                    </tr>
+                  <tbody>
+
+                    {cartItems.map((item, index) => (
+                      <tr key={index}>
+                        <tr>
+                          <td>Name:</td>
+                          <td className='price'> {item.title || 'Unknown Item'}</td>
+                        </tr>
+                        
+                        <tr>
+                          <td>Quantity:</td>
+                          <td className="quantity price"> {item.quantity}</td>
+                        </tr>
+                        <tr>
+                          <td>MRP:</td>
+                          <td className="price "> {item.price*item.quantity} /-</td>
+                        </tr>
+                      </tr>
+                      
+                    ))}
                     <tr>
-                      <td>Discount</td>
-                      <td className="price">0.00 USD</td>
-                    </tr>
-                    <tr>
-                      <td>Subtotal</td>
-                      <td className="price">499.00 USD</td>
-                    </tr>
-                    <tr>
-                      <td>Tax</td>
-                      <td className="price">47.41 USD</td>
+                      <td>Tax :</td>
+                      <td className="price">{(totalPrice * 0.05).toFixed(2)} /-</td>
                     </tr>
                     <tr className="total">
-                      <td>Total</td>
-                      <td className="price">546.41 USD</td>
+                      <td>Total :</td>
+                      <td className="price">{(totalPrice * 1.05).toFixed(2)} /-</td>
                     </tr>
-                  </tbody></table>
+                  </tbody>
+                </table>
               </div>
-            </div>
+            </div><hr />
             <div className="payment-info">
               <h3 className="payment-heading">Payment Information</h3>
               <form className="form-box" encType="text/plain" method="get" target="_blank">
@@ -100,9 +131,12 @@ const ByuNow = () => {
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
-  )
+      )
 }
+const mapStateToProps = state => ({
+        cartItems: state.cart.cartItems,
+});
 
-export default ByuNow
+      export default connect(mapStateToProps)(ByuNow);
