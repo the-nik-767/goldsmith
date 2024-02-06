@@ -1,5 +1,5 @@
 import React from "react";
-import  ShopInfoDropdown  from "./ShopInfoDropdown";
+import ShopInfoDropdown from "./ShopInfoDropdown";
 import { ShopInfoAccordian } from "./ShopInfoAccordian";
 import { ShopInfoRating } from "./ShopInfoRating";
 import "./ShopInfoMain.css";

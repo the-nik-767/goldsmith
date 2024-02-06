@@ -6,17 +6,17 @@ const Slider = () => {
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
+        "https://images.pexels.com/photos/4639591/pexels-photo-4639591.jpeg",
     },
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
+        "https://images.pexels.com/photos/3641059/pexels-photo-3641059.jpeg",
     },
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
+        "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ]);
 
@@ -45,13 +45,12 @@ const Slider = () => {
         )}
       >
         {array.map((item, index) => {
-          console.log("index====>", index);
           return (
             <div>
               <div
                 style={{
                   backgroundImage: "url(" + `${item.image}` + ")",
-                  backgroundPosition: "center",
+                  backgroundPosition: "center center",
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
                   width: "100%",
