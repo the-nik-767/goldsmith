@@ -98,6 +98,7 @@ const AddtoCart = () => {
                 </div>
               </div>
             ))}
+
           </Typography>
         </div>
         <Button

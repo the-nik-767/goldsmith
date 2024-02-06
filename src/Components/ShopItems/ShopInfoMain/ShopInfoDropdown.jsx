@@ -19,31 +19,25 @@ const ShopInfoDropdown = () => {
   const handleSizeChange = (size) => {
     setSelectedSize(size);
   };
-  const handleQuantityIncrease = () => {
-    setQuantity(quantity + 1);
-  };
-  const handleQuantityDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-  useEffect(() => {
-    console.log("Updated Cart State:", cartItems);
-  }, [cartItems]);
+  
+  // useEffect(() => {
+  //   console.log("Updated Cart State:", cartItems);
+  // }, [cartItems]);
+
   const handleAddToCart = () => {
     let img = products.find((x) => x.id == myParam);
-
-    addToCart(selectedSize, img.Img, img.title, img.price * quantity, quantity);
     const itemToAdd = {
       size: selectedSize,
       Img: img.Img,
       title: img.title,
       quantity:quantity,
-      price: img.price * quantity,
+      price: img.price,
     };
     dispatch(addToCart(itemToAdd));
   };
   const navigator = useNavigate();
+
+
 
   return (
     <>
@@ -61,11 +55,6 @@ const ShopInfoDropdown = () => {
           ))}
         </Select>
       </div>
-      {/* <div className="flex items-center gap-4 mb-5">
-        <Button onClick={handleQuantityDecrease}>-</Button>
-        <div className="font-bold">{quantity}</div>
-        <Button onClick={handleQuantityIncrease}>+</Button>
-      </div> */}
       <Button className="capitalize mb-5" onClick={handleAddToCart}>
         Add to Cart
       </Button>
@@ -78,8 +67,6 @@ const ShopInfoDropdown = () => {
     </>
   );
 };
-
-
 
 
 export default ShopInfoDropdown;

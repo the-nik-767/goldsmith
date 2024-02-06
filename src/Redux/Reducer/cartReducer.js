@@ -1,4 +1,3 @@
-
 import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_CART_ITEMS } from "../Type/type";
 const initialState = {
   cartItems: [],
