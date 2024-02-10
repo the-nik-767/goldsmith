@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom/dist";
+import { IoIosArrowForward } from "react-icons/io";
 
 export const Dropdown = ({ id, btntxt, item, handleOnClick }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,8 @@ export const Dropdown = ({ id, btntxt, item, handleOnClick }) => {
           onClick={toggleAccordion}
         >
           <span>{btntxt}</span>
-          <svg
+          <span><IoIosArrowForward /></span>
+          {/* <svg
             data-accordion-icon
             className={`w-3 h-3 rotate-180 shrink-0`}
             aria-hidden="true"
@@ -37,7 +39,7 @@ export const Dropdown = ({ id, btntxt, item, handleOnClick }) => {
               strokeWidth="2"
               d="M9 5 5 1 1 5"
             />
-          </svg>
+          </svg> */}
         </button>
       </h2>
       <div
@@ -47,11 +49,11 @@ export const Dropdown = ({ id, btntxt, item, handleOnClick }) => {
       >
         <div className="ps-5 pt-2 divide-y divide-solid">
 
-          {item.map((items, index) => (
+          {/* {item.map((items, index) => (
             <p key={index} className="mb-2 text-gray-800 pt-3" onClick={handleOnClick(id)}>
               {items}
             </p>
-          ))}
+          ))} */}
           {/* {item.map((items, index) => (
             <Link index={2} className="mb-2 text-gray-800 pt-3">
             sdfcsdfsd

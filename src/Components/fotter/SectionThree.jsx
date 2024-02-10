@@ -4,7 +4,7 @@ function SectionThree() {
     return (
         <div>
             <div className='container ms-5'>
-                <h6 className='mb-6 text-sm text-gray-800'>ABOUT THE SHOP</h6 >
+                <h6 className='mb-6 text-sm text-gray-800 header-font'>ABOUT THE SHOP</h6 >
                 <div className="text-sm text-gray-500 hover:text-black-900">
                     <div className="">
                         <div className="mt-4"><span className='font-medium text-base '>US Company Name:</span> <span>TEXFC LLC</span></div>

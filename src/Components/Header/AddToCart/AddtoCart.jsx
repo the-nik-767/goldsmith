@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Drawer,
@@ -10,8 +9,10 @@ import { IoBagOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, updateCartItems } from "../../../Redux/Action/action";
 import { useNavigate } from "react-router-dom/dist";
-
 const AddtoCart = () => {
+
+  
+
   const navigator =useNavigate()
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
@@ -84,9 +85,9 @@ const AddtoCart = () => {
                   />
                 </div>
                 <div>
-                  <div>{item.title}</div>
-                  <div> {item.price*item.quantity}</div>
-                  <div> Size: {item.size} </div>
+                  <div>Name:{item.title}</div>
+                  <div>quantity: {item.price*item.quantity}</div>
+                  <div>Size: {item.size} </div>
                   <div>
                   <div className="flex items-center gap-4 mb-5">
                     <Button onClick={() => handleQuantityChange(item, -1)}>-</Button>
@@ -102,7 +103,7 @@ const AddtoCart = () => {
           </Typography>
         </div>
         <Button
-        className="capitalize mb-5" style={{marginTop:'600px' ,width:'100%' , padding:'20px 15px 20px 15px' , fontSize:'20px'}}
+        className="capitalize mb-5" style={{width:'100%' , padding:'20px 15px 20px 15px' , fontSize:'20px' , zIndex:'10000'}}
         onClick={() => navigator("/buyNow")}
       >
         Buy Now

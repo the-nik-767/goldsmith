@@ -9,7 +9,7 @@ const SingleImgInQuenns = () => {
     ]
   return (
     <>
-        <div className=" text-center text-5xl font-mono  mt-14"  ><h2>FRENCH CROWN FOR QUEENS</h2></div>
+        <div className=" text-center text-5xl font-mono  mt-14 header-font"  ><h2>FRENCH CROWN FOR QUEENS</h2></div>
         <div className="grid grid-cols-1 md:grid-cols-3  justify-center mt-8" > 
                 {
                     arr.map((x) => {

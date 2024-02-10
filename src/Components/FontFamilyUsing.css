@@ -1,0 +1,10 @@
+.header-font{
+     font-family: 'monospace' 
+}
+.text-font{
+     font-family: 'ui-monospace';
+}
+
+.header-color{
+     color: #5c5656 !important;
+}

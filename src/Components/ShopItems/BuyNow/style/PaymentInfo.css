@@ -1,0 +1,53 @@
+.payment-info-container {
+    /* padding: 20px; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 10px;
+  }
+  
+  
+  
+  .form-box {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .expires {
+    margin-bottom: 10px;
+  }
+  
+  .card-experation {
+    display: flex;
+    align-items: center;
+  }
+  
+  .expiration-year {
+    margin-left: 20px;
+  }
+  
+  .cvv-info {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #007bff;
+  }
+  
+  .footer-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .fa-lock {
+    color: green;
+    margin-right: 5px;
+  }
+  

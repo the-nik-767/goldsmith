@@ -4,7 +4,7 @@ const SectionFour = () => {
     return (
         <div>
             <div className='container ps-14'>
-                <h6 className='mb-6 text-sm text-gray-800'>NEWSLETTER</h6 >
+                <h6 className='mb-6 text-sm text-gray-800 header-font'>NEWSLETTER</h6 >
                 <div className="text-sm text-gray-500">
                     <p className='my-3 '>Keep in touch</p>
                     <p>We don't spam. We are nice people.</p>

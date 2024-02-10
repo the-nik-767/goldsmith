@@ -10,7 +10,7 @@ const UserPage = () => {
 
   return (
     <div className='flex' style={{justifyContent:'center'}}>
-      <div className='mt-28 ' >
+      <div className='mt-28 w-full' >
         <div className={`cont ${isSignup ? 's--signup' : ''}`}>
           <div className="form sign-in p-0">
             <h2 className='h2'>Welcome</h2>

@@ -1,0 +1,35 @@
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  border-bottom: 1px solid rgb(255, 115, 0);
+  animation-direction: alternate;
+  /* background-image: linear-gradient(to right, #f50635, #e9e90d); */
+  color: rgb(10 9 9 / 86%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* color: transparent; */
+  font-weight: bolder;
+  
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #fc466b, #fafb3f );
+  /* color: rgb(41, 38, 38); */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left; 
+ } 

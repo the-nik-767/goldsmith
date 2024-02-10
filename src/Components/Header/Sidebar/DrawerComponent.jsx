@@ -1,102 +1,125 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dropdown } from "./Dropdown";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import UserLogo from "../User/UserLogo";
 import { useNavigate } from "react-router-dom/dist";
 import './style/sidebar.css'
-export const DrawerComponent = ({ isOpen, onClose }) => {
-  let navigate = useNavigate()
-  let x = [
-    {
-      id: "1",
-      btntxt: "HOME",
-      item: ["Item 1", "Item 2"]
-    },
-    {
-      id: "2",
-      btntxt: "SHOP",
-      item: ["Item 1", "Item 2"]
-    },
-    {
-      id: "3",
-      btntxt: "PRODUCTS",
-      item: ["Item 1", "Item 2"]
-    },
-    {
-      id: "4",
-      btntxt: "TEMPLATES",
-      item: ["Item 1", "Item 2"]
-    },
-    {
-      id: "5",
-      btntxt: "PAGES",
-      item: ["Item 1", "Item 2"]
-    },
-    {
-      id: "6",
-      btntxt: "MEGA",
-      item: ["Item 1", "Item 2"]
-    }
-  ];
-  const handleOnClickPrd = (pid) =>{
-    console.log("id => ",pid);
-    
+import { Box, Divider, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Button, Drawer, List, ListItem } from "@material-tailwind/react";
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import { DrawerButton } from "./DrawerButton";
+import { TfiAlignJustify } from "react-icons/tfi";
+import { IoMdClose } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
-  }
+
+export const DrawerComponent = ({ isOpen, onClose }) => {
+  const [leftDrawerOpen, setLeftDrawerOpen] = useState(false);
+  const [showProducts, setShowProducts] = useState(false);
+  let navigate = useNavigate();
+
+  const [state, setState] = React.useState({
+    left: false
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      setLeftDrawerOpen(open);
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+  const toggleProducts = () => {
+    setShowProducts(!showProducts);
+  };
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >  
+      <Divider /> 
+    </Box>
+  );
+
 
   return (
+
     <>
-    <div
-      id="drawer-navigation"
-      className={`fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform ${isOpen ? "shadow-lg" : ""
-    } ${isOpen ? "" : "-translate-x-full"} bg-white w-64 dark:bg-gray-800`}
-    tabIndex={-1}
-      aria-labelledby="drawer-navigation-label"
-    >
-    <span className=" m-2    text-3node xl pe-5 ms-4 text-gray-400 bg-transparent  w-8 h-8 absolute   mb-10" onClick={()=>navigate('/user')}>
-          <MdOutlineAccountCircle />
-        </span>
-      <button
-        type="button"
-        onClick={onClose}
-        className="text-gray-400 bg-transparent text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center mb-10"
-      >
-        <svg
-          className="w-3 h-3"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 14 14"
-        >
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-            />
-        </svg>
-        <span className="sr-only">Close menu</span>
-      </button>
-      <br />
-      <br />
-      {
-        x?.map((x, i) => {
-          
-          return (
-            <Dropdown key={x.id} id={x.id} btntxt={x.btntxt} item={x.item} handleOnClick={handleOnClickPrd}/>
-          )
-        })
-      }
-      <div className="flex">
-        <div class="contact_number">
-          <p><a href="" bgcolor="black"><img src="//thefoomer.in/cdn/shop/t/47/assets/order-tracking_small.jpg?v=88311329181762376151706097645" alt="Tracking Icon" className="imgSideBar oneBox" /><span className="text-xs">Track Orders</span></a></p>
-          <p><a href="" bgcolor="black"><img src="//thefoomer.in/cdn/shop/t/47/assets/whatsapp_small.jpg?v=98417115858127822171706097645" alt="Whatsapp Icon" className="imgSideBar twoBox" /><span className="text-xs">WhatsApp</span></a></p>
-          <p><a href="" bgcolor="black"><img src="https://cdn.shopify.com/s/files/1/0687/6171/4968/files/email.png?v=1687943020" alt="Mail Icon" className="imgSideBar" /><span className="text-xs">Mail</span></a></p>
-        </div>
+      <div className="ms-5" onClick={toggleDrawer('left', true)}>
+        <TfiAlignJustify />
       </div>
-    </div>
-      </>
+      <Drawer
+        anchor={'left'}
+        open={state['left']}
+        onClose={toggleDrawer('left', false)}
+        style={{ width: '250px', maxWidth: '250px' }}
+      >
+        <div className="flex justify-between">
+          <span className=" m-6 text-3node xl pe-5 ms-10 text-3xl text-gray-400 bg-transparent " onClick={() => navigate('/user')}> <MdOutlineAccountCircle  className="cursor-pointer"/></span>
+          <span className=" m-6 text-3node xl pe-5 ms-10 text-3xl text-gray-400 bg-transparent " onClick={toggleDrawer('left', false)}><IoMdClose  className="cursor-pointer"/></span>
+        </div>
+        <span >
+        </span>
+        {showProducts ? (
+          <div className="my-6 mx-0">
+            <div>
+              <ul>
+                <li className="my-4 mx-10">
+                  <p className="flex justify-between IoIosArrowBack ">
+                    <IoIosArrowBack onClick={() => setShowProducts(false)}  className="cursor-pointer"/> Products{' '}
+                  </p>
+                </li>
+                <hr />
+                <li className="my-4 mx-10">Ring</li>
+                <hr />
+                <li className="my-4 mx-10">Earrings</li>
+                <hr />
+                <li className="my-4 mx-10">Bracelet</li>
+                <hr />
+                <li className="my-4 mx-10">Necklace</li>
+                <hr />
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <div className="my-6 mx-0">
+            <div>
+              <ul>
+                <li className="my-4 mx-10">
+                  <a href="">Home</a>
+                </li>
+                <hr />
+                <li className="my-4 mx-10" onClick={toggleProducts}>
+                  <p className="flex justify-between">
+                    Products <IoIosArrowForward className="mt-1,cursor-pointer" />
+                  </p>
+                </li>
+                <hr />
+                <li className="my-4 mx-10">
+                  <a href="">About Us</a>
+                </li>
+                <hr />
+                <li className="my-4 mx-10">
+                  <a href="">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
+        <div className="flex">
+          <div class="contact_number ">
+            <p><a href="" bgcolor="black"><img src="//thefoomer.in/cdn/shop/t/47/assets/order-tracking_small.jpg?v=88311329181762376151706097645" alt="Tracking Icon" className="imgSideBar oneBox" /><span className="text-xs">Track<br /> Orders</span></a></p>
+            <p><a href="" bgcolor="black"><img src="//thefoomer.in/cdn/shop/t/47/assets/whatsapp_small.jpg?v=98417115858127822171706097645" alt="Whatsapp Icon" className="imgSideBar twoBox" /><span className="text-xs">WhatsApp</span></a></p>
+            <p><a href="" bgcolor="black"><img src="https://cdn.shopify.com/s/files/1/0687/6171/4968/files/email.png?v=1687943020" alt="Mail Icon" className="imgSideBar" /><span className="text-xs">Mail</span></a></p>
+          </div>
+        </div>
+      </Drawer>
+    </>
   );
 };
 

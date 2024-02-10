@@ -7,16 +7,22 @@ const Slider = () => {
       id: 1,
       image:
         "https://images.pexels.com/photos/4639591/pexels-photo-4639591.jpeg",
+      buttonText: "Button 1",
+      buttonPosition: { left: "5%", top: "50%" }
     },
     {
       id: 2,
       image:
         "https://images.pexels.com/photos/3641059/pexels-photo-3641059.jpeg",
+      buttonText: "Button 2",
+      buttonPosition: { bottom: "10%", left: "50%" }
     },
     {
       id: 3,
       image:
         "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      buttonText: "Button 3",
+      buttonPosition: { right: "10%", bottom: "10%" }
     },
   ]);
 
@@ -59,25 +65,39 @@ const Slider = () => {
                 alt="image 1"
                 className="h-full w-full object-cover"
               >
-                {console.log("item.id====>", item.id == item.id / 2)}
-
-                {item.id == item.id / 2 ? (
+                {/* {index === 0 ? (
                   <Button
-                    style={{ right: "5%", top: "80%" }}
+                    style={{ left: "5%", top: "50%" }}
                     className="absolute"
                     size="sm"
                   >
-                    helloe
+                    Button 1
+                  </Button>
+                ) : index === 1 ? (
+                  <Button
+                    style={{ bottom: "5%", left: "50%" }}
+                    className="absolute"
+                    size="sm"
+                  >
+                    Button 2
                   </Button>
                 ) : (
                   <Button
-                    style={{ left: "5%", top: "80%" }}
+                    style={{ right: "5%", top: "50%" }}
                     className="absolute"
                     size="sm"
                   >
-                    helloe
+                    Button 3
                   </Button>
-                )}
+                )} */}
+
+                <Button
+                  style={item.buttonPosition}
+                  className="absolute"
+                  size="sm"
+                >
+                  {item.buttonText}
+                </Button>
               </div>
             </div>
           );
@@ -89,3 +109,4 @@ const Slider = () => {
 };
 
 export default Slider;
+

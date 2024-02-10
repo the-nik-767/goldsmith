@@ -1,6 +1,6 @@
 import React from 'react'
 import { ImgCompBack } from './ImgCompBack';
-import '../../newArrival/img.css'
+import '../../newArrival/style/img.css'
 import './style/ImgComp.css'
 import { MdOutlineGridView } from "react-icons/md";
 import { MdOutlineViewCompact } from "react-icons/md";

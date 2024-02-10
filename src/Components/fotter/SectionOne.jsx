@@ -5,7 +5,7 @@ const SectionOne = () => {
         <>
            
             <div className='container ms-5'>
-                <h6 className='mb-6 text-sm text-gray-800'>CORPORATE</h6 >
+                <h6 className='mb-6 text-sm text-gray-800 header-font'>CORPORATE</h6 >
                 <div className="text-sm text-gray-500 hover:text-black-900">
                     <p className='mt-3 text-hover'><a href="">About Us</a></p>
                     <p className='mt-3 text-hover'><a href="">Blog</a></p>

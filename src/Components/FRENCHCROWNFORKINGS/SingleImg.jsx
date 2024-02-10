@@ -18,7 +18,7 @@ const SingleImg = () => {
 
   return (
     <>
-       <div className=" text-center text-5xl font-mono mt-10 " ><h2>FRENCH CROWN FOR KINGS</h2></div>
+       <div className=" text-center text-5xl font-mono mt-10 text-font header-color" ><h2>FRENCH CROWN FOR KINGS</h2></div>
        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-clos-3   justify-center mt-8" > 
                 {
                     arr.map((x,i) => {

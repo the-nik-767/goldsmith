@@ -14,7 +14,7 @@ export const ImgCompBack = (props) => {
                         <div className="img-hover-zoom--slowmo">
                         <div
                             onClick={navigateShop}
-                            className="img object-cover bg-no-repeat origin-center icons "
+                            className="img object-cover bg-no-repeat origin-center icons header-font"
                             style={{ backgroundImage: 'url(' + props.Img + ')', backgroundSize: "cover", height: '40vh', width: '100%' }}
 
                             alt={props.title}

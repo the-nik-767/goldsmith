@@ -8,6 +8,7 @@ import AllNewsletter from "../../Components/NEWSLETTER/AllNewsletter"
 import Main from "../../Components/fotter/Main"
 import SingleImgInQuenns from "../../Components/FRENCHCROWNFORQUEENS/SingleImgInQuenns";
 import SingleImgInNewCollection from "../../Components/NewCollection/SingleImgInNewCollection"
+import '../../Components/FontFamilyUsing.css'
 
 const Home = () => {
   return(
@@ -17,7 +18,6 @@ const Home = () => {
       <Video/>
       <Picture1/>
       <SingleImg/>
-      
       <SingleImgInQuenns />
       <AllNewsletter/>
       <SingleImgInNewCollection/>

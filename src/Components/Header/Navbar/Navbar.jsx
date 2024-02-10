@@ -20,9 +20,9 @@ const Navbar = () => {
 
   return (
    
-    <header className="border border-black w-full bg-white fixed top-0 left-0 z-50">
+    <header className="border border-gray w-full bg-white fixed top-0 left-0 z-50">
     <div className=" mx-auto flex items-center justify-between py-5">
-      <DrawerButton onClick={toggleDrawer} />
+      {/* <DrawerButton onClick={toggleDrawer} /> */}
       <DrawerComponent isOpen={isDrawerOpen} onClose={toggleDrawer} />
       <span className="inline-block uppercase text-center text-3xl font-medium cursor-pointer" onClick={navigateHome}>
         goldsmith
@@ -31,7 +31,7 @@ const Navbar = () => {
         <span className="hidden sm:inline-block text-2xl pe-5 " onClick={()=>navigate('/user')}>
           <MdOutlineAccountCircle />
         </span>
-        <span className="hidden sm:inline-block text-2xl pe-10">
+        <span className=" sm:inline-block text-2xl pe-10">
           {/* <IoBagOutline /> */}
           <AddtoCart/>
         </span>

@@ -32,6 +32,8 @@ const ShopInfoDropdown = () => {
       title: img.title,
       quantity:quantity,
       price: img.price,
+      // tax:tax,  
+      
     };
     dispatch(addToCart(itemToAdd));
   };
