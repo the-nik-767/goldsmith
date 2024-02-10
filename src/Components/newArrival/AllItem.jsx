@@ -3,8 +3,8 @@ import { FaPlus } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { CiHeart } from "react-icons/ci";
 import UserPage from '../Header/User/UserPage';
-import { Dialog, DialogContent, DialogTitle, Button, IconButton, Box,Modal } from '@mui/material';
-
+import { IconButton, Box, Modal } from '@mui/material';
+import { Rating } from "@material-tailwind/react";
 const AllItem = (props) => {
 
   const [open, setOpen] = useState(false);
@@ -30,8 +30,8 @@ const AllItem = (props) => {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{  width: 800 , margin: '0 auto '}}>
-        <UserPage />
+        <Box sx={{ width: 800, margin: '0 auto ' }}>
+          <UserPage />
         </Box>
       </Modal>
 
@@ -45,20 +45,25 @@ const AllItem = (props) => {
                 onClick={navigateShop}
                 alt={props.title}
               />
+
+              <p className='label1'>{props.label}</p>
             </div>
             <IconButton aria-label="delete" className='heartIcons' onClick={handleOpen} sx={{
-                "&:hover": {
-                    color: "#e53e3e", 
-                    backgroundColor: "#fed7d7",
-                },
+              "&:hover": {
+                color: "#e53e3e",
+                backgroundColor: "#fed7d7",
+              },
             }}>
               <CiHeart />
             </IconButton>
             <div className="px-6">
-              <div className="text-2xl  text-center mt-2 text-font" style={{color:' rgb(157 68 28 )'}}>
+              <div className="text-xl text-font flex justify-between" style={{ color: ' rgb(157 68 28 )' }}>
                 {props.title}
+                <div>
+                  <Rating value={4} />
+                </div>
               </div>
-              <div className="font-medium text-xl  text-center text-black">
+              <div className="font-medium text-xl   text-black">
                 {props.price}
               </div>
             </div>
