@@ -29,7 +29,6 @@ const Slider = () => {
   return (
     <div>
       <Carousel
-        transition={{ duration: 2 }}
         className=""
         autoplay
         navigation={({ setActiveIndex, activeIndex, length }) => (
