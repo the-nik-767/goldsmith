@@ -10,13 +10,13 @@ import SingleImgInQuenns from "../../Components/FRENCHCROWNFORQUEENS/SingleImgIn
 import SingleImgInNewCollection from "../../Components/NewCollection/SingleImgInNewCollection"
 import '../../Components/FontFamilyUsing.css'
 
-const Home = () => {
+const Home = ({openAddToCart , SetOpenAddToCart}) => {
   return(
     <div>
-      <Navbar/>
+      
       <Slider/>
       <Video/>
-      <Picture1/>
+      <Picture1 openAddToCart={openAddToCart} SetOpenAddToCart={SetOpenAddToCart}/>
       <SingleImg/>
       <SingleImgInQuenns />
       <AllNewsletter/>

@@ -1,37 +1,95 @@
 import React, { useState } from 'react'
-import { FaPlus } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { CiHeart } from "react-icons/ci";
 import UserPage from '../Header/User/UserPage';
 import { IconButton, Box, Modal } from '@mui/material';
 import { Rating } from "@material-tailwind/react";
-const AllItem = (props) => {
+import { IoEyeSharp } from "react-icons/io5";
+import ShopInfosection1 from '../ShopItems/ShopInfosection1';
+import { addToCart } from '../../Redux/Action/action';
+import products from "../../product.json";
+import { useDispatch } from 'react-redux';
 
+const AllItem = (props ) => {
+  const { openAddToCart, SetOpenAddToCart } = props;
+  const [state, setState] = useState({
+    right: false,
+  });
   const [open, setOpen] = useState(false);
+  const [openUserPage, setOpenUserPage] = useState(false);
+  const [openImgComp, setOpenImgComp] = useState(false);
   const navigate = useNavigate();
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleOpen = () => {
-    setOpen(true);
+  const dispatch = useDispatch();
+  const handleOpenUserPage = () => {
+    setOpenUserPage(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseUserPage = () => {
+    setOpenUserPage(false);
+  };
+
+  const handleOpenImgComp = () => {
+    setOpenImgComp(true);
+  };
+
+  const handleCloseImgComp = () => {
+    setOpenImgComp(false);  
   };
 
   const navigateShop = () => {
     navigate('/shop');
   };
+  const [searchParams, setSearchParams] = useSearchParams();
+  const myParam = searchParams.get("id");
+  console.log('myParam',myParam)
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+
+  const handleAddToCartClick = () => {
+    let prd = products.find((x) => x.id == myParam);
+   console.log('produts',products)
+   console.log('prd',prd)
+   console.log('myParam',myParam)
+   
+    const itemToAdd = {
+      size: selectedSize,
+      Img: prd.Img,
+      title: prd.title,
+      quantity:quantity,
+      price: prd.price,
+      // tax:tax,  
+      
+    };
+    SetOpenAddToCart(true);
+    dispatch(addToCart(itemToAdd)); 
+    // SetOpenAddToCart(true);
+    // setSelectedItem(props);
+
+  };
 
   return (
     <>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={openUserPage}
+        onClose={handleCloseUserPage}
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
         <Box sx={{ width: 800, margin: '0 auto ' }}>
           <UserPage />
+        </Box>
+      </Modal>
+
+      <Modal
+        open={openImgComp}
+        onClose={handleCloseImgComp}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+      >
+        <Box sx={{ width: '1200px', margin: '0 auto ', backgroundColor: 'white', padding: '10px', marginTop: '10px' }}>
+          <ShopInfosection1 style={{ marginTop: '0' }} />
         </Box>
       </Modal>
 
@@ -47,8 +105,12 @@ const AllItem = (props) => {
               />
 
               <p className='label1'>{props.label}</p>
+              <p onClick={handleAddToCartClick} className="addToCartText absolute lg:left-full text-center w-full transform   transition-opacity duration-300 bg-black text-white px-4 py-2  ">Add to cart</p>
+              <IconButton aria-label="delete" className='IoEyeSharp' onClick={handleOpenImgComp}>
+                <IoEyeSharp />
+              </IconButton>
             </div>
-            <IconButton aria-label="delete" className='heartIcons' onClick={handleOpen} sx={{
+            <IconButton aria-label="delete" className='heartIcons' onClick={handleOpenUserPage} sx={{
               "&:hover": {
                 color: "#e53e3e",
                 backgroundColor: "#fed7d7",
@@ -56,6 +118,8 @@ const AllItem = (props) => {
             }}>
               <CiHeart />
             </IconButton>
+
+
             <div className="px-6">
               <div className="text-xl text-font flex justify-between" style={{ color: ' rgb(157 68 28 )' }}>
                 {props.title}
@@ -70,7 +134,6 @@ const AllItem = (props) => {
           </div>
         </div>
       </div>
-
 
     </>
   )

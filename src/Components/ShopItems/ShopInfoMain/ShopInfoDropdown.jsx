@@ -5,9 +5,28 @@ import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import products from "../../../product.json";
 import { useDispatch, useSelector } from "react-redux";
+import { Box } from "@mui/material";
 
-const ShopInfoDropdown = () => {
+const ShopInfoDropdown = ({SetOpenAddToCart}) => {
+  const [state, setState] = useState({
+    right: false,
+  });
+
+  const toggleDrawer =
+    (anchor, open) =>
+      (event) => {
+        if (
+          event.type === 'keydown' &&
+          ((event.key === 'Tab' ||
+            event.key === 'Shift'))
+        ) {
+          return;
+        }
+
+        setState({ ...state, [anchor]: open });
+      };
   const dispatch = useDispatch();
+
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [searchParams, setSearchParams] = useSearchParams();
   const myParam = searchParams.get("id");
@@ -20,9 +39,15 @@ const ShopInfoDropdown = () => {
     setSelectedSize(size);
   };
   
-  // useEffect(() => {
-  //   console.log("Updated Cart State:", cartItems);
-  // }, [cartItems]);
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+    </Box>
+  );
 
   const handleAddToCart = () => {
     let img = products.find((x) => x.id == myParam);
@@ -35,11 +60,12 @@ const ShopInfoDropdown = () => {
       // tax:tax,  
       
     };
-    dispatch(addToCart(itemToAdd));
+    SetOpenAddToCart(true)
+    toggleDrawer('right', true)
+    dispatch(addToCart(itemToAdd)); 
   };
-  const navigator = useNavigate();
 
-
+ 
 
   return (
     <>
@@ -55,17 +81,13 @@ const ShopInfoDropdown = () => {
               {size}
             </Option>
           ))}
-        </Select>
+        </Select>   
       </div>
       <Button className="capitalize mb-5" onClick={handleAddToCart}>
         Add to Cart
       </Button>
-      <Button
-        className="capitalize mb-5 ms-5"
-        onClick={() => navigator("/buyNow")}
-      >
-        Buy Now
-      </Button>
+      
+     
     </>
   );
 };

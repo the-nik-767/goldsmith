@@ -14,18 +14,18 @@ const BuyNowMain = () => {
     return (
         <>
             <Navbar />
-            <div className=' grid md:grid-cols-4 text-center grid-clos-2' style={{ marginTop: '100px' }}>
-                <div className={step === 0 ? 'hover-underline-animation' : ''} style={{fontSize:'25px' , fontFamily:'monospace'}}>
+            <div className=' grid md:grid-cols-4 text-center grid-clos-2 text-font ' style={{ marginTop: '110px' }}>
+                <div className={step === 0 ? 'hover-underline-animation' : ''} style={{fontSize:'25px' }}>
                     {/* style={{ fontFamily:'monospace'}} */}
                     Info
                 </div>
-                <div className={step === 1 ? 'hover-underline-animation' : ''} style={{fontSize:'25px' , fontFamily:'monospace'}}>
+                <div className={step === 1 ? 'hover-underline-animation' : ''} style={{fontSize:'25px' }}>
                     Payment
                 </div>
-                <div className={step === 2 ? 'hover-underline-animation' : ''}style={{fontSize:'25px' , fontFamily:'monospace'}}>
+                <div className={step === 2 ? 'hover-underline-animation' : ''}style={{fontSize:'25px' }}>
                     Book & Review
                 </div>
-                <div className={step === 3 ? 'hover-underline-animation ' : ''}style={{fontSize:'25px' , fontFamily:'monospace'}}>
+                <div className={step === 3 ? 'hover-underline-animation ' : ''}style={{fontSize:'25px' }}>
                     Confrimation
                 </div>
             </div>

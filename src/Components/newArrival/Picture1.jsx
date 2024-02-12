@@ -3,8 +3,7 @@ import AllItem from './AllItem';
 import './style/img.css'
 import { useNavigate } from 'react-router-dom';
 
-const Picture1 = () => {
-
+const Picture1 = ({openAddToCart, SetOpenAddToCart}) => {
     let navigate = useNavigate()
     const navigateCategory = () => {
         navigate('/category')
@@ -29,7 +28,7 @@ const Picture1 = () => {
                 {
                     arr.map((x) => {
                         return (
-                            <AllItem Img={x.Img} title={x.title} key={x.title} price={x.price} label={x.label} />
+                            <AllItem Img={x.Img} title={x.title} key={x.title} price={x.price} label={x.label} openAddToCart={openAddToCart} SetOpenAddToCart={SetOpenAddToCart}/>
                         )
 
                     })
@@ -38,7 +37,6 @@ const Picture1 = () => {
             </div>
             <div class="outer flex justify-center">
                 <div class="button1 mt-10 ">
-                    {/* <div class="text">button</div> */}
                     <button
                         class="rounded p-2 text-center text " style={{width:'150px'}}
                         type="button"

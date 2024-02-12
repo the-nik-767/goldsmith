@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ShopImg } from "./ShopImg";
 import ShopInfoMain from "./ShopInfoMain/ShopInfoMain";
 import Sec1Main from "./Section1/Sec1Main";
@@ -7,27 +7,25 @@ import Main from "../fotter/Main"
 import { ShopInfoRating } from "./ShopInfoMain/ShopInfoRating";
 import ShopInfoDropdown from "./ShopInfoMain/ShopInfoDropdown";
 import { ShopInfoAccordian } from "./ShopInfoMain/ShopInfoAccordian";
-// import "./ShopInfoMain.css";
+
 import "../ShopItems/ShopInfoMain/ShopInfoMain.css"
+import ShopInfosection1 from "./ShopInfosection1";
 
 
-const ShopMain = () => {
+const ShopMain = ({SetOpenAddToCart}) => {
+  
   return (
     <>
-      <div className="flex justify-center shopmain">
-        <ShopImg />
-        <div className="lg:w-80 infomain">
-          <ShopInfoRating />
-          <ShopInfoDropdown />
-          <ShopInfoAccordian />
-        </div>
-        {/* <ShopInfoMain /> */}
+     <div className="">
+     <div className="flex justify-center shopmain">
+        <ShopInfosection1 SetOpenAddToCart={SetOpenAddToCart}/>
       </div>
       <div>
         <Sec1Main />
         <Section2Main />
         <Main />
       </div>
+     </div>
     </>
   );
 };

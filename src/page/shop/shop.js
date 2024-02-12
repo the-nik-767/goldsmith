@@ -2,11 +2,10 @@ import React from "react";
 import Navbar from "../../Components/Header/Navbar/Navbar";
 import ShopMain from "../../Components/ShopItems/ShopMain";
 
-const Shop = () => {
+const Shop = ({SetOpenAddToCart}) => {
   return (
     <div>
-      <Navbar />
-      <ShopMain />
+      <ShopMain SetOpenAddToCart={SetOpenAddToCart}/>
     </div>
   );
 };
