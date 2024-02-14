@@ -21,7 +21,11 @@ const Video = () => {
         />
       </video> */}
 
-      <IKVideo src="https://ik.imagekit.io/saufrbirqu/video/video123.mp4?updatedAt=1707905749537" />
+      <IKVideo
+        src="https://ik.imagekit.io/saufrbirqu/video/video123.mp4?updatedAt=1707905749537"
+        autoPlay
+        muted
+      />
     </div>
   );
 };

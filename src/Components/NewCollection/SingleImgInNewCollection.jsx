@@ -18,21 +18,17 @@ const SingleImgInNewCollection = () => {
     {Img:'https://plus.unsplash.com/premium_photo-1681276169450-4504a2442173?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8','title':'EVERY THING'},
 ]
 return (
-<div>
-  <div className=" text-center text-2xl mt-10 tracking-wider text-font"  ><h2>NEW COLLECTION</h2></div>
-    <div className="grid grid-cols-1 md:grid-cols-2  justify-center mt-8" > 
-            {
-                arr.map((x,i) => {
-                    return(
-                        <AllImgInNewCollection key={i} Img={x.Img} title={x.title}/>
-                    )
-                    
-                })
-
-            }
-        </div>
-</div>
-  )
+  <div>
+    <div className=" text-center text-2xl mt-10 text-font header-color">
+      <h2>NEW COLLECTION</h2>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2  justify-center mt-8">
+      {arr.map((x, i) => {
+        return <AllImgInNewCollection key={i} Img={x.Img} title={x.title} />;
+      })}
+    </div>
+  </div>
+);
 }
 
 export default SingleImgInNewCollection

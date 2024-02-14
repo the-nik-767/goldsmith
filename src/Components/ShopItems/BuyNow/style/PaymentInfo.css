@@ -2,12 +2,9 @@
     /* padding: 20px; */
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     margin: 10px;
   }
-  
-  
-  
   .form-box {
     margin-top: 20px;
   }
@@ -45,9 +42,46 @@
     font-size: 14px;
     color: #777;
   }
-  
-  .fa-lock {
-    color: green;
-    margin-right: 5px;
+.card-experation{
+  margin: -35px;
+}
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input:focus{
+  outline: 1;
+}
+
+@media (min-width: 100px) and (max-width: 300px) {
+  .iconswrap{
+    flex-wrap: wrap;
   }
-  
+  .card-experation{
+   margin: -7px !important;
+    flex-wrap: wrap;
+  }
+  .PaymentLogoImage{
+    width: 30px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .card-experation{
+    margin: 1px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .card-experation{
+    margin: -7px !important;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px){
+  .card-experation{
+    margin: 20px !important;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 1201px){
+  .card-experation{
+    margin: -90px !important;
+  }
+}

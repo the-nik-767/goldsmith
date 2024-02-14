@@ -25,11 +25,11 @@ const Navbar = ({openAddToCart, SetOpenAddToCart}) => {
     <header className="border border-gray  bg-white fixed top-0 left-0 z-50" style={{width:'100%'}}>
       <div className=" mx-auto flex items-center justify-between">
         {/* <DrawerButton onClick={toggleDrawer} /> */}
-        <DrawerComponent isOpen={isDrawerOpen} onClose={toggleDrawer} />
+        <DrawerComponent isOpen={isDrawerOpen} onClose={toggleDrawer}/>
         <span className="inline-block uppercase text-center text-3xl font-medium cursor-pointer" onClick={navigateHome}>
           <img src={Logo} alt="Logo" style={{ height: '100px', width: '240px', objectFit: 'cover' }} />
         </span>
-        <div className="flex">
+        <div className="flex" style={{paddingRight:'5px'}}>
           <IconButton style={{color:'black'}} className=" sm:inline-block text-2xl  " onClick={() => navigate('/user')}>
             <MdOutlineAccountCircle />
           </IconButton>

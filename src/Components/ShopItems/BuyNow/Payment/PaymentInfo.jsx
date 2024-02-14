@@ -41,25 +41,74 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
 
   return (
     <div>
-      <div className="payment-info payment-info-container" style={{ margin: '10px 0px 5px 15px' }}>
-        <div className=" flex justify-between" style={{ fontFamily: 'monospace', backgroundColor: '#e7e6e573' ,fontSize: '34px'}}>
-          <h2 className=" text-slate-700 font-medium font-3xl  p-5"  >Payment Information  </h2>
-          <div class="rsBox" style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
-            <img src="https://book.rentylresorts.com/images/creditCardLogos/AmEx.svg" alt="credit card logos" />
-            <img src="https://book.rentylresorts.com/images/creditCardLogos/Discover.svg" alt="credit card logos" />
-            <img src="https://book.rentylresorts.com/images/creditCardLogos/MasterCard.svg" alt="credit card logos" />
-            <img src="https://book.rentylresorts.com/images/creditCardLogos/Visa.svg" alt="credit card logos" /><div class="rsLabel body1">and more...
-            </div>
+      <div
+        className="payment-info payment-info-container"
+        style={{ margin: "10px 0px 5px 15px" }}
+      >
+        <div className=" flex justify-between iconswrap">
+          <h2
+            className=" text-slate-700 text-font tracking-wide p-3"
+            style={{ fontSize: "28px" }}
+          >
+            Payment Information{" "}
+          </h2>
+          <div
+            class="rsBox"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "5px",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src="https://book.rentylresorts.com/images/creditCardLogos/AmEx.svg"
+              alt="credit card logos"
+              className="PaymentLogoImage"
+            />
+            <img
+              src="https://book.rentylresorts.com/images/creditCardLogos/Discover.svg"
+              alt="credit card logos"
+              className="PaymentLogoImage"
+            />
+            <img
+              src="https://book.rentylresorts.com/images/creditCardLogos/MasterCard.svg"
+              alt="credit card logos"
+              className="PaymentLogoImage"
+            />
+            <img
+              src="https://book.rentylresorts.com/images/creditCardLogos/Visa.svg"
+              alt="credit card logos"
+              className="PaymentLogoImage"
+            />
+            <div class="rsLabel body1">and more...</div>
           </div>
         </div>
-        <hr style={{ margin: '0' }} />
+        <hr style={{ margin: "0" }} />
         <hr />
-        <form className="form-box p-2" encType="text/plain" method="get" target="_blank">
+        <form
+          className="form-box p-2"
+          encType="text/plain"
+          method="get"
+          target="_blank"
+        >
           <Box>
             <TextField
+              styles={{
+                control: (provided, state) => ({
+                  ...provided,
+                  border: "none",
+                  boxShadow: "none",
+                }),
+                menu: (provided, state) => ({
+                  ...provided,
+                  border: "none",
+                  boxShadow: "none",
+                }),
+              }}
               label="Full Name"
               variant="standard"
-              style={{ padding: '0px 7px' }}
+              style={{ padding: "0px 7px", width: "100%" }}
               id="fullName"
               name="fullName"
               placeholder="Satoshi Nakamoto"
@@ -71,22 +120,45 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
               helperText={formik.touched.fullName && formik.errors.fullName}
             />
             <TextField
+              styles={{
+                control: (provided, state) => ({
+                  ...provided,
+                  border: "none",
+                  boxShadow: "none",
+                }),
+                menu: (provided, state) => ({
+                  ...provided,
+                  border: "none",
+                  boxShadow: "none",
+                }),
+              }}
               label="cardNumber"
               variant="standard"
               id="cardNumber"
+              style={{ padding: "0px 7px", width: "100%" }}
               name="cardNumber"
               placeholder="1111-2222-3333-4444"
               required
               type="text"
               value={formik.values.cardNumber}
               onChange={formik.handleChange}
-              error={formik.touched.cardNumber && Boolean(formik.errors.cardNumber)}
+              error={
+                formik.touched.cardNumber && Boolean(formik.errors.cardNumber)
+              }
               helperText={formik.touched.cardNumber && formik.errors.cardNumber}
             />
           </Box>
 
-          <Box style={{ padding: '5px 5px' }} className='grid md:grid-cols-3 grid-cols-1'>
-            <p className="expires" style={{ paddingTop: '35px' }}>ExpiresOn</p>
+          <Box
+            style={{ padding: "5px 5px" }}
+            className="grid md:grid-cols-3 grid-cols-1"
+          >
+            <p
+              className="expires"
+              style={{ paddingTop: "35px", width: "100%" }}
+            >
+              ExpiresOn
+            </p>
             <Box className="card-experation">
               <Box>
                 <TextField
@@ -98,10 +170,28 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
                   required
                   value={formik.values.expirationMonth}
                   onChange={formik.handleChange}
-                  error={formik.touched.expirationMonth && Boolean(formik.errors.expirationMonth)}
-                  helperText={formik.touched.expirationMonth && formik.errors.expirationMonth}
+                  error={
+                    formik.touched.expirationMonth &&
+                    Boolean(formik.errors.expirationMonth)
+                  }
+                  helperText={
+                    formik.touched.expirationMonth &&
+                    formik.errors.expirationMonth
+                  }
                   select
-                  style={{ width: '150px', marginLeft: '-150px' }}
+                  style={{ width: "150px", marginLeft: "" }}
+                  styles={{
+                    root: {
+                      "& .MuiOutlinedInput-root": {
+                        "&:hover fieldset": {
+                          borderColor: "none",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "none",
+                        },
+                      },
+                    },
+                  }}
                 >
                   <MenuItem value="">Month:</MenuItem>
                   <MenuItem value="January">January</MenuItem>
@@ -123,15 +213,33 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
                   id="expiration-year"
                   name="expirationYear"
                   variant="standard"
-                  placeholder='Years'
+                  placeholder="Years"
                   label="Year"
                   required
                   value={formik.values.expirationYear}
                   onChange={formik.handleChange}
-                  error={formik.touched.expirationYear && Boolean(formik.errors.expirationYear)}
-                  helperText={formik.touched.expirationYear && formik.errors.expirationYear}
+                  error={
+                    formik.touched.expirationYear &&
+                    Boolean(formik.errors.expirationYear)
+                  }
+                  helperText={
+                    formik.touched.expirationYear &&
+                    formik.errors.expirationYear
+                  }
                   select
-                  style={{ width: '150px', marginLeft: '10px' }}
+                  style={{ width: "150px", marginLeft: "10px" }}
+                  styles={{
+                    root: {
+                      "& .MuiOutlinedInput-root": {
+                        "&:hover fieldset": {
+                          borderColor: "none",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "none",
+                        },
+                      },
+                    },
+                  }}
                 >
                   <MenuItem value="">Year</MenuItem>
                   <MenuItem value="2023">2024</MenuItem>
@@ -143,10 +251,23 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
               </Box>
             </Box>
           </Box>
-          <Box style={{ padding: '5px 5px' }}>
+          <Box style={{ padding: "5px 5px" }}>
             <TextField
+              styles={{
+                control: (provided, state) => ({
+                  ...provided,
+                  border: "none",
+                  boxShadow: "none",
+                }),
+                menu: (provided, state) => ({
+                  ...provided,
+                  border: "none",
+                  boxShadow: "none",
+                }),
+              }}
               id="cvv"
               name="cvv"
+              style={{ width: "100%" }}
               variant="standard"
               label="CVV"
               placeholder="415"
@@ -157,7 +278,9 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
               error={formik.touched.cvv && Boolean(formik.errors.cvv)}
               helperText={formik.touched.cvv && formik.errors.cvv}
             />
-            <a className="cvv-info" href="#">What is CVV?</a>
+            <a className="cvv-info" href="#">
+              What is CVV?
+            </a>
           </Box>
           <Box class="outer">
             <div class="button1">
@@ -180,9 +303,7 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
         </p>
       </div>
     </div>
-
-
-  )
+  );
 }
 
 export default PaymentInfo;

@@ -11,7 +11,10 @@ const Paymentdatashow = () => {
   }, []);
   return (
     <div>
-      <div className='payment-info-container' style={{ margin: '10px 0px 5px 15px' }}>
+      <div
+        className="payment-info-container"
+        style={{ margin: "10px 0px 5px 15px" }}
+      >
         <ul>
           {/* {userArray.map((user, index) => (
           <li key={index}>
@@ -28,25 +31,41 @@ const Paymentdatashow = () => {
             <hr />
           </li>
         ))} */}
-          <div className=" flex justify-between" style={{ fontFamily: 'monospace', backgroundColor: '#e7e6e573' ,fontSize: '34px'}}>
-            <h2 className="payment-heading text-slate-700 font-medium font-3xl  p-5" style={{  fontSize: '34px' }} >Personal Info  </h2>
-            
+          <div className=" flex justify-between">
+            <h2
+              className=" text-slate-700 font-medium f  text-font tracking-wide text-center p-3"
+              style={{ fontSize: "28px" }}
+            >
+              Personal Info
+            </h2>
           </div>
-          <hr style={{ margin: '0' }} />
+          <hr  />
           {lastUserData && (
-            <div className='flex '  >
-              <div>
-                <div style={{ padding: '10px', fontSize: '20px' }} > {lastUserData.fname} {lastUserData.lname}</div>
-                <div style={{ padding: '10px', fontSize: '20px' }}> {lastUserData.addLine1}</div>
-                <div style={{ padding: '10px', fontSize: '20px' }}> {lastUserData.addLine2}</div>
-                <div style={{ padding: '10px', fontSize: '20px' }}>{lastUserData.city}, {lastUserData.pincode} {lastUserData.country}</div>
+            <div className="flex ">
+              <div style={{padding:'10px 7px'}}>
+                <div style={{ padding: "0px 10px", fontSize: "20px" }}>
+                  {" "}
+                  {lastUserData.fname} {lastUserData.lname}
+                </div>
+                <div style={{ padding: "0px 10px", fontSize: "20px" }}>
+                  {" "}
+                  {lastUserData.addLine1}
+                </div>
+                <div style={{ padding: "0px 10px", fontSize: "20px" }}>
+                  {" "}
+                  {lastUserData.addLine2}
+                </div>
+                <div style={{ padding: "0px 10px", fontSize: "20px" }}>
+                  {lastUserData.city}, {lastUserData.pincode}{" "}
+                  {lastUserData.country}
+                </div>
               </div>
             </div>
           )}
         </ul>
       </div>
     </div>
-  )
+  );
 }
 
 export default Paymentdatashow
