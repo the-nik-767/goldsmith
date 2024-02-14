@@ -23,7 +23,7 @@ const Navbar = ({openAddToCart, SetOpenAddToCart}) => {
   return (
 
     <header className="border border-gray w-full bg-white fixed top-0 left-0 z-50">
-      <div className=" mx-auto flex items-center justify-between">
+      <div className=" mx-auto flex items-center justify-between ">
         {/* <DrawerButton onClick={toggleDrawer} /> */}
         <DrawerComponent isOpen={isDrawerOpen} onClose={toggleDrawer} />
         <span className="inline-block uppercase text-center text-3xl font-medium cursor-pointer" onClick={navigateHome}>

@@ -1,12 +1,14 @@
 import React from 'react'
 import Navbar from '../../Header/Navbar/Navbar'
 import './style/buyNow.css'
-import { connect, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 
 const ByuNow = ({ updateCartItemQuantity, handleComponentChange }) => {
   const cartItems = useSelector((state) => state.cart.cartItems)
-
-  const totalPrice = cartItems.reduce((acc, curr) =>
+  const checkedItems = cartItems.filter(item => item.isChecked);
+  console.log('cartItems',cartItems)
+  console.log('checkedItems',checkedItems)
+  const totalPrice = checkedItems.reduce((acc, curr) =>
     curr.price * curr.quantity + acc
     , 0);
   console.log("totalPrice", totalPrice)
@@ -20,14 +22,13 @@ const ByuNow = ({ updateCartItemQuantity, handleComponentChange }) => {
 
   return (
     <div>
-      <Navbar />
       <div className="backSide">
         <title>Day 002 - Credit Card Checkout</title>
-         <div className="checkout-container flex" style={{ marginTop: '10px', height: 'auto' }}>
-       
+        <div className="checkout-container flex" style={{ marginTop: '10px', height: 'auto' }}>
+
           <div className="right-side">
             <div className="receipt">
-              <h2 className="receipt-heading text-center" style={{ fontFamily:'monospace'}}>Receipt Summary</h2>
+              <h2 className="receipt-heading text-center" style={{ fontFamily: 'monospace' }}>Receipt Summary</h2>
               <div>
                 <table className="table ">
                   <tbody>

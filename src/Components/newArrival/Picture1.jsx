@@ -22,8 +22,8 @@ const Picture1 = ({openAddToCart, SetOpenAddToCart}) => {
 
     return (
         <>
-            <hr className='mt-5 mb-5 ' />
-            <div className=" text-center text-5xl font-mono mt-14 mb-10 header-font " ><h2 className='text-font header-color'>NEW ARRIVAL DESIGN</h2></div>
+            {/* <hr className='mt-5 mb-5 ' /> */}
+            <div className=" text-center text-2xl font-mono mt-14 mb-10 header-font " ><h2 className='text-font header-color'>NEW ARRIVAL DESIGN</h2></div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid:cols-4 gap-8 justify-center" style={{ margin: '0px 20px' }}>
                 {
                     arr.map((x) => {

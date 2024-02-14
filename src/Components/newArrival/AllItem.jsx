@@ -43,15 +43,15 @@ const AllItem = (props ) => {
   };
   const [searchParams, setSearchParams] = useSearchParams();
   const myParam = searchParams.get("id");
-  console.log('myParam',myParam)
+  // console.log('myParam',myParam)
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCartClick = () => {
-    let prd = products.find((x) => x.id == myParam);
-   console.log('produts',products)
-   console.log('prd',prd)
-   console.log('myParam',myParam)
+    let prd = products.find((x) => x.id === myParam);
+  //  console.log('produts',products)
+  //  console.log('prd',prd)
+  //  console.log('myParam',myParam)
    
     const itemToAdd = {
       size: selectedSize,

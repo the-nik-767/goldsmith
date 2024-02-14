@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import './style/addtocard.css'
 import { MdDelete } from "react-icons/md";
+import { Checkbox, FormControlLabel } from "@mui/material";
 
 const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
   // console.log('openAddToCart', openAddToCart)
@@ -69,7 +70,7 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
     dispatch(updateCartItems(updatedCartItems));
   };
 
-  const buyNow=()=>{
+  const buyNow = () => {
     navigator("/buyNow")
     SetOpenAddToCart(false)
   }
@@ -143,12 +144,20 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
                         <div className="font-bold">{item.quantity}</div>
                         <Button onClick={() => handleQuantityChange(item, 1)}>+</Button>
                       </div>
-                      <IconButton aria-label="delete" size="large" onClick={() => handleRemoveFromCart(item)} style={{marginTop:'-20px'}} className="hover:text-black">
+                      <IconButton aria-label="delete" size="large" onClick={() => handleRemoveFromCart(item)} style={{ marginTop: '-20px' }} className="hover:text-black">
                         <MdDelete fontSize="inherit" />
                       </IconButton>
                     </div>
                     <div className="">
-                      <input type="checkbox" name="chkout" id="" checked={state.isChecked} onChange={handleCheckboxChange}/> Select item and checkout
+                      {/* <input type="checkbox" name="chkout" id="" checked={state.isChecked} onChange={handleCheckboxChange}/> Select item and checkout */}
+                      {/* <FormControlLabel
+                        value="Select item and checkout"
+                        control={<Checkbox />}
+                        label="Select item and checkout"
+                        labelPlacement="end"
+                        checked={state.isChecked} 
+                        onChange={handleCheckboxChange}
+                      /> */}
                     </div>
                   </div>
                 </div>
@@ -158,11 +167,11 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
           <Button
             className=" m-5 " style={{ width: '100%', padding: '10px 13px 10px 13px', fontSize: '20px', zIndex: '10000', backgroundColor: 'black', color: 'white', margin: '0 auto' }}
             onClick={() => {
-              if (state.isChecked) {
+              // if (state.isChecked) {
                 buyNow()
-              } else {
-                alert("Please select an item to checkout.");
-              }
+              // } else {
+              //   alert("Please select an item to checkout.");
+              // }
             }}
           >
             Buy Now

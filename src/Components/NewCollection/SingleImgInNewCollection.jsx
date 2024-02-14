@@ -19,7 +19,7 @@ const SingleImgInNewCollection = () => {
 ]
 return (
 <div>
-  <div className=" text-center text-5xl font-mono mt-5 header-font"  ><h2>NEW COLLECTION</h2></div>
+  <div className=" text-center text-2xl mt-10 tracking-wider text-font"  ><h2>NEW COLLECTION</h2></div>
     <div className="grid grid-cols-1 md:grid-cols-2  justify-center mt-8" > 
             {
                 arr.map((x,i) => {

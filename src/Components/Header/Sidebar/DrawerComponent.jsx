@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import { Dropdown } from "./Dropdown";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import UserLogo from "../User/UserLogo";
 import { useNavigate } from "react-router-dom/dist";
 import './style/sidebar.css'
 import { Box, Divider, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Button, Drawer, List, ListItem } from "@material-tailwind/react";
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import { DrawerButton } from "./DrawerButton";
 import { TfiAlignJustify } from "react-icons/tfi";
 import { IoMdClose } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
