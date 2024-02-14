@@ -110,10 +110,10 @@ const AllField = ({ onSubmit, setStep, step }) => {
     //  console.log('step:', step);
     return (
         <div className='checkout-info-container p grid grid-cols-1 md:grid-cols-1'>
-             <h2 className="text-slate-700 font-medium font-3xl  p-5" style={{ fontFamily:'monospace', backgroundColor:'#e7e6e573',fontSize: '34px'}} >Personal Info  </h2><hr />
-            <form style={{ marginTop: '5px', color:'white' }} onSubmit={formik.handleSubmit}>
+             <h2 className="text-slate-700 font-medium font-3xl  p-5 sm:text-xl " style={{ fontFamily:'monospace', backgroundColor:'#e7e6e573',fontSize: '34px'}} >Personal Info  </h2><hr />
+            <form style={{ marginTop: '5px', color:'white' }} onSubmit={formik.handleSubmit} className='p-5'>
                 <FormControl fullWidth>
-                    <Box className="flex justify-around ">
+                    <Box className="grid grid-cols-1 md:grid-cols-2 sm:w-full   ">
                         <TextField
                             className='m-8 p-0'
                             label="*Frist Name"
@@ -124,7 +124,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                             helperText={formik.touched.fname && formik.errors.fname}
                             variant="standard"
                             value={formik.values.fname}
-                            style={{ marginBottom: '10px', marginTop: "10px", width: '48% ', fontSize: '25px' }}
+                            style={{ marginBottom: '10px', marginTop: "10px", width: '99% ', fontSize: '25px' }}
                         />
                         <TextField
                             label="*Last Name"
@@ -135,7 +135,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                             helperText={formik.touched.lname && formik.errors.lname}
                             variant="standard"
                             value={formik.values.lname}
-                            style={{ marginBottom: '10px', marginTop: "10px", width: '48% ' }}
+                            style={{ marginBottom: '10px', marginTop: "10px", width: '99% ' }}
                         />
                     </Box>
                     <Box className=" ">
@@ -149,7 +149,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                             helperText={formik.touched.addLine1 && formik.errors.addLine1}
                             variant="standard"
                             value={formik.values.addLine1}
-                            style={{ marginBottom: '10px', marginTop: "10px", width: '98.09% ', fontSize: '25px', marginLeft: '12px', marginRight: '12px' }}
+                            style={{ marginBottom: '10px', marginTop: "10px", width: '98.09% ', fontSize: '25px',  }}
                         />
 
                     </Box>
@@ -164,13 +164,13 @@ const AllField = ({ onSubmit, setStep, step }) => {
                             helperText={formik.touched.addLine2 && formik.errors.addLine2}
                             variant="standard"
                             value={formik.values.addLine2}
-                            style={{ marginBottom: '10px', marginTop: "10px", width: '98.09% ', fontSize: '25px', marginLeft: '12px', marginRight: '12px' }}
+                            style={{ marginBottom: '10px', marginTop: "10px", width: '98.09% ', fontSize: '25px',  }}
                         />
 
                     </Box>
 
                     <Box className="">
-                        <Box className=" ms-4">
+                        <Box className="">
                             <TextField
                                 className='m-8 p-0'
                                 label="*Postal/Zip code"
@@ -182,13 +182,13 @@ const AllField = ({ onSubmit, setStep, step }) => {
                                 helperText={formik.touched.pincode && formik.errors.pincode}
                                 variant="standard"
                                 value={formik.values.pincode}
-                                style={{ marginBottom: '10px', marginTop: "10px", width: '48% ', fontSize: '25px' }}
+                                style={{ marginBottom: '10px', marginTop: "10px", width: '99% ', fontSize: '25px' }}
                             />
                         </Box>
                     </Box>
-                    <Box className="text-black   grid grid-flow-row auto-rows-max md:grid-cols-3" >
+                    <Box className="text-black grid grid-flow-row auto-rows-max md:grid-cols-3 country1" >
                         <Box>
-                            <Box className="m-2" style={{ borderBottom: '1px solid gray' }}>
+                            <Box className="" style={{ borderBottom: '1px solid gray' }}>
 
                                 <Select
                                     className=''
@@ -223,7 +223,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                         </Box>
 
                         <Box>
-                            <Box className="m-2" style={{ borderBottom: '1px solid gray' }}>
+                            <Box className="" style={{ borderBottom: '1px solid gray' }}>
                                 <Select
                                     className='sm:w-14'
                                     options={states}
@@ -254,7 +254,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                             </Box>
                         </Box>
                         <Box>
-                            <Box className="m-2" style={{ borderBottom: '1px solid gray' }}>
+                            <Box className="" style={{ borderBottom: '1px solid gray' }}>
                                 <Select
                                     options={City.getCitiesOfState(selectedState?.countryCode, selectedState?.isoCode)}
                                     getOptionLabel={(options) => options.name}
@@ -286,7 +286,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                     <Box className="grid grid-cols-1 md:grid-cols-2  ">
 
                         <TextField
-                            className='m-8 p-0  '
+                            className=' p-0  '
                             label="*Email"
                             id="email"
                             name='email'
@@ -295,7 +295,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                             helperText={formik.touched.email && formik.errors.email}
                             variant="standard"
                             value={formik.values.email}
-                            style={{ marginBottom: '10px', marginTop: "10px", width: '95% ', fontSize: '25px', marginLeft: '12px' }}
+                            style={{ marginBottom: '10px', marginTop: "10px", width: '99% ', fontSize: '25px',  }}
                         />
 
                         <Box>
@@ -311,8 +311,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                                 error={formik.touched.phone && Boolean(formik.errors.phone)}
                                 helperText={formik.touched.phone && formik.errors.phone}
                                 variant="standard"
-                                // value={formik.values.phone}
-                                inputStyle={{ width: '', fontSize: '16px', height: '6vh', color:'black' }}
+                                inputStyle={{ fontSize: '14px', height: '6vh', color:'black' ,width:'100%' }}
                             />
                             {formik.touched.phone && formik.errors.phone ? (
                                 <div className=" text-red-800 ms-8 errorFont"  >{formik.errors.phone}</div>

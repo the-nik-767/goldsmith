@@ -22,7 +22,7 @@ export const ShopSlider = ({ selectedImageId }) => {
     <>
       <Carousel
         transition={{ duration: 2 }}
-        style={{ height: "750px", marginTop: "110px" }}
+        style={{ height: "75vh", marginTop: "110px" }}
         flex-auto
         className="shopslider"
       >

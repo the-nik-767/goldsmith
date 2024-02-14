@@ -27,12 +27,14 @@ const CategoryItemMain = () => {
 
   return (
     <>
-      <div>
-        <Topbar  setViewStyle={setViewStyle} />
-      </div>
-      <div className='flex justify-center	'>
-        {isSmallScreen ? null : <SideFilter style={{ display: 'block' }} />}
-        <ImgComp className="imgcomp" viewStyle={viewStyle}  />
+      <div className="">
+        <div>
+          <Topbar setViewStyle={setViewStyle} />
+        </div>
+        <div className="	">
+          {isSmallScreen ? null : <SideFilter style={{ display: "block" }} />}
+          <ImgComp className="imgcomp" viewStyle={viewStyle} />
+        </div>
       </div>
     </>
   );

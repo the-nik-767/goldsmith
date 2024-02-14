@@ -49,20 +49,20 @@ export const ShopImg = () => {
     }
   }, []);
   return (
-    <div style={{ display: "flex" }} className="shopimgflex">
-      <div style={{ width: "100%" }} className="shopimg">
+    <div className="shopimgflex">
+      <div>
+        <ShopSlider selectedImageId={selectedImageId} />
+      </div>
+      <div style={{ width: "100%" }} className="shopimg flex ">
         {arr.map((x, index) => (
           <img
             key={x.id}
             src={x.Img}
             alt={x.title}
-            style={{ height: "90px", width: "90px", marginTop: "10px" }}
+            style={{ height: "90px", width: "100px", marginTop: "0px" }}
             onClick={() => handleImageClick(x.id)}
           />
         ))}
-      </div>
-      <div>
-        <ShopSlider selectedImageId={selectedImageId} />
       </div>
     </div>
   );

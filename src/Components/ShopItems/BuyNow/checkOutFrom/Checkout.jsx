@@ -17,7 +17,7 @@ const Checkout = ({setStep,step}) => {
            
             {showAllField ? (
                 <div className=" grid grid-cols-1 md:grid-cols-2">
-                    <div className="" style={{  }}>
+                    <div className="m-5" >
                         <AllField onSubmit={handleNavigateToPayment} setStep={setStep} step={step}/>
                     </div>
                     <div className="" style={{}}>

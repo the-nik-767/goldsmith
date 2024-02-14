@@ -12,15 +12,50 @@
 
 .errorFont{
     font-size: 14
-    px;
 }
 .css-1u9des2-indicatorSeparator {
    background-color: transparent !important;
 }
 .checkout-info-container {
-    /* padding: 20px; */
+     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     /* background-color: #f9f9f9; */
     margin: 10px;
   }
+
+  .css-tj5bde-Svg{
+    display: none !important;
+  }
+
+@media (min-width: 640px) { 
+    .checkout-info-container{
+        padding: 0 !important;
+    }
+ }
+
+@media screen and (max-width: 768px) {
+  .checkout-info-container {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .checkout-info-container {
+    padding: 5px; /* Further reduce padding for very small screens */
+  }
+}
+
+@media screen and (max-width: 640px) and (min-width: 200px) {
+  .checkout-info-container {
+     padding: 0px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    /* background-color: #f9f9f9; */
+    margin: 1px;
+  }
+  .country1{
+    padding: 0;
+    margin: 0;
+  }
+}

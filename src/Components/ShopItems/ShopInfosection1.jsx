@@ -8,21 +8,23 @@ import { IconButton } from '@mui/material'
 
 function ShopInfosection1({SetOpenAddToCart}) {
     return (
-        <>
-            {/* <IconButton aria-label="delete" className='IoEyeSharp' style={{color:'black'}}>
+      <>
+        {/* <IconButton aria-label="delete" className='IoEyeSharp' style={{color:'black'}}>
                 <IoCloseOutline />
             </IconButton> */}
 
-            <div className='flex '>
-                <ShopImg />
-                <div className="lg:w-80 infomain">
-                    <ShopInfoRating />
-                    <ShopInfoDropdown SetOpenAddToCart={SetOpenAddToCart}/>
-                    <ShopInfoAccordian />
-                </div>
-            </div>
-        </>
-    )
+        <div className="flex ">
+          <div className="lg:w-30 ">
+            <ShopImg />
+          </div>
+          <div className="lg:w-80 infomain">
+            <ShopInfoRating />
+            <ShopInfoDropdown SetOpenAddToCart={SetOpenAddToCart} />
+            <ShopInfoAccordian />
+          </div>
+        </div>
+      </>
+    );
 }
 
 export default ShopInfosection1

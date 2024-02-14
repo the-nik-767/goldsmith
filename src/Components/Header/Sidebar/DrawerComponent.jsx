@@ -46,7 +46,7 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
   return (
 
     <>
-      <div className="ms-5" onClick={toggleDrawer('left', true)}>
+      <div className="" onClick={toggleDrawer('left', true)}>
         <TfiAlignJustify />
       </div>
       <Drawer

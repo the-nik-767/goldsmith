@@ -13,7 +13,7 @@ const BuyNowMain = () => {
     
     return (
         <>
-            <Navbar />
+        
             <div className=' grid md:grid-cols-4 text-center grid-clos-2 text-font ' style={{ marginTop: '110px' }}>
                 <div className={step === 0 ? 'hover-underline-animation' : ''} style={{fontSize:'25px' }}>
                     {/* style={{ fontFamily:'monospace'}} */}

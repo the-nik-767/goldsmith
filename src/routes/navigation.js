@@ -23,7 +23,7 @@ function MainNavigator() {
         {/* <Route path="/addtocart" element={<AddtoCart />} /> */}
         {/* <Route path="/shop/:id" element={<ShopImg />} />  */}
       </Routes>
-      <Main/>
+      {/* <Main/> */}
     </BrowserRouter>
   );
 }

@@ -77,7 +77,7 @@ const AllItem = (props ) => {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ width: 800, margin: '0 auto ' }}>
+        <Box sx={{ width: 800, margin: "0 auto " }}>
           <UserPage />
         </Box>
       </Modal>
@@ -88,55 +88,92 @@ const AllItem = (props ) => {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ width: '1200px', margin: '0 auto ', backgroundColor: 'white', padding: '10px', marginTop: '10px' }}>
-          <ShopInfosection1 style={{ marginTop: '0' }} />
+        <Box
+          sx={{
+            width: "1200px",
+            margin: "0 auto ",
+            backgroundColor: "white",
+            padding: "10px",
+            marginTop: "10px",
+          }}
+        >
+          <ShopInfosection1 style={{ marginTop: "0" }} />
         </Box>
       </Modal>
 
       <div className="flex justify-center">
-        <div className="rounded overflow-hidden mt-5 my-3" style={{ maxWidth: '100%', maxHeight: '100%', height: '100%', width: '100%', border: '0.5px solid #d7cece' }}>
+        <div
+          className="rounded overflow-hidden mt-5 my-3"
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            height: "100%",
+            width: "100%",
+            border: "0.5px solid #d7cece",
+          }}
+        >
           <div className="md:grid-cols-2 relative">
             <div className="img-hover-zoom--slowmo">
               <div
                 className="img object-cover bg-no-repeat origin-center  img-hover-zoom--slowmo-img  icons bg-center"
-                style={{ backgroundImage: 'url(' + props.Img + ')', backgroundSize: "cover", height: '50vh', width: '100%' }}
+                style={{
+                  backgroundImage: "url(" + props.Img + ")",
+                  backgroundSize: "cover",
+                  height: "50vh",
+                  width: "100%",
+                }}
                 onClick={navigateShop}
                 alt={props.title}
               />
 
-              <p className='label1'>{props.label}</p>
-              <p onClick={handleAddToCartClick} className="addToCartText absolute lg:left-full text-center w-full transform   transition-opacity duration-300 bg-black text-white px-4 py-2  ">Add to cart</p>
-              <IconButton aria-label="delete" className='IoEyeSharp' onClick={handleOpenImgComp}>
+              <p className="label1">{props.label}</p>
+              <p
+                onClick={handleAddToCartClick}
+                className="addToCartText absolute lg:left-full text-center w-full transform   transition-opacity duration-300 bg-black text-white px-4 py-2  "
+              >
+                Add to cart
+              </p>
+              <IconButton
+                aria-label="delete"
+                className="IoEyeSharp"
+                onClick={handleOpenImgComp}
+              >
                 <IoEyeSharp />
               </IconButton>
             </div>
-            <IconButton aria-label="delete" className='heartIcons' onClick={handleOpenUserPage} sx={{
-              "&:hover": {
-                color: "#e53e3e",
-                backgroundColor: "#fed7d7",
-              },
-            }}>
+            <IconButton
+              aria-label="delete"
+              className="heartIcons"
+              onClick={handleOpenUserPage}
+              sx={{
+                "&:hover": {
+                  color: "#e53e3e",
+                  backgroundColor: "#fed7d7",
+                },
+              }}
+            >
               <CiHeart />
             </IconButton>
 
-
-            <div className="px-6">
-              <div className="text-xl text-font flex justify-between" style={{ color: ' rgb(157 68 28 )' }}>
+            <div className="">
+              <div
+                className="text-xl text-font flex justify-between px-3 mt-3"
+                style={{ color: " rgb(157 68 28 )" }}
+              >
                 {props.title}
-                <div>
-                  <Rating value={4} />
+                <div style={{ fontSize: "10px", textAlign: "end" }}>
+                  <Rating value={3} style={{ }} className='mt-2'/>
                 </div>
               </div>
-              <div className="font-medium text-xl   text-black">
+              <div className="font-medium text-xl  ps-6 mt-4 text-black">
                 {props.price}
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </>
-  )
+  );
 }
 
 export default AllItem

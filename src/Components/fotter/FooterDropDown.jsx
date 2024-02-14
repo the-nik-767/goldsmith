@@ -27,7 +27,7 @@ const FooterDropDown = () => {
         <>
 
             <div className="flex justify-between mt-14 ">
-                <div className='ms-5 mb-10'>
+                {/* <div className='ms-5 mb-10'>
                     <select
                         id="country"
                         value={selectedCountry}
@@ -42,7 +42,7 @@ const FooterDropDown = () => {
                             </option>
                         ))}
                     </select>
-                </div >
+                </div > */}
                 <div className="text-gray-600 text-thin">
                     <p>© 2024 FRENCH CROWN STORE. ALL RIGHTS RESERVED.</p>
                 </div>

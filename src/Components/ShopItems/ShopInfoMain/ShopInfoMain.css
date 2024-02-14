@@ -11,8 +11,10 @@
   }
   .shopimgflex {
     width: 90vw;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin :  300px 0px 5px 19px;
     flex-direction: column-reverse;
+    height: 50vh;
   }
   .shopimg {
     display: flex;
@@ -42,7 +44,7 @@
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .infomain {
-    width: 90vw;
+    width: 0vw;
     margin: 20px auto;
     /* margin-top: 10px; */
   }
@@ -74,20 +76,22 @@
     margin-left: 25px;
   }
   .shopimg {
-    margin-top: 110px;
+    margin-top: 10px;
+    text-align: center;
   }
 }
 @media (min-width: 1201px) {
   .infomain {
     width: 300px;
     margin-left: 40px;
-    margin-top: 110px;
+    margin-top:25px;
   }
   .shopslider {
     width: 700px;
     margin-left: 40px;
   }
   .shopimg {
-    margin-top: 110px;
+    margin-top: 10px;
+    margin-left: 40px;
   }
 }
