@@ -1,11 +1,12 @@
 import { IKImage } from 'imagekitio-react'
 import React from 'react'
+import '../style/responsive.css'
 
 const AllFrenchCrown = (props) => {
     // console.log("Image URL:", JSON.parse(props.cateimg).url);
 
     return (
-      <div className="flex justify-center mx-6 my-3 ">
+      <div className="flex justify-center mx-6 my-3 main-crown-page">
         <div
           className=" rounded overflow-hidden mt-5 my-3 "
           style={{
@@ -15,13 +16,13 @@ const AllFrenchCrown = (props) => {
             height: "100%",
           }}
         >
-          <div className="md:grid-cols-2 img-hover-zoom--slowmo">
+          <div className="md:grid-cols-2 img-hover-zoom--slowmo all-crown-card">
             <div
-              className="img object-cover bg-no-repeat origin-center  hover-effect icons "
+              className="img allCrownCard object-cover bg-no-repeat origin-center  icons "
               style={{
                 backgroundImage: "url(" + props.cateimg + ")",
                 backgroundSize: "cover",
-                height: "70vh",
+                // height: "50vh",
                 width: "100%",
               }}
               alt={props.title}

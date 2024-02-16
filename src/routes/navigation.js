@@ -7,6 +7,7 @@ import Navbar from "../Components/Header/Navbar/Navbar";
 import { useState } from "react";
 import UserPage from "../Components/Header/User/UserPage";
 import Main from "../Components/fotter/Main";
+import '../Components/style/responsive.css'
 
 function MainNavigator() {
   const [openAddToCart,SetOpenAddToCart] = useState(false)
@@ -23,7 +24,7 @@ function MainNavigator() {
         {/* <Route path="/addtocart" element={<AddtoCart />} /> */}
         {/* <Route path="/shop/:id" element={<ShopImg />} />  */}
       </Routes>
-      {/* <Main/> */}
+      <Main/>
     </BrowserRouter>
   );
 }

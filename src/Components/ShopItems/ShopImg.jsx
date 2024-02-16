@@ -50,10 +50,10 @@ export const ShopImg = () => {
   }, []);
   return (
     <div className="shopimgflex">
-      <div>
+      
         <ShopSlider selectedImageId={selectedImageId} />
-      </div>
-      <div style={{ width: "100%" }} className="shopimg flex ">
+      
+      <div style={{ width: "100%" ,}} className="shopimg  ">
         {arr.map((x, index) => (
           <img
             key={x.id}

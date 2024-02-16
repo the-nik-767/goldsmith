@@ -31,7 +31,7 @@ const CategoryItemMain = () => {
         <div>
           <Topbar setViewStyle={setViewStyle} />
         </div>
-        <div className="	">
+        <div className="flex">
           {isSmallScreen ? null : <SideFilter style={{ display: "block" }} />}
           <ImgComp className="imgcomp" viewStyle={viewStyle} />
         </div>

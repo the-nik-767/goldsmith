@@ -50,7 +50,7 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
             className=" text-slate-700 text-font tracking-wide p-3"
             style={{ fontSize: "28px" }}
           >
-            Payment Information{" "}
+            Payment Information
           </h2>
           <div
             class="rsBox"
@@ -60,6 +60,7 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
               gap: "5px",
               alignItems: "center",
             }}
+            className=''
           >
             <img
               src="https://book.rentylresorts.com/images/creditCardLogos/AmEx.svg"

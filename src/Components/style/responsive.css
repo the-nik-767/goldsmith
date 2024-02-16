@@ -1,0 +1,196 @@
+@media (min-width: 100px) and (max-width: 300px) {
+    .allArrivalCard {
+        height: 27vh !important;
+        text-align: center;
+    }
+
+    .allHeaderText {
+        padding-left: 24px;
+    }
+
+    .all-crown-card {
+        height: 50vh !important;
+
+    }
+    .title{
+        font-size: 16px;
+    }
+    .buttonQueens {
+        width: 142px;
+        height: 50px;
+    }
+    .newsletter-btn{
+        width: 95%;
+        display: block;
+        margin-top: 10px;
+        margin-left: 11px;
+    }
+    .new-collection-card{
+        height: 55vh;
+    }
+    .css-1160xiw-MuiPaper-root-MuiDrawer-paper{
+        width: 80%;
+    }
+    .buynow-paymentdata{
+        width: 95%;
+        
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .allArrivalCard {
+        height: 27vh !important;
+    }
+
+    .all-crown-card {
+        height: 40vh !important;
+    }
+    .title{
+        font-size: 19px;
+    }
+    .buttonQueens {
+        width: auto;
+        height: auto;
+        line-height: 35px;
+        padding:3px 15px ;
+    }
+    .newsletter-btn{
+        width: 95%;
+        display: block;
+        margin-top: 10px;
+        margin-left: 11px;
+    }
+    .new-collection-card{
+        height: 30vh;
+    }
+    .css-1160xiw-MuiPaper-root-MuiDrawer-paper{
+        width: 70%;
+    }
+    .subscribe-btn{
+        width: 600px !important;
+    }
+    .email-input{
+        width: 360px;
+    }
+    .buynow-paymentdata{
+        width: 98%;
+        padding-left: 2px;
+    
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .allArrivalCard {
+        height: 30vh !important;
+    }
+
+    .all-crown-card {
+        height: 25vh !important;
+    }
+    .title{
+        font-size: 19px;
+    }
+    .buttonQueens {
+        width: 143px;
+        height: 43px;
+        padding: 0;
+    }
+    .new-collection-card{
+        height: 35vh;
+    }
+    .css-1160xiw-MuiPaper-root-MuiDrawer-paper{
+        width: 50%;
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .allArrivalCard {
+        height: 27vh !important;
+    }
+    .all-crown-card {
+        /* height: 36vh !important; */
+        /* height: 40vh !important; */
+        height: 25vh !important;
+    }
+    .title{
+        font-size: 19px;
+    }
+    .new-collection-card{
+        height: 35vh;
+    }
+    .css-1160xiw-MuiPaper-root-MuiDrawer-paper{
+        width: 50%;
+    }
+    /* .shopslider{
+        height: 50vh;
+    } */
+}
+
+@media (min-width: 1025px) and (max-width: 1201px) {
+    .allArrivalCard {
+        height: 20vh !important;
+    }
+
+    .all-crown-card {
+        height: 28vh !important;
+        /* height: 41vh !important; */
+    }
+    .title{
+        font-size: 19px;
+    }
+    .new-collection-card{
+        height: 40vh;
+    }
+    .css-1160xiw-MuiPaper-root-MuiDrawer-paper{
+        width: 50%;
+    }
+    .buynow-paymentdata{
+        width: 30%;
+        padding-left: 200px;
+    }
+    .paymentdata-show{
+        width: 125%;
+    }
+    .buynow-paymentdata{
+        width: 100%;
+        padding-left: 200px;
+    }
+}
+
+@media (min-width: 1201px) {
+    .allArrivalCard {
+        height: 45vh !important;
+    }
+    .all-crown-card {
+        /* height: 35vh !important; */
+        height: 41vh !important;
+    }
+    .title{
+        font-size: 30px;
+    }
+    .new-collection-card{
+        height: 55vh;
+    }
+    .css-1160xiw-MuiPaper-root-MuiDrawer-paper{
+        width: 20%;
+    }
+    .paymentdata-show{
+        width: 125%;
+    }
+    .buynow-paymentdata{
+        width: 100%;
+        padding-left: 200px;
+    }
+}
+
+@media (min-width: 1501px) {
+    .all-crown-card {
+        height: 55vh !important;
+    }
+    .paymentdata-show{
+        width: 120%;
+    }
+}

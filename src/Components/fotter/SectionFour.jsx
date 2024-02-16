@@ -13,12 +13,12 @@ const SectionFour = () => {
                 <input
                   type="text"
                   placeholder="E-mail"
-                  className="border-solid border border-gray-300 border-inherit px-8 py-3  my-8 w-80 sm:w-full sm:m-4"
+                  className="border-solid border border-gray-300 border-inherit px-8 py-3  my-8 w-80 sm:w-full"
                   required
                 />
               </div>
               <div>
-                <a className=" w-80 bg-black  px-12 py-3 text-base tracking-wide text-white  hover:bg-transparent  hover:border-solid border-2 border-black hover:text-black  sm:w-full">
+                <a className="subscribe-btn w-96 bg-black  px-12 py-3 text-base tracking-wide text-white  hover:bg-transparent  hover:border-solid border-2 border-black hover:text-black  sm:w-full">
                   SUBSCRIBE
                 </a>
               </div>

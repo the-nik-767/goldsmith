@@ -99,7 +99,7 @@ export const ShopInfoAccordian = () => {
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
   return (
-    <div style={{width:'98%'}}>
+    <div className="shopaccoding">
       {accordionItems.map((item) => (
         <Accordion
           key={item.id}

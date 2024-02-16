@@ -9,6 +9,7 @@ import ShopInfosection1 from '../ShopItems/ShopInfosection1';
 import { addToCart } from '../../Redux/Action/action';
 import products from "../../product.json";
 import { useDispatch } from 'react-redux';
+import '../style/responsive.css'
 
 const AllItem = (props ) => {
   const { openAddToCart, SetOpenAddToCart } = props;
@@ -115,12 +116,12 @@ const AllItem = (props ) => {
           <div className="md:grid-cols-2 relative">
             <div className="img-hover-zoom--slowmo">
               <div
-                className="img object-cover bg-no-repeat origin-center  img-hover-zoom--slowmo-img  icons bg-center"
+                className="img allArrivalCard  object-cover bg-no-repeat origin-center  img-hover-zoom--slowmo-img  icons bg-center"
                 style={{
                   backgroundImage: "url(" + props.Img + ")",
                   backgroundSize: "cover",
-                  height: "50vh",
                   width: "100%",
+                  // height: "10vh",
                 }}
                 onClick={navigateShop}
                 alt={props.title}
@@ -155,20 +156,20 @@ const AllItem = (props ) => {
               <CiHeart />
             </IconButton>
 
-            <div className="">
+            <div className="text-center">
               <div
-                className="text-xl text-font flex justify-between px-3 mt-3"
+                className="text-xl text-font    mt-3"
                 style={{ color: " rgb(157 68 28 )" }}
               >
                 {props.title}
-                <div style={{ fontSize: "10px", textAlign: "end" }}>
-                  <Rating value={3} style={{ }} className='mt-2'/>
-                </div>
-              </div>
-              <div className="font-medium text-xl  ps-6 mt-4 text-black">
+              <div className="font-medium text-xl    text-black">
                 {props.price}
               </div>
             </div>
+                <div style={{ fontSize: "10px",  }}>
+                  <Rating value={3} style={{ }} className='mt-2'/>
+                </div>
+              </div>
           </div>
         </div>
       </div>

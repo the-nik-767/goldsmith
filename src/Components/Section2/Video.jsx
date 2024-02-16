@@ -5,8 +5,8 @@ import React from "react";
 const Video = () => {
   return (
     <div
-      className="relative overflow-hidden max-w-full mt-24"
-      style={{ height: "70%", width: "100%" }}
+      className="relative overflow-hidden "
+      style={{  width: "100%" }}
     >
       {/* <video
         autoPlay
@@ -24,7 +24,10 @@ const Video = () => {
       <IKVideo
         src="https://ik.imagekit.io/saufrbirqu/video/video123.mp4?updatedAt=1707905749537"
         autoPlay
+        loop
+        playsInline
         muted
+        style={{ width: "100%" }}
       />
     </div>
   );

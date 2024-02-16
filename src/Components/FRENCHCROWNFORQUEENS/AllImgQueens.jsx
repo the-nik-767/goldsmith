@@ -6,11 +6,11 @@ const AllImgQueens = (props) => {
 
             <div className="flex justify-center mx-6 my-3 " >
                 <div className=" rounded overflow-hidden mt-5 my-3 " style={{ maxWidth: '100%', maxHeight: '100%', width: '100%', height: '100%' }}>
-                    <div className="md:grid-cols-2 img-hover-zoom--slowmo">
+                    <div className="md:grid-cols-2 img-hover-zoom--slowmo all-crown-card">
 
                         <div
                             className="img object-cover bg-no-repeat origin-center  hover-effect icons "
-                            style={{ backgroundImage: 'url(' + props.Img + ')', backgroundSize: "cover", height: '70vh', width: '100%' }}
+                            style={{ backgroundImage: 'url(' + props.Img + ')', backgroundSize: "cover", width: '100%' }}
 
                             alt={props.title}
                         />

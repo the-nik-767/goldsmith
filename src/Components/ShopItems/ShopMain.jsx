@@ -17,10 +17,10 @@ const ShopMain = ({SetOpenAddToCart}) => {
   return (
     <>
      <div className="">
-     <div className="flex justify-center shopmain">
+     <div className=" shopmain">
         <ShopInfosection1 SetOpenAddToCart={SetOpenAddToCart}/>
       </div>
-      <div>
+      <div className="mt-5">
         <Sec1Main />
         <Section2Main />
         <Main />

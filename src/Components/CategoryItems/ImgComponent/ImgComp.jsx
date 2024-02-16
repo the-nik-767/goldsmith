@@ -14,7 +14,7 @@ const ImgComp = ({viewStyle}) => {
         { Img: 'https://images.unsplash.com/photo-1607703829739-c05b7beddf60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8', title: 'Diamond ring', price: '999/-','label':'SELLING FAST' },
         { Img: 'https://media.istockphoto.com/id/1212328095/photo/beautiful-designer-fancy-earrings-pair-for-woman-fashion.jpg?s=612x612&w=0&k=20&c=WYlXJjQnfNMz2iT6FyNBIRsuVvsQKPyjKxaYK2bLQ8E=', title: 'gold earring', price: '999/-','label':'SELLING FAST' },
         { Img: 'https://media.istockphoto.com/id/1952758096/photo/gold-bracelet-isolated-on-black-background.jpg?s=2048x2048&w=is&k=20&c=CcvXBM1cBgIWPn6imtk2sO9Lij-3V_IUaF-m4wpidjk=', title: 'pearl bracelets', price: '999/-','label':'SELLING FAST' },
-        { Img: 'https://media.istockphoto.com/id/164122683/photo/earring.jpg?s=612x612&w=0&k=20&c=ln4X3nBj66mk__olWgIwF0YtjFzefnDkxI10lR0vLUo=', title: 'Diamond flower earring', price: '999/-' },
+        { Img: 'https://media.istockphoto.com/id/164122683/photo/earring.jpg?s=612x612&w=0&k=20&c=ln4X3nBj66mk__olWgIwF0YtjFzefnDkxI10lR0vLUo=', title: 'Diamond flower earring', price: '999/-','label':'SELLING FAST' },
         { Img: 'https://images.unsplash.com/photo-1549439602-43ebca2327af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8', title: 'New Style Earrings', price:'999/-' ,'label':'SELLING FAST'},
         { Img: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8', title: 'Faceted crystal bracelet', price: '999/-','label':'SELLING FAST' },
         { Img: 'https://images.unsplash.com/photo-1659095141570-be8b9aff59ce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGp3ZWxsZXJ5fGVufDB8fDB8fHww', title: 'Flower crystal ring', price: '999/-' ,'label':'SELLING FAST'},
@@ -29,14 +29,15 @@ const ImgComp = ({viewStyle}) => {
     return (
 
 
-        <div className="mt-8" style={{ width: '85vw' }}>
+        <div className="mt-8" style={{ width: '100%' }}>
             <div
-                style={{ width: '97%' }}
-                className={`grid grid-cols-1  gap-8 justify-center ${
+               
+                className={` justify-center ${
                     // md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3
                     // viewStyle === 'singleRow' ? 'flex flex-row overflow-x-auto' : ''
                     viewStyle === 'grid' ? 'grid-cols-3' : viewStyle === 'singleRow' ? 'grid-cols-4' : viewStyle === 'list' ? 'grid-cols-5' : 'grid-cols-4'
                     }`}
+                // className='flex justify-center view1'
             >
                 {arr.map((x) => (
                     <ImgCompBack Img={x.Img} title={x.title} price={x.price} key={x.title} label={x.label} />

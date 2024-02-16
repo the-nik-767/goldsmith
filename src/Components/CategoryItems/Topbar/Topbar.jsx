@@ -16,7 +16,7 @@ const Topbar = ({setViewStyle}) => {
         <>
             <div className="border border-black mt-32 flex justify-between py-3 cursor-pointer">
                
-                <div className="flex items-center text-2xl ms-5">
+                <div className="grid grid-cols-3  text-2xl ms-5 grid-view-class">
                     <button className="collection-toolbar__button" onClick={() => handleToggleView('grid')} >
                         <MdOutlineGridView />
                     </button>

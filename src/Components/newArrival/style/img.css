@@ -67,6 +67,7 @@
   right: 0;
   margin: 0 auto;
   width: 100%;
+  padding: 10px;
 }
 
 .img-hover-zoom--slowmo:hover .addToCartText {
@@ -115,10 +116,3 @@
 
 @media (min-width: 1320px) {.\32xl\:min-w-\[40\%\]{max-width: 0%; background: transparent}}
 
-@media (min-width: 768px) {.hover-effect{width: 100%; height: auto}}
-
-@media (min-width: 1024px) {.hover-effect{width: 100%; height: auto}}
-
-@media (min-width: 1280px) {.hover-effect{width: 100%; height: auto}}
-
-@media (min-width: 1536px) {.hover-effect{width: 100%; height: auto}}

@@ -7,6 +7,7 @@ import products from "../../../product.json";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
+
 const ShopInfoDropdown = ({SetOpenAddToCart}) => {
   const [state, setState] = useState({
     right: false,
@@ -83,7 +84,7 @@ const ShopInfoDropdown = ({SetOpenAddToCart}) => {
           ))}
         </Select>   
       </div>
-      <Button className="capitalize mb-5" onClick={handleAddToCart}>
+      <Button className="capitalize mb-5 addtocardbtn" onClick={handleAddToCart}>
         Add to Cart
       </Button>
       

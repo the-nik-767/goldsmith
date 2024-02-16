@@ -3,16 +3,62 @@ import React, { useState } from 'react'
 import { CiHeart } from "react-icons/ci";
 import {  Box, Modal } from '@mui/material';
 import UserPage from '../../Header/User/UserPage';
+import ShopInfosection1 from '../ShopInfosection1';
+import { IoEyeSharp } from "react-icons/io5";
+import { addToCart } from "../../../Redux/Action/action";
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import products from '../../../product.json';
 
 const Section2 = (props) => {
   
-  const [open, setOpen] = useState (false);
+  const { openAddToCart, SetOpenAddToCart } = props;
+  const [openImgComp, setOpenImgComp] = useState(false);
+  const navigate = useNavigate()
+  const [open, setOpen] = useState(false);
+  const navigateShop = () => {
+    navigate("/shop");
+  }
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
+  const handleOpenImgComp = () => {
+    setOpenImgComp(true);
+  };
+
+  const handleCloseImgComp = () => {
+    setOpenImgComp(false);  
+  };
+  const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const myParam = searchParams.get("id");
+  // console.log('myParam',myParam)
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+
+  const handleAddToCartClick = () => {
+    let prd = products.find((x) => x.id === myParam);
+  //  console.log('produts',products)
+  //  console.log('prd',prd)
+  //  console.log('myParam',myParam)
+   
+    const itemToAdd = {
+      size: selectedSize,
+      Img: prd.Img,
+      title: prd.title,
+      quantity:quantity,
+      price: prd.price,
+      // tax:tax,  
+      
+    };
+    SetOpenAddToCart(true);
+    dispatch(addToCart(itemToAdd)); 
+    // SetOpenAddToCart(true);
+    // setSelectedItem(props);
+  }
   
   return (
     <>
@@ -24,6 +70,24 @@ const Section2 = (props) => {
       >
         <Box sx={{ width: 800, margin: '0 auto ' }}>
           <UserPage />
+        </Box>
+      </Modal>
+      <Modal
+        open={openImgComp}
+        onClose={handleCloseImgComp}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+      >
+        <Box
+          sx={{
+            width: "1200px",
+            margin: "0 auto ",
+            backgroundColor: "white",
+            padding: "10px",
+            marginTop: "10px",
+          }}
+        >
+          <ShopInfosection1 style={{ marginTop: "0" }} />
         </Box>
       </Modal>
    <div className="flex justify-center">
@@ -38,6 +102,19 @@ const Section2 = (props) => {
               />
 
               <p className='label1'>{props.label}</p>
+              <p
+                onClick={handleAddToCartClick}
+                className="addToCartText absolute lg:left-full text-center w-full transform   transition-opacity duration-300 bg-black text-white px-4 py-2  "
+              >
+                Add to cart
+              </p>
+              <IconButton
+                aria-label="delete"
+                className="IoEyeSharp"
+                onClick={handleOpenImgComp}
+              >
+                <IoEyeSharp />
+              </IconButton>
             </div>
             <IconButton aria-label="delete" className='heartIcons' onClick={handleOpen} sx={{
               "&:hover": {
@@ -47,17 +124,20 @@ const Section2 = (props) => {
             }}>
               <CiHeart />
             </IconButton>
-            <div className="px-6">
-              <div className="text-2xl  text-center mt-2 text-font flex justify-between" style={{ color: ' rgb(157 68 28 )' }}>
+            <div className="text-center">
+              <div
+                className="text-xl text-font    mt-3"
+                style={{ color: " rgb(157 68 28 )" }}
+              >
                 {props.title}
-                <div>
-                  <Rating value={4} />
-                </div>
-              </div>
-              <div className="font-medium text-xl   text-black">
+              <div className="font-medium text-xl    text-black">
                 {props.price}
               </div>
             </div>
+                <div style={{ fontSize: "10px",  }}>
+                  <Rating value={3} style={{ }} className='mt-2'/>
+                </div>
+              </div>
           </div>
         </div>
       </div>

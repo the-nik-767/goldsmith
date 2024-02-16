@@ -8,7 +8,7 @@ import AllNewsletter from "../../Components/NEWSLETTER/AllNewsletter"
 import Main from "../../Components/fotter/Main"
 import SingleImgInQuenns from "../../Components/FRENCHCROWNFORQUEENS/SingleImgInQuenns";
 import SingleImgInNewCollection from "../../Components/NewCollection/SingleImgInNewCollection"
-import '../../Components/FontFamilyUsing.css'
+import '../../Components/style/FontFamilyUsing.css'
 
 const Home = ({openAddToCart , SetOpenAddToCart}) => {
   return(
@@ -21,7 +21,7 @@ const Home = ({openAddToCart , SetOpenAddToCart}) => {
       <SingleImgInQuenns />
       <AllNewsletter/>
       <SingleImgInNewCollection/>
-      <Main/>
+      {/* <Main/> */}
     </div>
     
      );

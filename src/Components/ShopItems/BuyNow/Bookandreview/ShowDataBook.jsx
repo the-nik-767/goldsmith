@@ -15,10 +15,11 @@ const ShowDataBook = () => {
         <div>
             <div>
                 <div className="payment-info-container" style={{ margin: '10px 0px 5px 15px' }}>
-                    <h2 className="payment-heading text-slate-700 font-medium font-3xl  p-5" style={{ fontFamily: 'monospace', backgroundColor: '#e7e6e573', fontSize: '34px' }} >Payment Information  </h2><hr style={{ margin: '0' }} />
+                    <h2 className=" text-slate-700 text-font tracking-wide p-3"
+            style={{ fontSize: "28px" }} >Payment Information  </h2><hr style={{ margin: '0' }} />
                     <hr /> {book.map((user, index) => (
                         <div key={index}>
-                            <div className="flex">
+                            <div className="flex px-2">
                             <div class="rsBox" style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
                                 <img src="https://book.rentylresorts.com/images/creditCardLogos/AmEx.svg" alt="credit card logos" />
                             </div>

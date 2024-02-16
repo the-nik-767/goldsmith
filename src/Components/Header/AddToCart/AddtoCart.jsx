@@ -123,7 +123,7 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
               </svg>
             </IconButton>
           </div>
-          <div>
+          <div >
             <Typography>
               {cartItems.map((item, index) => (
                 <div key={index} className="text-sm flex p-5">
@@ -160,22 +160,23 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
                       /> */}
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>))}
             </Typography>
           </div>
-          <Button
-            className=" m-5 " style={{ width: '100%', padding: '10px 13px 10px 13px', fontSize: '20px', zIndex: '10000', backgroundColor: 'black', color: 'white', margin: '0 auto' }}
-            onClick={() => {
-              // if (state.isChecked) {
+          <div className="" >
+            <Button
+              className="text-center f" style={{ width: '19.5%', position:'fixed',color : 'white', bottom : '3px', padding: '10px 13px 10px 13px', fontSize: '20px', zIndex: '10000', backgroundColor: 'black', color: 'white', margin: '5px' }}
+              onClick={() => {
+                // if (state.isChecked) {
                 buyNow()
-              // } else {
-              //   alert("Please select an item to checkout.");
-              // }
-            }}
-          >
-            Buy Now
-          </Button>
+                // } else {
+                //   alert("Please select an item to checkout.");
+                // }
+              }}
+            >
+              Buy Now
+            </Button>
+          </div>
         </Drawer>
       </React.Fragment>
     </div>

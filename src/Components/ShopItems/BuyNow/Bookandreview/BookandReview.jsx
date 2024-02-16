@@ -32,8 +32,8 @@ const BookandReview = ({ setStep, step }) => {
       {
         showAllField ? (
           <div>
-            <div className="  flex">
-              <div className="" style={{width:'60%'}}>
+            <div className="  grid grid-cols-1 md:grid-cols-2 ">
+              <div className="paymentdata-show" >
                 <div className="">
                   <Paymentdatashow />
                 </div>
@@ -41,11 +41,11 @@ const BookandReview = ({ setStep, step }) => {
                   <ShowDataBook />
                 </div>
               </div>
-              <div className="" style={{width:'28%'}}>
+              <div className="buynow-paymentdata" >
                 <ByuNow />
               </div>
             </div>
-            <div className="flex justify-end m-5 ">
+            <div className="flex justify-center m-5 ">
               <Button variant="contained" color="success" style={{ padding: '10px ,20px', margin: '0px 10px' }} onClick={handlesubmit}>
                 Success
               </Button>

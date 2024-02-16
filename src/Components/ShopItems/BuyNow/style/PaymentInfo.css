@@ -34,7 +34,7 @@
     display: block;
     margin-top: 5px;
     font-size: 14px;
-    color: #007bff;
+    color: #000000;
   }
   
   .footer-text {
@@ -82,6 +82,7 @@
 }
 @media (min-width: 1201px){
   .card-experation{
-    margin: -90px !important;
+    margin: -200px !important;
+    /* margin: -90px !important; */
   }
 }

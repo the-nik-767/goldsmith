@@ -12,6 +12,7 @@ import { IconButton } from "@mui/material";
 const Navbar = ({openAddToCart, SetOpenAddToCart}) => {
   let navigate = useNavigate()
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const toggleDrawer = () => {
     setDrawerOpen(!isDrawerOpen);
@@ -23,11 +24,11 @@ const Navbar = ({openAddToCart, SetOpenAddToCart}) => {
   return (
 
     <header className="border border-gray  bg-white fixed top-0 left-0 z-50" style={{width:'100%'}}>
-      <div className=" mx-auto flex items-center justify-between">
+      <div className=" mx-auto flex items-center justify-between" style={{maxHeight:'100vh'}}>
         {/* <DrawerButton onClick={toggleDrawer} /> */}
         <DrawerComponent isOpen={isDrawerOpen} onClose={toggleDrawer}/>
         <span className="inline-block uppercase text-center text-3xl font-medium cursor-pointer" onClick={navigateHome}>
-          <img src={Logo} alt="Logo" style={{ height: '100px', width: '240px', objectFit: 'cover' }} />
+          <img src={Logo} alt="Logo" style={{ height: '80px', width: '240px', objectFit: 'cover' }} className="Logo"/>
         </span>
         <div className="flex" style={{paddingRight:'5px'}}>
           <IconButton style={{color:'black'}} className=" sm:inline-block text-2xl  " onClick={() => navigate('/user')}>
