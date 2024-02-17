@@ -32,7 +32,7 @@ const BookandReview = ({ setStep, step }) => {
       {
         showAllField ? (
           <div>
-            <div className="  grid grid-cols-1 md:grid-cols-2 ">
+            <div className=" grid grid-cols-1 md:grid-cols-2 pe-10">
               <div className="paymentdata-show" >
                 <div className="">
                   <Paymentdatashow />

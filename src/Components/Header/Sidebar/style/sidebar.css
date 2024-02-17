@@ -2,18 +2,18 @@
     display: flex !important;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #eee;
+    /* border-top: 1px solid #eee; */
     /* margin-top: 150px; */
     padding-top: 15px;
     margin-left: 26px;
+    position: fixed;
+    bottom: 5px;
 }
-
 .imgSideBar {
     height: 41px;
     max-width: 100%;
     vertical-align: middle;
 }
-
 .oneBox{
     margin-top: 10px;
     height: 50%;
@@ -27,11 +27,24 @@
     letter-spacing: 2px;
     font-weight: 500;
 }
-
 .twoBox{
     height: 50%;
     width: 50%;
 }
+.drawer-comp{
+    width: 300px;
+    height: 100% !important;
+    max-height: 100% !important;
+}
+.my-products {
+    transition: max-height 2s ease; 
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+.show-products {
+    max-height: 500px; 
+  }
 .anime{
     targets: '.easing-demo .el';
     translateX: '250';

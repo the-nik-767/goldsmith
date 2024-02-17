@@ -240,7 +240,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                     value={selectedCountry}
                     onChange={handleCountryChange}
                     onBlur={() => formik.setFieldTouched("country", true)}
-                    placeholder="Select Country"
+                    placeholder="*Select Country"
                     styles={{
                       control: (provided, state) => ({
                         ...provided,
@@ -277,7 +277,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                     value={selectedState}
                     onChange={handleStateChange}
                     onBlur={() => formik.setFieldTouched("state", true)}
-                    placeholder="Select State"
+                    placeholder="*Select State"
                     styles={{
                       control: (provided, state) => ({
                         ...provided,
@@ -315,7 +315,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
                     value={selectedCity}
                     onChange={handleCityChange}
                     onBlur={() => formik.setFieldTouched("city", true)}
-                    placeholder="Select City"
+                    placeholder="*Select City"
                     styles={{
                       control: (provided, state) => ({
                         ...provided,

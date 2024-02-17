@@ -7,6 +7,8 @@ const Picture1 = ({openAddToCart, SetOpenAddToCart}) => {
     let navigate = useNavigate()
     const navigateCategory = () => {
         navigate('/category')
+        // window.scrollTo(0, document.body.scrollHeight);
+        window.scrollTo(0, 0);
     }
 
     let arr = [

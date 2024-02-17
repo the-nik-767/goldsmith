@@ -140,7 +140,7 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
               name="cardNumber"
               placeholder="1111-2222-3333-4444"
               required
-              type="text"
+              type="number"
               value={formik.values.cardNumber}
               onChange={formik.handleChange}
               error={
@@ -272,7 +272,7 @@ const PaymentInfo = ({ onSubmit, setStep, step }) => {
               variant="standard"
               label="CVV"
               placeholder="415"
-              type="text"
+              type="number"
               required
               value={formik.values.cvv}
               onChange={formik.handleChange}

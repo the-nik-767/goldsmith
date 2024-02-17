@@ -7,7 +7,7 @@ export const ShopSlider = ({ selectedImageId }) => {
     "https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D", // Replace with your actual image URLs
     "https://images.unsplash.com/photo-1528121238716-306799520ddc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
     "https://images.unsplash.com/photo-1608042314453-ae338d80c427?q=80&w=2010&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1459204195697-4de88edf3ab1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
+    "https://images.unsplash.com/photo-1625908733875-efa9c75c084d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
   ];
 
   const reorderedImages = selectedImageId
@@ -21,8 +21,8 @@ export const ShopSlider = ({ selectedImageId }) => {
   return (
     <>
       <Carousel
-        transition={{ duration: 2 }}
-        style={{ height: "75vh", marginTop: "110px" }}
+        transition={{ }}/* duration: 2*/
+        style={{ }}
         flex-auto
         className="shopslider"
       >

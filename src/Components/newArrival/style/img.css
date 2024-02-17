@@ -73,9 +73,9 @@
 .img-hover-zoom--slowmo:hover .addToCartText {
   opacity: 1;
 }
-.img-hover-zoom--slowmo:hover .IoEyeSharp {
+/* .img-hover-zoom--slowmo:hover .IoEyeSharp {
   opacity: 1;
-}
+} */
 
 @media (min-width: 640px) {
   .img-hover-zoom--slowmo .img,
@@ -83,6 +83,12 @@
     width: 100%;
     height: auto;
   }
+}
+/* CSS */
+.truncate {
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 }
 
 

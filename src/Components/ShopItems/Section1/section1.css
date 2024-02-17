@@ -61,18 +61,7 @@
   .hvr-sweep-to-right:hover:before {
     transform: scaleX(1);
   }
-  .underline{
-    content: "";
-    margin: 10px auto;
-    /* width: 60px; */
-    /* height: 3px; */
-    position: absolute;
-    bottom: 0;
-    background: var(--text);
-    opacity: 0.8;
-    left: 0;
-    right: 0;
-  }
+ 
   
   @media (min-width: 640px) {.hover-effect{width: 100%; height: auto}}
   

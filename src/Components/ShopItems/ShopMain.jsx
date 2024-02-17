@@ -23,7 +23,7 @@ const ShopMain = ({SetOpenAddToCart}) => {
       <div className="mt-5">
         <Sec1Main />
         <Section2Main />
-        <Main />
+        {/* <Main /> */}
       </div>
      </div>
     </>

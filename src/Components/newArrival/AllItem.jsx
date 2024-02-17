@@ -11,7 +11,7 @@ import products from "../../product.json";
 import { useDispatch } from 'react-redux';
 import '../style/responsive.css'
 
-const AllItem = (props ) => {
+const AllItem = (props) => {
   const { openAddToCart, SetOpenAddToCart } = props;
   const [state, setState] = useState({
     right: false,
@@ -36,7 +36,7 @@ const AllItem = (props ) => {
   };
 
   const handleCloseImgComp = () => {
-    setOpenImgComp(false);  
+    setOpenImgComp(false);
   };
 
   const navigateShop = () => {
@@ -50,21 +50,21 @@ const AllItem = (props ) => {
 
   const handleAddToCartClick = () => {
     let prd = products.find((x) => x.id === myParam);
-  //  console.log('produts',products)
-  //  console.log('prd',prd)
-  //  console.log('myParam',myParam)
-   
+    //  console.log('produts',products)
+    //  console.log('prd',prd)
+    //  console.log('myParam',myParam)
+
     const itemToAdd = {
       size: selectedSize,
       Img: prd.Img,
       title: prd.title,
-      quantity:quantity,
+      quantity: quantity,
       price: prd.price,
       // tax:tax,  
-      
+
     };
     SetOpenAddToCart(true);
-    dispatch(addToCart(itemToAdd)); 
+    dispatch(addToCart(itemToAdd));
     // SetOpenAddToCart(true);
     // setSelectedItem(props);
 
@@ -108,7 +108,7 @@ const AllItem = (props ) => {
           style={{
             maxWidth: "100%",
             maxHeight: "100%",
-            height: "100%",
+            height: "97%",
             width: "100%",
             border: "0.5px solid #d7cece",
           }}
@@ -129,7 +129,7 @@ const AllItem = (props ) => {
 
               <p className="label1">{props.label}</p>
               <p
-                onClick={handleAddToCartClick}
+                // onClick={handleAddToCartClick}
                 className="addToCartText absolute lg:left-full text-center w-full transform   transition-opacity duration-300 bg-black text-white px-4 py-2  "
               >
                 Add to cart
@@ -158,18 +158,20 @@ const AllItem = (props ) => {
 
             <div className="text-center">
               <div
-                className="text-xl text-font    mt-3"
+                className="text-xl text-font mt-3 overflow-hidden"
                 style={{ color: " rgb(157 68 28 )" }}
               >
-                {props.title}
-              <div className="font-medium text-xl    text-black">
-                {props.price}
-              </div>
-            </div>
-                <div style={{ fontSize: "10px",  }}>
-                  <Rating value={3} style={{ }} className='mt-2'/>
+                <div className="truncate text-center" style={{ maxWidth: '99%',padding:'0px 15px' }}>
+                  {props.title}
+                </div>
+                <div className="font-medium text-xl    text-black">
+                  {props.price}
                 </div>
               </div>
+              <div style={{ fontSize: "10px", }}>
+                <Rating value={3} style={{}} className='mt-2' />
+              </div>
+            </div>
           </div>
         </div>
       </div>

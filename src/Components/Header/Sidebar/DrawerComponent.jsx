@@ -140,11 +140,11 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
 
   const [state, setState] = React.useState({
     left: false,
-    sidebarHeight: "100vh" // Initialize with full viewport height
+    sidebarHeight: "100vh" 
   });
 
   useEffect(() => {
-    // Dynamically adjust sidebar height based on window height
+   
     const handleResize = () => {
       setState(prevState => ({
         ...prevState,
@@ -152,10 +152,10 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
       }));
     };
 
-    handleResize(); // Set initial height
-    window.addEventListener("resize", handleResize); // Listen for window resize events
+    handleResize(); 
+    window.addEventListener("resize", handleResize); 
     return () => {
-      window.removeEventListener("resize", handleResize); // Cleanup event listener on component unmount
+      window.removeEventListener("resize", handleResize); 
     };
   }, []);
 
@@ -189,35 +189,35 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
         <TfiAlignJustify />
       </div>
       <Drawer
+        className="drawer-comp"
         anchor={'left'}
         open={state['left']}
         onClose={toggleDrawer('left', false)}
-        style={{ width: '250px', maxWidth: '250px', height: state.sidebarHeight }} // Use dynamic height
-         
+        // sx={{ width: '250px', maxWidth: '250px' , maxHeight:'100lvh !important',}} 
       >
         <div className="flex justify-between">
           <span className=" m-6 text-3node xl pe-5 ms-10 text-3xl text-gray-400 bg-transparent " onClick={() => navigate('/user')}> <MdOutlineAccountCircle  className="cursor-pointer"/></span>
-          <span className=" m-6 text-3node xl pe-5 ms-10 text-3xl text-gray-400 bg-transparent " onClick={toggleDrawer('left', false)}><IoMdClose  className="cursor-pointer"/></span>
+          <span className=" m-6 text-3node xl  ms-32 text-3xl text-gray-400 bg-transparent " onClick={toggleDrawer('left', false)}><IoMdClose  className="cursor-pointer"/></span>
         </div>
         <span >
         </span>
         {showProducts ? (
-          <div className="my-6 mx-0">
+          <div className="my-6 mx-0  my-products show-products">
             <div>
               <ul>
                 <li className="my-4 mx-10">
                   <p className="flex justify-between IoIosArrowBack ">
-                    <IoIosArrowBack onClick={() => setShowProducts(false)}  className="cursor-pointer"/> Products{' '}
+                    <IoIosArrowBack onClick={() => setShowProducts(false)}  className="cursor-pointer"/> Products
                   </p>
                 </li>
                 <hr />
-                <li className="my-4 mx-10">Ring</li>
+                <li className="my-2 mx-10">Ring</li>
                 <hr />
-                <li className="my-4 mx-10">Earrings</li>
+                <li className="my-2 mx-10">Earrings</li>
                 <hr />
-                <li className="my-4 mx-10">Bracelet</li>
+                <li className="my-2 mx-10">Bracelet</li>
                 <hr />
-                <li className="my-4 mx-10">Necklace</li>
+                <li className="my-2 mx-10">Necklace</li>
                 <hr />
               </ul>
             </div>
@@ -243,6 +243,7 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
                 <li className="my-4 mx-10">
                   <a href="">Contact Us</a>
                 </li>
+                <hr />
               </ul>
             </div>
           </div>

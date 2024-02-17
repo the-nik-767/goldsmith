@@ -51,15 +51,15 @@ export const ShopImg = () => {
   return (
     <div className="shopimgflex">
       
-        <ShopSlider selectedImageId={selectedImageId} />
+        <ShopSlider selectedImageId={selectedImageId} className="shop-silder-img"/>
       
-      <div style={{ width: "100%" ,}} className="shopimg  ">
+      <div style={{ width: "98%" ,}} className="shopimg  ">
         {arr.map((x, index) => (
           <img
             key={x.id}
             src={x.Img}
             alt={x.title}
-            style={{ height: "90px", width: "100px", marginTop: "0px" }}
+            style={{ height: "90px", width: "95px", marginTop: "0px" }}
             onClick={() => handleImageClick(x.id)}
           />
         ))}

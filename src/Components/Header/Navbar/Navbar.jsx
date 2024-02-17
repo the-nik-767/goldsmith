@@ -28,7 +28,7 @@ const Navbar = ({openAddToCart, SetOpenAddToCart}) => {
         {/* <DrawerButton onClick={toggleDrawer} /> */}
         <DrawerComponent isOpen={isDrawerOpen} onClose={toggleDrawer}/>
         <span className="inline-block uppercase text-center text-3xl font-medium cursor-pointer" onClick={navigateHome}>
-          <img src={Logo} alt="Logo" style={{ height: '80px', width: '240px', objectFit: 'cover' }} className="Logo"/>
+          <img src={Logo} alt="Logo" style={{  objectFit: 'cover' }} className="Logo"/>
         </span>
         <div className="flex" style={{paddingRight:'5px'}}>
           <IconButton style={{color:'black'}} className=" sm:inline-block text-2xl  " onClick={() => navigate('/user')}>

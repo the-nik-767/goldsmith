@@ -95,7 +95,7 @@ const Section2 = (props) => {
           <div className="md:grid-cols-2 relative">
             <div className="img-hover-zoom--slowmo">
               <div
-                className="img object-cover bg-no-repeat origin-center  img-hover-zoom--slowmo-img  icons bg-center"
+                className="img allArrivalCard object-cover bg-no-repeat origin-center  img-hover-zoom--slowmo-img  icons bg-center"
                 style={{ backgroundImage: 'url(' + props.Img + ')', backgroundSize: "cover", height: '50vh', width: '100%' }}
              
                 alt={props.title}

@@ -33,7 +33,8 @@ const Section2Main = () => {
     return (
         <>
             {/* <hr className='mt-5 mb-5 '/> */}
-            <div className=" text-center text-xl uppercase font-mono mt-24 mb-10 relative   "><h1 className='underline'>BEST SELLING PRODUCTS</h1></div>
+            <div className=" text-center text-xl uppercase font-mono mt-24 mb-10 relative   ">
+                <h1 className=''>BEST SELLING PRODUCTS</h1></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid:cols-4 gap-8 justify-center mx-8">
                 {
                     arr.map((x) => {

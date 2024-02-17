@@ -18,7 +18,7 @@ const SectionFour = () => {
                 />
               </div>
               <div>
-                <a className="subscribe-btn w-96 bg-black  px-12 py-3 text-base tracking-wide text-white  hover:bg-transparent  hover:border-solid border-2 border-black hover:text-black  sm:w-full">
+                <a className="subscribe-btn  bg-black  px-12 py-3 text-base tracking-wide text-white  hover:bg-transparent  hover:border-solid border-2 border-black hover:text-black  sm:w-full">
                   SUBSCRIBE
                 </a>
               </div>

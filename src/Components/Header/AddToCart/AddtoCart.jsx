@@ -98,7 +98,7 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
           onClose={toggleDrawer('right', false)}
           className="p-4"
         >
-          <div className="mb-6 flex items-center justify-between">
+          <div className=" flex items-center justify-between">
             <Typography variant="h5" color="blue-gray" className="uppercase text-center p-5">
               cart
             </Typography>
@@ -123,7 +123,7 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
               </svg>
             </IconButton>
           </div>
-          <div >
+          <div className="" style={{ overflow: 'auto' }}>
             <Typography>
               {cartItems.map((item, index) => (
                 <div key={index} className="text-sm flex p-5">
@@ -148,7 +148,7 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
                         <MdDelete fontSize="inherit" />
                       </IconButton>
                     </div>
-                    <div className="">
+                    <div className="" >
                       {/* <input type="checkbox" name="chkout" id="" checked={state.isChecked} onChange={handleCheckboxChange}/> Select item and checkout */}
                       {/* <FormControlLabel
                         value="Select item and checkout"
@@ -163,9 +163,9 @@ const AddtoCart = ({ openAddToCart, SetOpenAddToCart }) => {
                 </div>))}
             </Typography>
           </div>
-          <div className="" >
+          <div className="" style={{padding: '0 15px 10px', position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: '9999' }}>
             <Button
-              className="text-center f" style={{ width: '19.5%', position:'fixed',color : 'white', bottom : '3px', padding: '10px 13px 10px 13px', fontSize: '20px', zIndex: '10000', backgroundColor: 'black', color: 'white', margin: '5px' }}
+              className="text-center f buy-now-btn" style={{ width: '100% !important', color : 'white', padding: '10px 13px 10px 13px', fontSize: '20px', backgroundColor: 'black', color: 'white'}}
               onClick={() => {
                 // if (state.isChecked) {
                 buyNow()
