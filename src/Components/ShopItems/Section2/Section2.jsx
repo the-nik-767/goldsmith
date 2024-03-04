@@ -9,6 +9,7 @@ import { addToCart } from "../../../Redux/Action/action";
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import products from '../../../product.json';
+import { Card, Typography } from '@material-tailwind/react';
 
 const Section2 = (props) => {
   
@@ -61,7 +62,7 @@ const Section2 = (props) => {
   }
   
   return (
-    <>
+    <div>
     <Modal
         open={open}
         onClose={handleClose}
@@ -90,7 +91,7 @@ const Section2 = (props) => {
           <ShopInfosection1 style={{ marginTop: "0" }} />
         </Box>
       </Modal>
-   <div className="flex justify-center">
+   <Card className="flex justify-center">
         <div className="rounded overflow-hidden mt-5 my-3" style={{ maxWidth: '100%', maxHeight: '100%', height: '100%', width: '100%', border: '0.5px solid #d7cece' }}>
           <div className="md:grid-cols-2 relative">
             <div className="img-hover-zoom--slowmo">
@@ -124,7 +125,7 @@ const Section2 = (props) => {
             }}>
               <CiHeart />
             </IconButton>
-            <div className="text-center">
+            <Typography className="text-center">
               <div
                 className="text-xl text-font    mt-3"
                 style={{ color: " rgb(157 68 28 )" }}
@@ -135,14 +136,14 @@ const Section2 = (props) => {
               </div>
             </div>
                 <div style={{ fontSize: "10px",  }}>
-                  <Rating value={3} style={{ }} className='mt-2'/>
+                  <Rating value={3}  className='mt-2'/>
                 </div>
-              </div>
+              </Typography>
           </div>
         </div>
-      </div>
+      </Card>
 
-  </>
+  </div>
   )
 }
 

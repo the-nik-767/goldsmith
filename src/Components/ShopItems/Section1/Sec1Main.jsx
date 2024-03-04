@@ -1,52 +1,49 @@
-import React from "react";
-import Sec1 from "./Sec1";
+import React, { useEffect, useState } from "react";
 import "./section1.css";
 import '../../CategoryItems/ImgComponent/style/ImgComp.css'
+import { Card } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getApidataAllProduct } from "../../../Redux/Action/productAction";
+import AllItem from "../../newArrival/AllItem";
 
-const Sec1Main = () => {
-  let arr = [
-    {
-      Img: "https://images.unsplash.com/photo-1549439602-43ebca2327af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8",
-      title: "New Style Earrings",
-      price : "999",
-      label:'SELLING FAST'
-    },
-    {
-      Img: "https://images.unsplash.com/photo-1607703829739-c05b7beddf60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8",
-      title: "Old Style Ring",
-      price :"999",
-      label:'SELLING FAST'
-    },
-    {
-      Img: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
-      title: "Faceted crystal bracelet",
-      price :"999",
-      label:'SELLING FAST'
-    },
-    {
-      Img: "https://images.unsplash.com/photo-1561828995-aa79a2db86dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
-      title: "Rhinestone crystal earring",
-      price :"999",
-      label:'SELLING FAST'
-      
-    },
-  ];
+const Sec1Main = ({openAddToCart, SetOpenAddToCart}) => {
+
+
+    let navigate = useNavigate()
+    let dispatch = useDispatch()
+
+    const navigateCategory = () => {
+        navigate('/category')
+        window.scrollTo(0, 0);
+    }
+
+    useEffect( () => {
+        // // setLoading(true)
+         dispatch(getApidataAllProduct())
+        // // setLoading(false)
+       
+    }, [])
+
+    const data = useSelector(state => state.product.data);
+    // console.log("data in sec1mains", data)
+
+
   return (
-    <>
+    <div>
       {/* <hr className="mt-5 mb-5 " /> */}
       <div className=" text-center text-xl uppercase font-mono  mb-10 relative sec1-heading">
         <h1 className="sec1-heading">You might also like</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid:cols-4 gap-8 mx-8 justify-center">
-        {arr.map((x) => {
+        {data.slice(0, 4).map((x,i) => {
           return (
-            <Sec1 Img={x.Img} title={x.title} price={x.price} key={x.title} label={x.label}/>
+            <AllItem key={i} {...x} prdimg={x.prdimg} prdname={x.prdname} prdprice={x.prdprice} openAddToCart={openAddToCart} SetOpenAddToCart={SetOpenAddToCart}/>
           );
         })}
       </div>
-      {/* <div className="text-center "><a href="" className='bg-black hvr-sweep-to-right text-white  py-2 px-8 hover:bg-white  hover:border-solid border-2 border-black hover:text-black'>View All</a> </div> */}
-      {/* <hr className='mt-10 mb-10 '/> */}
-    </>
+     
+    </div>
   );
 };
 

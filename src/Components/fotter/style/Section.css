@@ -1,3 +1,45 @@
 .text-hover:hover{
     color: black;
 }
+
+@media (min-width: 100px) and (max-width: 319px){}
+
+@media (min-width: 320px) and (max-width: 480px){
+    .subscribe-btn{
+        width: 300px;
+        padding: 20px 99px;
+        text-align: start;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+    .subscribe-btn{
+        width: 300px;
+        padding: 20px 144px;
+        text-align: start;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+    .subscribe-btn{
+        width: 300px;
+        /* padding: 20px 151px; */
+        text-align: start;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px){
+    .subscribe-btn{
+        width: 300px;
+        padding: 20px 99px;
+        text-align: start;
+    }
+}
+
+@media (min-width: 1201px){
+    .subscribe-btn{
+        width: 300px;
+        padding: 20px 99px;
+        text-align: start;
+    }
+}

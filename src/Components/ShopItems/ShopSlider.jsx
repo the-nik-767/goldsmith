@@ -1,40 +1,49 @@
-import React from "react";
-import { Carousel } from "@material-tailwind/react";
-import "./ShopInfoMain/ShopInfoMain.css";
+import { useEffect, useState } from "react";
+import { Carousel } from "react-responsive-carousel";
 
-export const ShopSlider = ({ selectedImageId }) => {
-  const images = [
-    "https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D", // Replace with your actual image URLs
-    "https://images.unsplash.com/photo-1528121238716-306799520ddc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
-    "https://images.unsplash.com/photo-1608042314453-ae338d80c427?q=80&w=2010&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1625908733875-efa9c75c084d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
-  ];
+export const ShopSlider = ({ selectedImageId, images }) => {
+  const [leftImages, setLeftImages] = useState([]);
 
-  const reorderedImages = selectedImageId
-    ? [
-        images[selectedImageId - 1],
-        ...images.slice(0, selectedImageId - 1),
-        ...images.slice(selectedImageId),
-      ]
-    : images;
+  useEffect(() => {
+    if (images && images.length > 0) {
+      setLeftImages(images.slice(0, 4));
+    }
+  }, [images]);
+
+  const handleCarouselChange = (index) => {
+    setLeftImages(images.slice(index, index + 4));
+  };
 
   return (
-    <>
+    <div className="shopslider-container">
       <Carousel
-        transition={{ }}/* duration: 2*/
-        style={{ }}
-        flex-auto
         className="shopslider"
+        onChange={handleCarouselChange}
+        showArrows={true}
       >
-        {reorderedImages.map((image, index) => (
+        {images &&
+          images.map((x, index) =>
+            x.prdimg &&
+            JSON.parse(x.prdimg).map((image, i) => (
+              <img
+                key={`${index}-${i}`}
+                src={image.url}
+                alt={x.title}
+                style={{ width: "100%", height: "100%" }}
+              />
+            ))
+          )}
+      </Carousel>
+      <div className="left-images">
+        {leftImages.map((image, index) => (
           <img
             key={index}
-            src={image}
-            alt={`image ${index + 1}`}
-            className="h-full w-full object-cover"
+            src={image.url}
+            alt={image.title}
+            style={{ width: "100%", height: "100%" }}
           />
         ))}
-      </Carousel>
-    </>
+      </div>
+    </div>
   );
 };

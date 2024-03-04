@@ -4,12 +4,16 @@
     width: 100%;
     margin-top: 15px;
 }
-
+.select-state .css-1rn7yzg-control{
+  width: 120px;
+}
 .css-b62m3t-container{
     width: 200px;
     margin: 10px -8px;
 }
-
+.css-1a9d28t-control:hover{
+  border-color: white;
+}
 .errorFont{
     font-size: 14
 }
@@ -20,7 +24,6 @@
      padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    /* background-color: #f9f9f9; */
     margin: 10px;
   }
 
@@ -40,6 +43,19 @@
     color: black !important;
   }
 
+  .flname{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 99% ;
+    font-size: 25px;
+  }
+  .addline{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 98.09% ;
+    font-size: 25px,
+  }
+
 @media (min-width: 640px) { 
     .checkout-info-container{
         padding: 0 !important;
@@ -48,13 +64,13 @@
 
 @media screen and (max-width: 768px) {
   .checkout-info-container {
-    padding: 10px; /* Reduce padding for smaller screens */
+    padding: 10px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .checkout-info-container {
-    padding: 5px; /* Further reduce padding for very small screens */
+    padding: 5px; 
   }
 }
 
@@ -63,7 +79,6 @@
      padding: 0px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    /* background-color: #f9f9f9; */
     margin: 1px;
   }
   .country1{

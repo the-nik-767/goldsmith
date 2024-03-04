@@ -33,3 +33,13 @@
   transform: scaleX(1);
   transform-origin: bottom left; 
  } 
+
+ /* @media only screen and (max-width: 450px) {
+  .buy-now-title > .hover-underline-animation {
+      display: none;
+  }
+
+  .buy-now-title > .hover-underline-animation:nth-child(step + 1 ) {
+      display: block;
+  }
+} */

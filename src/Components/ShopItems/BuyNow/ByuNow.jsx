@@ -1,85 +1,116 @@
-import React from 'react'
-import Navbar from '../../Header/Navbar/Navbar'
+import React, { useEffect, useState } from 'react'
 import './style/buyNow.css'
-import {  useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { IKImage } from 'imagekitio-react';
+import { getApidataPaymentMethod } from '../../../Redux/Action/paymentMethodAction';
+import { removeFromCart } from '../../../Redux/Action/action';
+import { IconButton } from '@mui/material';
+import { GrClose } from "react-icons/gr";
+import { useTotalPrice } from '../../../CustomeHokkes/useTotalPrice ';
 
-const ByuNow = ({ updateCartItemQuantity, handleComponentChange }) => {
+const ByuNow = () => {
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = (item) => {
+    dispatch(removeFromCart(item));
+  };
   const cartItems = useSelector((state) => state.cart.cartItems)
-  const checkedItems = cartItems.filter(item => item.isChecked);
-  console.log('cartItems',cartItems)
-  console.log('checkedItems',checkedItems)
-  const totalPrice = checkedItems.reduce((acc, curr) =>
-    curr.price * curr.quantity + acc
-    , 0);
-  console.log("totalPrice", totalPrice)
+  const totalPrice = useTotalPrice();
+  // const totalPrice = cartItems.reduce((acc, curr) =>
+  //   curr.prdprice * curr.quantity + acc
+  //   , 0);
+
   const productId = 'yourProductId';
 
   const product = cartItems.find(item => item.id === productId);
 
-  const quantity = product ? product.quantity : 0;
-  // console.log('cartItems', cartItems)
+  // const quantity = product ? product.quantity : 0;
 
 
   return (
-    <div>
-      <div className="backSide">
-        <title>Day 002 - Credit Card Checkout</title>
-        <div className="checkout-container flex" style={{ marginTop: '10px', height: 'auto' }}>
 
-          <div className="right-side">
-            <div className="receipt">
-              <h2 className="receipt-heading text-center" style={{ fontFamily: 'monospace' }}>Receipt Summary</h2>
-              <div>
-                <table className="table ">
-                  <tbody>
 
-                    {cartItems.map((item, index) => (
+    <div className="checkout-container overflow-auto scroll" style={{ marginTop: '28px', height: '500px' }}>
 
-                      <tr key={index}>
-                        <div key={index} className="text-sm flex">
-                          <div className="me-3">
-                            <img
-                              src={item.Img}
-                              alt={`Product ${index}`}
-                              style={{ height: "180px", width: "180px" }}
-                            />
 
-                          </div>
-                        </div>
-                        <tr>
-                          <td>Name:</td>
-                          <td className='price'> {item.title || 'Unknown Item'}</td>
-                        </tr>
+      <div className="receipt">
+        <h2 className="receipt-heading text-center" style={{ fontFamily: 'monospace' }}>Receipt Summary</h2>
+        <div className=''>
+          {/* <hr /> */}
 
-                        <tr>
-                          <td>Quantity:</td>
-                          <td className="quantity price"> {item.quantity}</td>
-                        </tr>
-                        <tr>
-                          <td>MRP:</td>
-                          <td className="price "> {item.price} /-</td>
-                        </tr>
-                        <tr>
-                          <td>Total :</td>
-                          <td className="price "> {item.price * item.quantity} /-</td>
-                        </tr>
+          {cartItems.map((item, index) => (
 
-                      </tr>
+            // <tr key={index}>
+            //   <div className='flex justify-end'>
+            //     <IconButton aria-label="delete" onClick={() => handleRemoveFromCart(item)} className="hover:text-black text-xs">
+            //       <GrClose fontSize="inherit" />
+            //     </IconButton>
+            //   </div>
+            //   <div key={index} className="text-sm flex">
+            //     <div className="me-3">
+            //       <IKImage
+            //         src={JSON.parse(item.prdimg)[0]?.url}
+            //         style={{ width: "180px", height: '180px' }}
+            //       />
 
-                    ))}<hr />
-                  </tbody>
-                  <tr className="total ">
-                    <td >Main Total : {totalPrice}</td>
+            //     </div>
+            //   </div>
+            //   <tr>
+            //     <td>Name:</td>
+            //     <td className='price '> {item.prdname || 'Unknown Item'}</td>
+            //   </tr>
 
-                  </tr>
-                </table>
+            //   <tr>
+            //     <td>Quantity:</td>
+            //     <td className="quantity price"> {item.quantity}</td>
+            //   </tr>
+            //   <tr>
+            //     <td>MRP:</td>
+            //     <td className="price "> {item.prdprice} /-</td>
+            //   </tr>
+            //   <tr>
+            //     <td>Total :</td>
+            //     <td className="price "> {item.prdprice * item.quantity} /-</td>
+            //   </tr>
+
+            // </tr>
+
+            <div key={index} className='border m-2 p-2'>
+              <div className='flex justify-end'>
+                <IconButton aria-label="delete" onClick={() => handleRemoveFromCart(item)} className="hover:text-black " style={{ fontSize: '10px' }}>
+                  <GrClose fontSize="inherit" />
+                </IconButton>
+              </div>
+
+              <div className='flex gap-10'>
+                <div className='text-start' >
+                  <IKImage
+                    src={JSON.parse(item.prdimg)[0]?.url}
+                    style={{ width: "123px", height: '123px' }}
+                    className='rounded-md'
+                  />
+                </div>
+                <div>
+                  <p><span className='text-lg font-semibold tracking-wide '>Name : </span> <span className='tracking-wide text-lg'>{item.prdname || 'Unknown Item'}</span></p>
+                  <p><span className='text-lg font-semibold tracking-wide'>Quantity  :</span> <span className='tracking-wide text-lg'>{item.quantity}</span></p>
+                  <p><span className='text-lg font-semibold tracking-wide'>MRP  : </span><span className='tracking-wide text-lg'>{item.prdprice}/-</span></p>
+                  <p><span className='text-lg font-semibold tracking-wide'>Total : </span> <span className='tracking-wide text-lg'>{item.prdprice * item.quantity}/-</span></p>
+                </div>
               </div>
             </div>
+          ))}
+          {/* <hr className='mt-5' /> */}
 
-          </div>
+
+          <p className=' text-end  tracking-wide  mt-5'><span className='text-xl font-semibold'>Main Total :</span> <span className='text-xl tracking-wide'>{totalPrice}/-</span></p>
+
+
         </div>
       </div>
+
     </div>
+
+
   )
 }
 

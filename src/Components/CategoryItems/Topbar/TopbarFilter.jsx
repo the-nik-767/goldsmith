@@ -98,10 +98,10 @@ const TopbarFilter = () => {
         });
     };
     return (
-        <React.Fragment>
-            <div>
+        <div style={{width : '100%'}}>
+          
                 <div onClick={openDrawerRight}>FILTER</div>
-            </div>
+            
             <Drawer
                 placement="right"
                 open={openRight}
@@ -160,7 +160,7 @@ const TopbarFilter = () => {
                     </div>
                 </div>
             </Drawer>
-        </React.Fragment>
+        </div>
     )
 }
 

@@ -1,95 +1,93 @@
 import { IKImage } from 'imagekitio-react'
 import React from 'react'
 import '../style/responsive.css'
+import { Card, CardBody } from '@material-tailwind/react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 const AllFrenchCrown = (props) => {
-    // console.log("Image URL:", JSON.parse(props.cateimg).url);
 
-    return (
-      <div className="flex justify-center mx-6 my-3 main-crown-page">
-        <div
-          className=" rounded overflow-hidden mt-5 my-3 "
-          style={{
-            maxWidth: "100%",
-            maxHeight: "100%",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <div className="md:grid-cols-2 img-hover-zoom--slowmo all-crown-card">
-            <div
-              className="img allCrownCard object-cover bg-no-repeat origin-center  icons "
-              style={{
-                backgroundImage: "url(" + props.cateimg + ")",
-                backgroundSize: "cover",
-                // height: "50vh",
-                width: "100%",
-              }}
-              alt={props.title}
+  let navigate = useNavigate()
+  let dispatch = useDispatch()
+
+  const navigateCategory = (e) => {
+    if (props.id) {
+      const id = (props.id);
+      // console.log("id.......", id)
+      navigate(`/category?id=${id}`);
+    }
+    else {
+      navigate('/category');
+    }
+
+    window.scrollTo(0, 0);
+
+  }
+  return (
+    <Card className=" my-1 main-crown-page"  >
+      <CardBody
+        className=" rounded overflow-hidden mt-5  p-3"
+        style={{
+          maxWidth: "100%",
+          maxHeight: "100%",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <div className=" img-hover-zoom--slowmo rounded">
+
+          {props.cateimg && typeof props.cateimg === 'string' && (
+            <IKImage
+              src={JSON.parse(props.cateimg).url}
+              style={{ width: "100%", height: "50vh" ,objectFit:'cover'}}
+              className='img'
             />
-            {/* <IKImage
-                        path={JSON.parse(props.cateimg).url}
-                        transformation={[{
-                            "height": "200",
-                            "width": "200"
-                        }]}
-                        loading="lazy"
-                        lqip={{ active: true }}
-                    /> */}
-            {/* {console.log(JSON.parse(props.cateimg).url)} */}
-            <div className="Maintitle">
-              <p className="title text-white ">{props.catename}</p>
-              <a
-                href=""
-                className="bg-black  text-white  py-2 px-8 hover:bg-transparent  hover:border-solid border-2 border-black hover:text-black buttonQueens"
-              >
-                View All
-              </a>
-            </div>
+          )}
+          <div className="Maintitle">
+            <p className="title  ">{props.catename}</p>
+            <a
+              onClick={navigateCategory}
+              className="bg-black text-white py-2 px-8 hover:bg-transparent  hover:border-solid border-2 border-black hover:text-black buttonQueens"
+            >
+              View All
+            </a>
           </div>
         </div>
-      </div>
-    );
+      </CardBody>
+    </Card>
+    // <Card className="flex justify-center  my-1 main-crown-page">
+    //   <CardBody
+    //     className=" rounded overflow-hidden mt-5 my-3 p-3"
+    //     style={{
+    //       maxWidth: "100%",
+    //       maxHeight: "100%",
+    //       width: "100%",
+    //       height: "100%",
+    //     }}
+    //   >
+    //     <div className=" img-hover-zoom--slowmo rounded">
+
+    //       {props.cateimg && typeof props.cateimg === 'string' && (
+    //         <IKImage
+    //           src={JSON.parse(props.cateimg).url}
+    //           style={{ width: "100%", height: "50vh" ,objectFit:'cover'}}
+    //           className='img'
+    //         />
+    //       )}
+    //       <div className="Maintitle">
+    //         <p className="title  ">{props.catename}</p>
+    //         <a
+    //           onClick={navigateCategory}
+    //           className="bg-black text-white py-2 px-8 hover:bg-transparent  hover:border-solid border-2 border-black hover:text-black buttonQueens"
+    //         >
+    //           View All
+    //         </a>
+    //       </div>
+    //     </div>
+    //   </CardBody>
+    // </Card>
+  );
+
 }
 
 export default AllFrenchCrown
-
-
-// import React from 'react'
-// import { IKContext, IKImage } from 'imagekitio-react';
-
-// const AllFrenchCrown = (props) => {
-//     // Check if props.cateimg is defined before trying to parse it
-//     // const imageUrl = props.cateimg ? JSON.parse(props.cateimg).url : '';
-
-//     return (
-//         <div className="flex justify-center mx-6 my-3 " >
-//             <div className=" rounded overflow-hidden mt-5 my-3 " style={{ maxWidth: '100%', maxHeight: '100%', width: '100%', height: '100%' }}>
-//                 <div className="md:grid-cols-2 img-hover-zoom--slowmo">
-
-//                     {/* Use IKImage component with imageUrl */}
-//                     {/* <IKContext urlEndpoint="https://ik.imagekit.io/saufrbirqu" publicKey="public_SWufzC3NBuBYZKszPsXhFdh1XDo=" authenticationEndpoint="http://www.yourserver.com/auth"> */}
-//                         <IKImage
-//                             path={JSON.parse(props.cateimg).url}
-//                             transformation={[{
-//                                 "height": "200",
-//                                 "width": "200"
-//                             }]}
-//                             loading="lazy"
-//                             lqip={{ active: true }}
-//                         />
-//                     {/* </IKContext> */}
-
-//                     <div className="Maintitle">
-//                         <p className='title text-white '>{props.title}</p>
-//                         <a href="" className='bg-black  text-white  py-2 px-8 hover:bg-transparent  hover:border-solid border-2 border-black hover:text-black buttonQueens'>
-//                             View All
-//                         </a>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default AllFrenchCrown;

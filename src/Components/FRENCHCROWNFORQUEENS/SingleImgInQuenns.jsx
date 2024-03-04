@@ -1,23 +1,29 @@
-import React from 'react'
-import AllImgQueens from './AllImgQueens'
+import React, { useEffect } from 'react'
 import './style/queens.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { getApidataBestSeller } from '../../Redux/Action/categoryAction'
+import AllFrenchCrown from '../FRENCHCROWNFORKINGS/AllFrenchCrown'
 const SingleImgInQuenns = () => {
-    let arr=[
-        {Img:'https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJyYWNlbGV0fGVufDB8fDB8fHww','title':'NECK-CHAIN'},
-        {Img:'https://images.unsplash.com/photo-1611653842967-39eb011b2ca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8','title':'BRACELET'},
-        {Img:'https://images.unsplash.com/photo-1625516152414-8f33eef3d660?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D','title':'BRACELET'},
-    ]
+
+
+  let dispatch = useDispatch()
+  useEffect(() => {
+    // setLoading(true)
+    dispatch(getApidataBestSeller())
+    // setLoading(false)
+  }, [])
+  const data = useSelector(state => state.bestseller.data);
   return (
-    <>
-      <div className=" text-center text-2xl mt-10 text-font header-color">
-        <h2>BESTSELLER</h2>
+    <div>
+      <div className=" text-center text-2xl mt-10 text-font header-color mb-8">
+        <h2>BESTSELLING</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3  justify-center mt-8">
-        {arr.map((x) => {
-          return <AllImgQueens Img={x.Img} title={x.title} />;
+      <div className="flex flex-wrap justify-center ">
+        {data.map((x, i) => {
+          return <AllFrenchCrown key={i} {...x} cateimg={x.cateimg} catename={x.catename} />;
         })}
       </div>
-    </>
+    </div>
   );
 }
 

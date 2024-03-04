@@ -1,4 +1,4 @@
-import { CATEGORY_GET } from "../Type/type";
+import {  CATEGORY_GET } from "../Type/type";
 
 const initialState = {
     data: [],
@@ -20,6 +20,7 @@ export const categoryReducer = (state = initialState, action) => {
           return state;
         }
       }
+      
 
     default: {
       return state;

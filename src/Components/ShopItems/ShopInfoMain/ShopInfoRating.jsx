@@ -1,19 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Rating } from "@material-tailwind/react";
+import { useDispatch, useSelector } from "react-redux";
+import { getApidataOnePrdData } from "../../../Redux/Action/productAction";
+import { useLocation } from "react-router-dom";
 
 export const ShopInfoRating = () => {
+  let dispatch = useDispatch()
+  const location = useLocation();
+  const searchParams1 = new URLSearchParams(location.search);
+  const imgid = searchParams1.get("id");
+
+  // useEffect(() => {
+  //   dispatch(getApidataOnePrdData(imgid))
+  // }, [])
+  const data = useSelector(state => state.oneproduct.data);
+
   return (
-    <>
-      <div>
-        <h1 className="mb-2 mt-20 text-slate-500 title-in-shoppage">Long crystal earrings</h1>
-        <h4 className="mb-3 text-slate-500">999</h4>
-      </div>
-      <div className="flex mb-3 justify-center align-center rating">
-        <div>
-          <Rating value={4} />
+    <div>
+      {/* <Rating
+        name="simple-controlled"
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      /> */}
+      {data && data.map((x, i) => (
+        <div key={i}>
+          <div>
+            <p className="mb-2 mt-2 text-slate-500 title-in-shoppage">{x.prdname}</p>
+            <p className="mb-3 text-slate-500">{x.prdprice}/-</p>
+          </div>
+          <div className="flex mb-3 justify-center align-center rating">
+            <div>
+            <Rating value={4} readonly />
+            </div>
+            <p className=" ms-2 text-md text-slate-500">reviews</p>
+          </div>
         </div>
-        <div className=" ms-2 text-md text-slate-500">reviews</div>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };

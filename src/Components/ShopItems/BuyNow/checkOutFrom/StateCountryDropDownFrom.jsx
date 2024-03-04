@@ -9,7 +9,6 @@
 // // import { useFormik } from "formik";
 // // import * as yup from "yup";
 // // import { Country, State } from 'country-state-city';
-// // import Navbar from '../../../Header/Navbar/Navbar';
 // // import PhoneInput from 'react-phone-input-2'
 // // import 'react-phone-input-2/lib/style.css'
 // // import '../style/checkout.css'

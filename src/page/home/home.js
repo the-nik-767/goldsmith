@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../Components/Header/Navbar/Navbar";
 import Slider from "../../Components/Section1/Slider";
 import Video from "../../Components/Section2/Video";
 import Picture1 from "../../Components/newArrival/Picture1";
@@ -10,13 +9,13 @@ import SingleImgInQuenns from "../../Components/FRENCHCROWNFORQUEENS/SingleImgIn
 import SingleImgInNewCollection from "../../Components/NewCollection/SingleImgInNewCollection"
 import '../../Components/style/FontFamilyUsing.css'
 
-const Home = ({openAddToCart , SetOpenAddToCart}) => {
+const Home = () => {
   return(
     <div>
       
       <Slider/>
       <Video/>
-      <Picture1 openAddToCart={openAddToCart} SetOpenAddToCart={SetOpenAddToCart}/>
+      <Picture1/>
       <SingleImg/>
       <SingleImgInQuenns />
       <AllNewsletter/>

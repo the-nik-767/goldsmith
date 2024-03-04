@@ -10,11 +10,9 @@ const ShowDataBook = () => {
             setBook(storedBookData);
         }
     }, [])
-    console.log('book', book)
+    // console.log('book', book)
     return (
-        <div>
-            <div>
-                <div className="payment-info-container" style={{ margin: '10px 0px 5px 15px' }}>
+                <div className="payment-info-container" >
                     <h2 className=" text-slate-700 text-font tracking-wide p-3"
             style={{ fontSize: "28px" }} >Payment Information  </h2><hr style={{ margin: '0' }} />
                     <hr /> {book.map((user, index) => (
@@ -31,9 +29,7 @@ const ShowDataBook = () => {
                             <p style={{ padding: '10px', fontSize: '20px' }}> {user.cvv}</p>
                         </div>
                     ))}
-                </div>
-            </div>
-        </div>
+                </div>   
     )
 }
 

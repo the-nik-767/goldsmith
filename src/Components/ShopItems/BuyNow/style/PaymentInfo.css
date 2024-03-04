@@ -1,88 +1,123 @@
 .payment-info-container {
-    /* padding: 20px; */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* background-color: #f9f9f9; */
-    margin: 10px;
-  }
-  .form-box {
-    margin-top: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  .expires {
-    margin-bottom: 10px;
-  }
-  
-  .card-experation {
-    display: flex;
-    align-items: center;
-  }
-  
-  .expiration-year {
-    margin-left: 20px;
-  }
-  
-  .cvv-info {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-    color: #000000;
-  }
-  
-  .footer-text {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #777;
-  }
-.card-experation{
+  /* padding: 20px; */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* background-color: #f9f9f9; */
+  margin: 10px;
+  margin: 10px 0px 5px 15px
+}
+
+.form-box {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.expires {
+  margin-bottom: 10px;
+}
+
+.card-experation {
+  display: flex;
+  align-items: center;
+}
+
+.expiration-year {
+  margin-left: 20px;
+}
+
+.cvv-info {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #000000;
+}
+
+.footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+.card-experation {
   margin: -35px;
 }
-.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input:focus{
+
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input:focus {
   outline: 1;
 }
 
+.css-1eed5fa-MuiInputBase-root-MuiInput-root::after{
+  left: none;
+}
+
+.form-box *:focus{
+  box-shadow: none;
+  border-radius: 0px;
+}
+.payment-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.css-953pxc-MuiInputBase-root-MuiInput-root::after{
+  border-bottom: 2px solid black !important;
+}
+
 @media (min-width: 100px) and (max-width: 300px) {
-  .iconswrap{
+  .iconswrap {
     flex-wrap: wrap;
   }
-  .card-experation{
-   margin: -7px !important;
+
+  .card-experation {
+    margin: -7px !important;
     flex-wrap: wrap;
   }
-  .PaymentLogoImage{
+
+  .PaymentLogoImage {
     width: 30px;
     height: 20px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .card-experation{
+  .card-experation {
     margin: 1px;
   }
 }
+
 @media (min-width: 481px) and (max-width: 768px) {
-  .card-experation{
+  .card-experation {
     margin: -7px !important;
     flex-wrap: wrap;
   }
 }
-@media (min-width: 769px) and (max-width: 1024px){
-  .card-experation{
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-experation {
     margin: 20px !important;
     flex-wrap: wrap;
   }
 }
-@media (min-width: 1201px){
-  .card-experation{
-    margin: -200px !important;
+
+@media (min-width: 1024px) and (max-width: 1499px) {
+  .card-experation {
+    /* margin: -200px !important; */
+    margin: -60px !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  .card-experation {
+    margin: -190px !important;
     /* margin: -90px !important; */
   }
 }

@@ -2,8 +2,6 @@ import React from 'react'
 
 const SectionOne = () => {
     return (
-        <>
-           
             <div className='container'>
                 <h6 className='mb-6 text-sm text-gray-800 header-font'>CORPORATE</h6 >
                 <div className="text-sm text-gray-500 hover:text-black-900">
@@ -17,7 +15,6 @@ const SectionOne = () => {
                     <p className='mt-3 text-hover'><a href="">Careers</a></p>
                 </div>
             </div>
-        </>
     )
 }
 

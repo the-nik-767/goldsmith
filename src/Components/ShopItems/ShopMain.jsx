@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ShopImg } from "./ShopImg";
 import ShopInfoMain from "./ShopInfoMain/ShopInfoMain";
 import Sec1Main from "./Section1/Sec1Main";
@@ -12,13 +12,16 @@ import "../ShopItems/ShopInfoMain/ShopInfoMain.css"
 import ShopInfosection1 from "./ShopInfosection1";
 
 
-const ShopMain = ({SetOpenAddToCart}) => {
+const ShopMain = () => {
+  useEffect(()=> {
+    window.scrollTo(0, 0);
+  }, [])
   
   return (
-    <>
-     <div className="">
+    
+     <div>
      <div className=" shopmain">
-        <ShopInfosection1 SetOpenAddToCart={SetOpenAddToCart}/>
+        <ShopInfosection1 />
       </div>
       <div className="mt-5">
         <Sec1Main />
@@ -26,7 +29,7 @@ const ShopMain = ({SetOpenAddToCart}) => {
         {/* <Main /> */}
       </div>
      </div>
-    </>
+    
   );
 };
 

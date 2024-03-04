@@ -10,19 +10,19 @@ import FooterDropDown from './FooterDropDown'
 
 const Main = () => {
     return (
-        <>
-            <div><hr className='mt-8 mb-16 ' /></div>
-            <div className='flex flex-wrap ms-5 mr-3'>
-                <div className='w-full sm:w-1/2 md:w-1/2 lg:w-1/4 md:mb-8'>
+        <div>
+            <div><hr className='mt-8 mb-8 ' /></div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ms-5 mr-3'>
+                <div className='w-full  md:mb-8 mt-4'>
                     <SectionOne />
                 </div>
-                <div className='w-full sm:w-1/2 md:w-1/2 lg:w-1/4'>
+                <div className='w-full  mt-4'>
                     <SectionTwo />
                 </div>
-                <div className='w-full sm:w-1/2 md:w-1/2 lg:w-1/4'>
+                <div className='w-full  mt-4'>
                     <SectionThree />
                 </div>
-                <div className='w-full sm:w-1/2 md:w-1/2 lg:w-1/4 '>
+                <div className='w-full  mt-4'>
                     <SectionFour />
                 </div>
             </div>
@@ -30,7 +30,7 @@ const Main = () => {
                 <FooterIcons/>
             </div>
             <div className=""><FooterDropDown/></div>
-        </>
+        </div>
     )
 }
 

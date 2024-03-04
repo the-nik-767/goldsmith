@@ -1,15 +1,34 @@
+.grid-cols-1 .main-crown-page:nth-child(1) {
+  grid-column: span 1;
+}
+
+/* For the second and third items */
+.grid-cols-1 .main-crown-page:nth-child(2),
+.grid-cols-1 .main-crown-page:nth-child(3) {
+  grid-column: span 1;
+}
+
+/* For the fourth and fifth items */
+.grid-cols-1 .main-crown-page:nth-child(4),
+.grid-cols-1 .main-crown-page:nth-child(5) {
+  grid-column: span 1;
+}
+
 .Maintitle{
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: end;
+    color: white;
 }
 .title{
     position: absolute;
-    bottom: 100px;
+    bottom: 120px;
     left: 5%;
-    color: rgb(245, 235, 235);
-    /* font-size: 30px; */
+    color: white;
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     font-weight: bolder;
 }
 
@@ -22,12 +41,6 @@
 .img-hover-zoom--slowmo {
     overflow: hidden;
 }
-
-.img-hover-zoom--slowmo .img {
-    transform-origin: 50% 65%;
-    transition: transform 5s, filter 3s ease-in-out;
-}
-
 .img-hover-zoom--slowmo:hover .img {
     filter: brightness(100%);
     transform: scale(3);
@@ -38,6 +51,13 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    /* transform-origin: 50% 65%; */
+    transition: transform 25s, filter 25s ease-in-out;
+}
+.buttonQueens {
+    position: absolute;
+    bottom: 50px;
+    left: 5%;
 }
 
 .buttonQueens {
@@ -60,3 +80,69 @@
     color: white;
     background-position: left bottom;
 }
+.img-hover-zoom--slowmo::before{
+    content: "";
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: inherit;
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@media (min-width: 100px) and (max-width: 300px){
+    .view1{
+      width: 100% !important;
+      height: 58vh !important;
+    }
+    .grid-view-class{
+      display: none ;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px){
+    .view1{
+      width: 100% !important;
+      height: 49vh !important;
+    }
+    .grid-view-class{
+      display: none ;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px){
+    .view1{
+      width: 50% !important;
+      float: left;
+      height: 44vh !important;
+    }
+    .grid-view-class{
+      display: none ;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px){
+    .view1{
+      width: 50% !important;
+      float: left;
+      height: 42vh !important;
+    }
+  }
+  @media (min-width: 1025px) and (max-width: 1201px){
+    .view1{
+      width: 50% !important;
+      float: left;
+      height: 41vh !important;
+    }
+  }
+
+  @media (min-width: 1280px){
+    .view1{
+      width: 30% !important;
+      float: left;
+      height: 44vh !important;
+    }
+  }

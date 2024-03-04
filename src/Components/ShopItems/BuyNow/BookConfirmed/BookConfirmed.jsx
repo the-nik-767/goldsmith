@@ -4,9 +4,6 @@ import { TfiTicket } from 'react-icons/tfi'
 
 function BookConfirmed() {
     return (
-        <div>
-            
-            {/* <div className="body" /> */}
             <div className="chat mt-10">
                 <div className="profile">
                     <TfiTicket />
@@ -18,7 +15,6 @@ function BookConfirmed() {
                     Goldsmith
                 </div>
             </div>
-        </div>
     )
 }
 

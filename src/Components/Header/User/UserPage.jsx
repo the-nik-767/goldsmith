@@ -140,9 +140,9 @@ const LoginForm = () => {
   
 
   return (
-    <section className="forms-section ">
-      <h1 className="section-title">FORMS</h1>
-      <div className="forms mt-5">
+    <section className="forms-section" style={{outline:'2px solid white' ,outlineOffset:'-10px'}}>
+     
+      <div className="forms mt-10">
         <div className={`form-wrapper ${activeForm === 'login' ? 'is-active' : ''}`}>
           <button type="button" className="switcher switcher-login" onClick={() => switchForm('login')}>
             Login
@@ -177,7 +177,7 @@ const LoginForm = () => {
             initialValues={{ name: '', email: '', password: '' }}
             validationSchema={signupSchema}
             onSubmit={(values, actions) => {
-              // Handle signup submission
+              
               console.log('Signing up with:', values);
               actions.setSubmitting(false);
             }}

@@ -10,10 +10,8 @@ const Paymentdatashow = () => {
     setLastUserData(lastUser);
   }, []);
   return (
-    <div>
       <div
         className="payment-info-container"
-        style={{ margin: "10px 0px 5px 15px" }}
       >
         <ul>
           {/* {userArray.map((user, index) => (
@@ -44,19 +42,19 @@ const Paymentdatashow = () => {
             <div className="flex ">
               <div style={{padding:'10px 7px'}}>
                 <div style={{ padding: "0px 10px", fontSize: "20px" }}>
-                  {" "}
+                
                   {lastUserData.fname} {lastUserData.lname}
                 </div>
                 <div style={{ padding: "0px 10px", fontSize: "20px" }}>
-                  {" "}
+                  
                   {lastUserData.addLine1}
                 </div>
                 <div style={{ padding: "0px 10px", fontSize: "20px" }}>
-                  {" "}
+                 
                   {lastUserData.addLine2}
                 </div>
                 <div style={{ padding: "0px 10px", fontSize: "20px" }}>
-                  {lastUserData.city}, {lastUserData.pincode}{" "}
+                  {lastUserData.city}, {lastUserData.pincode}
                   {lastUserData.country}
                 </div>
               </div>
@@ -64,7 +62,6 @@ const Paymentdatashow = () => {
           )}
         </ul>
       </div>
-    </div>
   );
 }
 

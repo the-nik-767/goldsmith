@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Navbar from '../../../Header/Navbar/Navbar'
 import ShowDataBook from './ShowDataBook'
 import Paymentdatashow from '../Payment/Paymentdatashow'
 import ByuNow from '../ByuNow'
 import { Button } from '@mui/material'
 import BookConfirmed from '../BookConfirmed/BookConfirmed'
+import { Diversity1 } from '@mui/icons-material'
 
 
 const BookandReview = ({ setStep, step }) => {
@@ -17,27 +17,17 @@ const BookandReview = ({ setStep, step }) => {
 
   };
   return (
-    <>
-      <Navbar />
-      {/* <div className=" grid grid-cols-1 md:grid-cols-3 ">
-        <Paymentdatashow />
-        <ShowDataBook />
-        <ByuNow />
-      </div>
-      <div className="flex justify-end m-5 ">
-        <Button variant="contained" color="success" style={{ padding: '10px ,20px', margin: '0px 10px' }} onClick={handlesubmit}>
-          Success
-        </Button>
-      </div> */}
+    <div>
+      
       {
         showAllField ? (
           <div>
             <div className=" grid grid-cols-1 md:grid-cols-2 pe-10">
               <div className="paymentdata-show" >
-                <div className="">
+                <Diversity1>
                   <Paymentdatashow />
-                </div>
-                <div className="">
+                </Diversity1>
+                <div>
                   <ShowDataBook />
                 </div>
               </div>
@@ -55,7 +45,7 @@ const BookandReview = ({ setStep, step }) => {
           <BookConfirmed />
         )}
 
-    </>
+    </div>
   )
 }
 

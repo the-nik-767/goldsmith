@@ -45,6 +45,10 @@
 .show-products {
     max-height: 500px; 
   }
+
+  .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop{
+    box-shadow: 0 0 0 10px black;
+  }
 .anime{
     targets: '.easing-demo .el';
     translateX: '250';

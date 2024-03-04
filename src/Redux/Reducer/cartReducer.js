@@ -1,7 +1,16 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, UPDATE_CART_ITEMS } from "../Type/type";
+import {
+  ADD_TO_CART,
+  OPEN_ADD_TO_CART,
+  REMOVE_FROM_CART,
+  TOGGLE_ITEM_CHECKED,
+  UPDATE_CART_ITEMS,
+} from "../Type/type";
+
 const initialState = {
+  openAddToCart: false,
   cartItems: [],
 };
+
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
@@ -10,6 +19,7 @@ export const cartReducer = (state = initialState, action) => {
         cartItems: [...state.cartItems, action.payload],
       };
     case UPDATE_CART_ITEMS:
+      console.log("UPDATE_CART_ITEMS",action)
       return {
         ...state,
         cartItems: action.payload,
@@ -19,6 +29,21 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         cartItems: state.cartItems.filter((item) => item !== action.payload),
       };
+    case OPEN_ADD_TO_CART:
+      // console.log('Open')
+      return {
+        ...state,
+        openAddToCart: action.payload,
+      };
+      case TOGGLE_ITEM_CHECKED:
+        return {
+          ...state,
+          cartItems: state.cartItems.map(item =>
+            item.id === action.payload.itemId
+              ? { ...item, isChecked: action.payload.isChecked }
+              : item
+          ),
+        };
     default:
       return state;
   }

@@ -41,9 +41,8 @@ const Slider = () => {
     // console.log("Clicked thumb", index);
   };
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%" ,height:"100%",marginTop:'80px'}}>
       <Carousel
-        className=""
         autoplay
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div
@@ -65,8 +64,8 @@ const Slider = () => {
       >
         {array.map((item, index) => {
           return (
-            <div>
               <div
+              key={item.id}
                 style={{
                   backgroundImage: "url(" + `${item.image}` + ")",
                   backgroundPosition: "center center",
@@ -86,7 +85,6 @@ const Slider = () => {
                   {item.buttonText}
                 </Button> */}
               </div>
-            </div>
           );
         })}
       </Carousel>

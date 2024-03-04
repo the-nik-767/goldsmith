@@ -1,8 +1,7 @@
 import React from 'react'
 
 function SectionThree() {
-    return (
-        <div>
+    return ( 
             <div className='container '>
                 <h6 className='mb-6 text-sm text-gray-800 header-font'>ABOUT THE SHOP</h6 >
                 <div className="text-sm text-gray-500 hover:text-black-900">
@@ -15,7 +14,6 @@ function SectionThree() {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

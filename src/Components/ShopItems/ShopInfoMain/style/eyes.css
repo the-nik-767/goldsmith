@@ -1,0 +1,26 @@
+@media (min-width: 100px) and (max-width: 319px) {
+    .eyes-shopimg {
+      display: flex;
+      margin-top: 20px;
+    }
+    .eyes-shopslider {
+      width: 100%;
+      margin: 83px 0px 0px 0px;
+    }
+    .eyes-infomain {
+      width: 70%;
+      text-align: center;
+      margin: 130px 0px 0px 73px;
+    }
+  
+    .eyes-title-in-shoppage {
+      margin-top: 0;
+    }
+  
+    .eyes-addtocardbtn {
+      width: 244px;
+      font-size: 20px
+    }
+   
+    
+  }

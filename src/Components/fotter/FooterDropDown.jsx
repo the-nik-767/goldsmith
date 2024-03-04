@@ -24,7 +24,7 @@ const FooterDropDown = () => {
         setSelectedCountry(event.target.value);
     };
     return (
-        <>
+        
 
             <div className="flex justify-between mt-14 ">
                 {/* <div className='ms-5 mb-10'>
@@ -47,8 +47,6 @@ const FooterDropDown = () => {
                     <p>© 2024 FRENCH CROWN STORE. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
-
-        </>
     )
 }
 

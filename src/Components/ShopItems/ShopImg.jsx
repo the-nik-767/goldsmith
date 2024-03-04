@@ -1,37 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { ShopSlider } from "./ShopSlider";
 import "./ShopInfoMain/ShopInfoMain.css";
 import arr from "../../product.json"
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+import { ShopSlider } from "./ShopSlider";
+import { getApidataOnePrdData} from "../../Redux/Action/productAction";
+import { useDispatch, useSelector } from "react-redux";
+
 
 export const ShopImg = () => {
-  // let arr = [
+  
+  let navigate = useNavigate()
+  let dispatch = useDispatch()
 
-  //   {
-  //     Img: "https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D",
-  //     title: "Long crystal earrings",
-  //     id: 1,
-  //     pid:1,
-  //   },
-  //   {
-  //     Img: "https://images.unsplash.com/photo-1528121238716-306799520ddc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
-  //     title: "Embossed hoop earrings",  
-  //     id: 2,
-  //     pid:1,
-  //   },
-  //   {
-  //     Img: "https://images.unsplash.com/photo-1608042314453-ae338d80c427?q=80&w=2010&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //     title: "Flower crystal ring",
-  //     id: 3,
-  //     pid:1,
-  //   },
-  //   {
-  //     Img: "https://images.unsplash.com/photo-1459204195697-4de88edf3ab1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
-  //     title: "Neck chain",
-  //     id: 4,
-  //     pid:1,
-  //   },
-  // ];
+  const location = useLocation();
+  const searchParams1 = new URLSearchParams(location.search);
+  const imgid = searchParams1.get("id");
+  // console.log('location',location)
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -39,32 +24,37 @@ export const ShopImg = () => {
 
   const handleImageClick = (id) => {
     setSelectedImageId(id);
-    setSearchParams({id});
+    // setSearchParams({id});
   };
 
-  useEffect(() => {
-    if (arr.length > 0) {
-      const firstImageId = arr[0].id;
-      setSearchParams({ id: firstImageId });
-    }
-  }, []);
+//   useEffect( () => {
+//     // // setLoading(true)
+//      dispatch(getApidataOnePrdData(imgid))
+//     // // setLoading(false)
+    
+// }, [])
+
+const data = useSelector(state => state.oneproduct.data);
+
   return (
     <div className="shopimgflex">
-      
-        <ShopSlider selectedImageId={selectedImageId} className="shop-silder-img"/>
-      
-      <div style={{ width: "98%" ,}} className="shopimg  ">
-        {arr.map((x, index) => (
+    {data && <ShopSlider selectedImageId={selectedImageId} images={data } />}
+    {/* {console.log('data.images',data)} */}
+    {/* <div style={{ width: "25%" }} className="shopimg">
+      {data && data.map((x, index) => (
+        x.prdimg && JSON.parse(x.prdimg).map((image, i) => (
           <img
-            key={x.id}
-            src={x.Img}
+            key={`${index}-${i}`}
+            src={image.url}
             alt={x.title}
             style={{ height: "90px", width: "95px", marginTop: "0px" }}
             onClick={() => handleImageClick(x.id)}
           />
-        ))}
-      </div>
-    </div>
+        ))
+      ))}
+    </div> */}
+  </div>
+   
   );
 };
 

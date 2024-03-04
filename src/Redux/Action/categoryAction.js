@@ -1,37 +1,43 @@
 import axios from "axios";
-import { CATEGORY_GET } from "../Type/type";
-
-// export const getApidata = () => {
-//     return (dispatch) => {
-//       axios.get("127.0.0.1:4000/category/getCateData").then((res) => {
-//         console.log("res in getApidata",res)
-//         dispatch({ type: CATEGORY_GET, data: res });
-//       });
-//     };
-//   };
-
-// export const getApidata = () => {
-//     return async (dispatch) => {
-//       try {
-//         const res = await axios.get("http://127.0.0.1:4000/category/getCateData");
-//         dispatch({ type: CATEGORY_GET, data: res.data });
-//         console.log('resdata ',res)
-//         return res.data;
-//       } catch (error) {
-//         console.error("Error fetching data:", error);
-//       }
-//     };
-//   };
+import { BESTSELLER_GET, CATEGORY_GET, NEWCOLLECTION_GET } from "../Type/type";
 
 export const getApidata = () => async (dispatch) => {
   try {
     const res = await axios.get(
-      "https://3d9b-2405-201-200c-d09d-bdd0-d27a-6f72-a7f6.ngrok-free.app/category/getCateData"  ,{headers:{ "ngrok-skip-browser-warning": "69420" ,'Content-Type':'application/json'} } 
+      "https://bfa8-2405-201-200c-d09d-7dfb-9e13-d9b8-e8db.ngrok-free.app/category/getCateData"  ,{headers:{ "ngrok-skip-browser-warning": "69420" ,'Content-Type':'application/json'} } 
     );
-    console.log("resdata :", res);
+    // console.log("resdata :", res.data.newCate);
     dispatch({ type: CATEGORY_GET, data: res.data });
     return res.data.newCate;
   } catch (err) {
     console.log(err);
   }
 };
+
+export const getApidataBestSeller = () => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      "https://bfa8-2405-201-200c-d09d-7dfb-9e13-d9b8-e8db.ngrok-free.app/category/getCateDataByType/bestseller"  ,{headers:{ "ngrok-skip-browser-warning": "69420" ,'Content-Type':'application/json'} } 
+    );
+    // console.log("resdata :", res.data.newCate);
+    dispatch({ type: BESTSELLER_GET, data: res.data });
+    return res.data.newCate;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getApidataNewCollection = () => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      "https://bfa8-2405-201-200c-d09d-7dfb-9e13-d9b8-e8db.ngrok-free.app/category/getCateDataByType/newCollection"  ,{headers:{ "ngrok-skip-browser-warning": "69420" ,'Content-Type':'application/json'} } 
+    );
+    // console.log("resdata :", res.data.newCate);
+    dispatch({ type: NEWCOLLECTION_GET, data: res.data });
+    return res.data.newCate;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
