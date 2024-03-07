@@ -52,12 +52,12 @@ export const DrawerComponent = ({ isOpen, onClose }) => {
   return (
 
     <div>
-      <div onClick={toggleDrawer('left', true)} style={{paddingLeft:'10px'}} className="text-2xl">
+      <div onClick={toggleDrawer('left', true)} style={{paddingLeft:'10px', cursor: 'pointer'}} className="text-2xl">
         <TfiAlignJustify />
       </div>
       <Drawer
         className="drawer-comp"
-        anchor={'left'}
+        placement={'left'}
         open={state['left']}
         onClose={toggleDrawer('left', false)}
         // sx={{ width: '250px', maxWidth: '250px' , maxHeight:'100lvh !important',}} 

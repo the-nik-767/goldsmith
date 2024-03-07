@@ -9,6 +9,7 @@ import { IconButton, Typography } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 const ImgComp = ({ viewStyle }) => {
+    
     let dispatch = useDispatch();
     const location = useLocation();
     const searchParams1 = new URLSearchParams(location.search);
@@ -18,13 +19,20 @@ const ImgComp = ({ viewStyle }) => {
 
     useEffect(() => {
         dispatch(getApidataAllProduct());
+        
         if (prdid) {
             dispatch(getApidataCatWisePrd(prdid));
         }
     }, [prdid]);
 
     const allPrdData = useSelector(state => state.product.data);
+    // console.log('all prdData',allPrdData[0].diamond_type);
+
+    // const diamonadType= allPrdData.map((item,index)=> {
+    //     console.log(item.diamond_type);
+    // })
     const catData = useSelector(state => state.categorywiseproduct.data);
+   
 
     const next = () => {
         if (currentPage === 10) return;
@@ -38,22 +46,25 @@ const ImgComp = ({ viewStyle }) => {
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = prdid ? catData.slice(indexOfFirstItem, indexOfLastItem) : allPrdData.slice(indexOfFirstItem, indexOfLastItem);
 
+
+    const currentItems = catData && catData.length ? catData.slice(indexOfFirstItem, indexOfLastItem) : allPrdData.slice(indexOfFirstItem, indexOfLastItem);
+    
+    
     return (
         <div className="mt-8" style={{ width: '100%' }}>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid:cols-4 gap-5'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid:cols-4 gap-5' style={{ margin: '0px 20px' }}>
                 {currentItems.map((x, i) => (
                     <AllItem key={i} {...x} prdimg={x.prdimg} prdname={x.prdname} prdprice={x.prdprice} />
                 ))}
             </div>
             {/* {prdid ? (
-                    currentItems.map((x, i) => (
+                    catData.map((x, i) => (
                         // console.log("catex----",x),
                         <AllItem key={i} {...x} prdimg={x.prdimg} prdname={x.prdname} prdprice={x.prdprice} />
                     ))
                 ) : (
-                    currentItems.map((x, i) => (
+                    allPrdData.map((x, i) => (
                         // console.log('dhfg',x),
                         <AllItem key={i} {...x} prdimg={x.prdimg} prdname={x.prdname} prdprice={x.prdprice} />
                     ))

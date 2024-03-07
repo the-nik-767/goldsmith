@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getApidataNewCollection } from '../../Redux/Action/categoryAction'
-import AllFrenchCrown from '../FRENCHCROWNFORKINGS/AllFrenchCrown'
+import AllFrenchCrown from '../All Category/AllFrenchCrown'
 
 const SingleImgInNewCollection = () => {
 

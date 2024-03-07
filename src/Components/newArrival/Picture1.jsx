@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getApidataAllProduct } from '../../Redux/Action/productAction';
 
 const Picture1 = () => {
-   
+
 
     let navigate = useNavigate()
     let dispatch = useDispatch()
@@ -16,11 +16,11 @@ const Picture1 = () => {
         window.scrollTo(0, 0);
     }
 
-    useEffect( () => {
+    useEffect(() => {
         // // setLoading(true)
-         dispatch(getApidataAllProduct())
+        dispatch(getApidataAllProduct())
         // // setLoading(false)
-        
+
     }, [])
 
     const data = useSelector(state => state.product.data);
@@ -29,11 +29,11 @@ const Picture1 = () => {
         <div>
             {/* <hr className='mt-5 mb-5 ' /> */}
             <div className=" text-center text-2xl font-mono mt-14 mb-10 header-font allHeaderText" ><h2 className='text-font header-color'>NEW ARRIVAL DESIGN</h2></div>
-            <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid:cols-4  justify-center" style={{ margin: '0px 20px' }}>
+            <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid:cols-4  md:mx-7 aaaa" style={{ margin: '0px 20px' }}>
                 {
-                    data.slice(0, 8).map((x,i) => {
+                    data.slice(0, 8).map((x, i) => {
                         return (
-                            <AllItem key={i} {...x} prdimg={x.prdimg} prdname={x.prdname} prdprice={x.prdprice} />
+                            <AllItem key={i} {...x} />
                         )
                     })
                 }
@@ -41,11 +41,11 @@ const Picture1 = () => {
             <div className="outer flex justify-center">
                 <div className="button1 mt-10 ">
                     <button
-                        className="rounded p-2 text-center text " style={{width:'150px'}}
+                        className="rounded p-2 text-center text " style={{ width: '150px' }}
                         type="button"
                         onClick={navigateCategory}
                     >
-                       View All 
+                        View All
                     </button>
                 </div>
             </div>

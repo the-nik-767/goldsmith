@@ -35,3 +35,18 @@
     background-color: #504e4e73;
   }
   
+.backdrop-filter-blur {
+  backdrop-filter: blur(5px); 
+ 
+}
+.backdrop-blur-sm{
+  position: fixed;
+}
+.drawer-comp {
+  @supports (backdrop-filter: blur(8px)) {
+    backdrop-filter: blur(8px);
+  }
+  @supports (-webkit-backdrop-filter: blur(8px)) {
+    -webkit-backdrop-filter: blur(8px);
+  }
+}

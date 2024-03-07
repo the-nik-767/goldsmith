@@ -231,7 +231,7 @@
     width: 100px !important;
     margin-top:10px ;
   }
-  .carousel.carousel-slider{
+  .shop1 .carousel.carousel-slider{
     height: 70vh;
   }
   .carousel{
@@ -288,7 +288,7 @@
     width: 100px !important;
     margin-top:10px ;
   }
-  .carousel.carousel-slider{
+  .shop1 .carousel.carousel-slider{
     height: 80vh;
   }
 }
@@ -344,7 +344,7 @@
   .carousel{
     margin-left: -550px;
   }
-  .carousel.carousel-slider{
+  .shop1 .carousel.carousel-slider{
     height: 80vh;
   }
 }

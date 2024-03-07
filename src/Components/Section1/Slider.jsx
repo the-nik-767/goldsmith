@@ -41,7 +41,7 @@ const Slider = () => {
     // console.log("Clicked thumb", index);
   };
   return (
-    <div style={{ width: "100%" ,height:"100%",marginTop:'80px'}}>
+    <div style={{ width: "100%" ,height:"100%",marginTop:'8px'}} className="silder">
       <Carousel
         autoplay
         navigation={({ setActiveIndex, activeIndex, length }) => (

@@ -6,7 +6,7 @@ import { IconButton, Box, Modal } from '@mui/material';
 import { Card, Rating } from "@material-tailwind/react";
 import { IoEyeSharp } from "react-icons/io5";
 import ShopInfosection1 from '../ShopItems/ShopInfosection1';
-import { openAddToCard } from '../../Redux/Action/action';
+import { openAddToCard, updateCartItems } from '../../Redux/Action/action';
 import { useDispatch, useSelector } from 'react-redux';
 import '../style/responsive.css'
 import { IKImage } from 'imagekitio-react';
@@ -32,18 +32,18 @@ const AllItem = React.memo((props) => {
     right: false,
   });
 
-  const handleOpenUserPage = () => {setOpenUserPage(true);}
+  const handleOpenUserPage = () => { setOpenUserPage(true); }
 
-  const handleCloseUserPage = () => {setOpenUserPage(false);}
+  const handleCloseUserPage = () => { setOpenUserPage(false); }
 
   const handleOpenImgComp = () => {
-    console.log('open image')
-    console.log('props.id',props.id)
+    // console.log('open image')
+    // console.log('props.id',props.id)
     setSelectedItem(props.id)
     setOpenImgComp(true);
   }
 
-  const handleCloseImgComp = () => {setOpenImgComp(false);}
+  const handleCloseImgComp = () => { setOpenImgComp(false); }
 
   const navigateShop = (e) => {
     if (props.id) {
@@ -53,46 +53,23 @@ const AllItem = React.memo((props) => {
   };
 
   const handleAddToCartClick = () => {
-    // dispatch(getApidataPaymentMethod());
-    //   console.log("object")
-    //   dispatch(trueLoading())
 
-    //   dispatch(openAddToCard(true))
-
-    //   if (props.id) {
-    //     let img = allPrdData.find((x) => x.id === props.id);
-    //     if (img) {
-
-    //       const existingItem = cartItems.find((item) => item.id === props.id);
-    //       if (existingItem) {
-
-    //         existingItem.quantity++;
-    //         dispatch(updateCartItems(existingItem, cartItems));
-    //         dispatch(openAddToCard(true))
-    //       } else {
-
-    //         const itemToAdd = {
-    //           id: props.id,
-    //           prdimg: img.prdimg,
-    //           prdname: img.prdname,
-    //           quantity: quantity,
-    //           prdprice: img.prdprice,
-    //         };
-    //         //dispatch(openAddToCard(true))
-    //         dispatch(addToCart(itemToAdd));
-    //         dispatch(openAddToCard(true))
-    //       }
-    //     } else {
-    //       console.error(`Product with ID ${props.id} not found.`);
-    //     }
-    //   } else {
-    //     console.error("No product ID found in the URL.");
-    // };
-    // }
-console.log('click ------')
+    // dispatch(openAddToCard(true))
     addToCartHandler(props.id, quantity, allPrdData, cartItems, dispatch, openAddToCard);
-    
+    // dispatch(updateCartItems( cartItems));
+
   }
+
+  const calculateDiscountedPrice = (price, discountLabel) => {
+    const numericPart = discountLabel.match(/\d+/);
+    if (numericPart) {
+      const discount = parseFloat(numericPart[0]) / 100;
+      const discountedPrice = price * (1 - discount);
+      return discountedPrice.toFixed(2);
+    } else {
+      return price;
+    }
+  };
   return (
     <div>
       {/* {dialogLoading && (
@@ -129,20 +106,21 @@ console.log('click ------')
           style={{ backgroundColor: "white" }}
         >
           <Box
-            sx={{
-              width: "1100px",
-              margin: "0 auto ",
-              backgroundColor: "white",
-              padding: "10px",
-              // marginTop: "10px",
-            }}
+            // sx={{
+            //   width: "1100px",
+            //   margin: "0 auto ",
+            //   backgroundColor: "white",
+            //   padding: "10px",
+            //   // marginTop: "10px",
+            // }}
+            className="eyes-box"
           >
-            <div className='flex justify-end mt-10' >
+            <div className='flex justify-end ' >
               <IconButton onClick={handleCloseImgComp} className='text-3xl bg-white mt-5'>
                 <IoClose />
               </IconButton>
             </div>
-            <Eyes style={{ marginTop: "0 !important" }} itemId={selectedItem} />
+            {/* <Eyes style={{ marginTop: "0 !important" }} itemId={selectedItem} /> */}
           </Box>
         </Modal>
       )}
@@ -172,6 +150,7 @@ console.log('click ------')
 
               {props.prddiscount === "enable" && (
                 <p className="label1">{props.discountlable}</p>
+
               )}
 
               <p onClick={handleAddToCartClick}
@@ -201,27 +180,54 @@ console.log('click ------')
             >
               <CiHeart style={{ fontSize: '20px' }} />
             </IconButton>
+            <div className='m-2'>
+              <div
+                className="text-xl text-font mt-3 overflow-hidden flex justify-between  "
+                style={{ color: " rgb(157 68 28 )" }}
+              >
+                <div className="truncate " >
+                  {props.prdname}
+                </div>
+                <span><Rating value={3} style={{ fontSize: "10px", }} readonly /></span>
+              </div>
+              <div className="flex justify-between overflow-hidden">
+                <div>
+                  <div  className="truncate ">
+                    <span>Material </span>
+                    <span> {props.material}</span>
+                  </div>
+                  <div  className="truncate w-32">
+                    <span>Diamond </span>
+                    <span className='text-ellipsis'> {props.diamond_type}</span>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    {props.prddiscount === "enable" && (
+                      <span className="font-medium text-lg   text-red ">
+                        {calculateDiscountedPrice(props.prdprice, props.discountlable)}/-
+                      </span>
+                    )}
+                  </div>
 
-            {/* <Typography> */}
-            <div
-              className="text-xl text-font mt-3 overflow-hidden "
-              style={{ color: " rgb(157 68 28 )" }}
-            >
-              <div className="truncate " style={{ maxWidth: '99%', padding: '0px 15px' }}>
-                {props.prdname}
+                  <span className='flex justify-end'>
+                    {props.prddiscount === "enable" ? (
+                      <del className="font-medium text-base text-gray text-end">
+                        {props.prdprice}/-
+                      </del>
+                    ) : (
+                      <p className="font-medium text-xl text-gray text-end">
+                        {props.prdprice}/-
+                      </p>
+                    )}
+                  </span>
+                </div>
               </div>
             </div>
-            <div className='flex justify-between' style={{ padding: '5px 15px' }}>
-              <span className="font-medium text-lg   text-gray">
-                {props.prdprice}/-
-              </span>
-              <span><Rating value={3} style={{ fontSize: "10px", }} readonly /></span>
-            </div>
-            {/* </Typography> */}
           </div>
         </div>
-      </Card>
-    </div>
+      </Card >
+    </div >
   );
 })
 

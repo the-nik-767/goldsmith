@@ -62,10 +62,10 @@ export const updateCartItems = (updatedItem, cartItems) => {
   };
 };
 
-export const openAddToCard = (open) => {
+export const openAddToCard = (isOpen) => {
   return {
     type: OPEN_ADD_TO_CART,
-    payload: open,
+    payload: isOpen,
   };
 };
 

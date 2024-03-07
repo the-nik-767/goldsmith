@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './style/queens.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { getApidataBestSeller } from '../../Redux/Action/categoryAction'
-import AllFrenchCrown from '../FRENCHCROWNFORKINGS/AllFrenchCrown'
+import AllFrenchCrown from '../All Category/AllFrenchCrown'
 const SingleImgInQuenns = () => {
 
 

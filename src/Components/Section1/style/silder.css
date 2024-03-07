@@ -33,7 +33,6 @@
     opacity: 0.25;
     transition: opacity .35s ease-in-out;
 }
-
 .carousel:hover .slide .legend3{
     opacity: 1;
 }
@@ -78,31 +77,26 @@
         height: 266px;
     }
 }
-
 @media (min-width: 320px) and (max-width: 480px){
     .silderImage{
         height: 300px;
     }
 }
-
 @media (min-width: 481px) and (max-width: 768px){
     .silderImage{
         height: 380px;
     }
 }
-
 @media (min-width: 769px) and (max-width: 1024px){
     .silderImage{
         height: 450px;
     }
 }
-
 @media (min-width: 1025px) and (max-width: 1201px){
     .silderImage{
         height: 550px;
     }
 }
-
 @media (min-width: 1201px){
     .silderImage{
         height: 750px;

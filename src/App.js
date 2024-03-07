@@ -6,12 +6,14 @@ import { useSelector } from "react-redux";
 const App = () => {
   const isLoading =useSelector((state)=>state.loading.isLoading)
   console.log('isLoading----',isLoading)
+  
   return (
     <IKContext
       publicKey="public_SWufzC3NBuBYZKszPsXhFdh1XDo="
       urlEndpoint="https://ik.imagekit.io/saufrbirqu"
     >
       <MainNavigator />
+      {/* <AddtoCart/> */}
     </IKContext>
   );
 };
