@@ -16,7 +16,6 @@ export const ShopImg = () => {
   const location = useLocation();
   const searchParams1 = new URLSearchParams(location.search);
   const imgid = searchParams1.get("id");
-  // console.log('location',location)
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -39,7 +38,6 @@ const data = useSelector(state => state.oneproduct.data);
   return (
     <div className="shopimgflex">
     {data && <ShopSlider selectedImageId={selectedImageId} images={data } />}
-    {/* {console.log('data.images',data)} */}
     {/* <div style={{ width: "25%" }} className="shopimg">
       {data && data.map((x, index) => (
         x.prdimg && JSON.parse(x.prdimg).map((image, i) => (

@@ -10,9 +10,10 @@ import { Drawer } from "@material-tailwind/react";
 import { IoMdCart } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { openAddToCard, removeFromCart, trueLoading, updateCartItems } from "../../../Redux/Action/action";
+import { calculateDiscountedPrice } from "../../../utils";
 
 
-export const DrawerComponent2 = ({ onClose ,event}) => {
+export const DrawerComponent2 = ({ onClose, event }) => {
   if (event) {
     event.stopPropagation();
   }
@@ -22,7 +23,6 @@ export const DrawerComponent2 = ({ onClose ,event}) => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const allPrdData = useSelector(state => state.product.data);
   const openAddToCart = useSelector((state) => state.cart.openAddToCart);
-  // console.log("openAddToCart",openAddToCart)
   const [state, setState] = React.useState({
     left: false,
     sidebarHeight: "100vh"
@@ -47,7 +47,6 @@ export const DrawerComponent2 = ({ onClose ,event}) => {
   const handleRemoveFromCart = (item) => {
     dispatch(removeFromCart(item));
   };
-
   const handleQuantityChange = (item, change) => {
     let img = allPrdData.find((x) => x.id === item.id)
     if (img) {
@@ -76,14 +75,15 @@ export const DrawerComponent2 = ({ onClose ,event}) => {
     dispatch(openAddToCard(false))
     // setDialogLoading(false);
   }
-
   const handleIconButtonClick = (event) => {
     if (!openAddToCart) {
       event.stopPropagation();
     }
     toggleDrawer();
   };
-
+  const DiscountedPrice = (price, discountLabel) => {
+    return calculateDiscountedPrice(price, discountLabel);
+  };
   return (
 
     <div>
@@ -91,8 +91,8 @@ export const DrawerComponent2 = ({ onClose ,event}) => {
         <IoMdCart />
       </IconButton>
       <Drawer
-     style={{backdropFilter:' blur(10px)' }}
-        className="drawer-comp backdrop-filter-blur qqqqqqqqqqqq backdrop-blur-sm"
+        style={{ backdropFilter: ' blur(10px)' }}
+        className="drawer-comp backdrop-filter-blur backdrop-blur-sm"
         placement={'right'}
         open={openAddToCart}
         onClose={() => onClose()}
@@ -132,7 +132,6 @@ export const DrawerComponent2 = ({ onClose ,event}) => {
           <Typography>
             {cartItems?.map((item, index) => (
               <div key={index} className="text-sm flex  p-5">
-                {/* {console.log(cartItems)}  */}
                 <div className="me-3">
                   <IKImage
                     src={JSON.parse(item.prdimg)[0]?.url}
@@ -140,9 +139,12 @@ export const DrawerComponent2 = ({ onClose ,event}) => {
                   />
                 </div>
                 <div>
-                  <div>Name:{item.prdname}</div>
-                  <div>Price: {item.prdprice * item.quantity}</div>
-                  <div>Size: {item.sizes} </div>
+                  <div><strong>Name: </strong>{item.prdname}</div>
+                  <div>
+                    <strong>Price: </strong>
+                    {item.prdprice}
+
+                  </div>
 
                   <div>
                     <div className="flex items-center  mb-5">

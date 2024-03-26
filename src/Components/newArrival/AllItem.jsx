@@ -11,34 +11,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../style/responsive.css'
 import { IKImage } from 'imagekitio-react';
 import { IoClose } from "react-icons/io5";
-import { addToCartHandler } from '../addToCartHandler';
 import Eyes from '../ShopItems/Eyes';
+import { addToCartHandler, calculateDiscountedPrice } from '../../utils';
+import Login from '../Header/User/Login';
 // import { Bars } from "react-loader-spinner";
 
 const AllItem = React.memo((props) => {
-
   const [openUserPage, setOpenUserPage] = useState(false);
   const [openImgComp, setOpenImgComp] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
   // const [dialogLoading, setDialogLoading] = useState(false);
   const allPrdData = useSelector(state => state.product.data);
   const cartItems = useSelector(state => state.cart.cartItems);
-
-  const [state, setState] = useState({
-    right: false,
-  });
 
   const handleOpenUserPage = () => { setOpenUserPage(true); }
 
   const handleCloseUserPage = () => { setOpenUserPage(false); }
 
   const handleOpenImgComp = () => {
-    // console.log('open image')
-    // console.log('props.id',props.id)
     setSelectedItem(props.id)
     setOpenImgComp(true);
   }
@@ -53,22 +46,11 @@ const AllItem = React.memo((props) => {
   };
 
   const handleAddToCartClick = () => {
-
-    // dispatch(openAddToCard(true))
     addToCartHandler(props.id, quantity, allPrdData, cartItems, dispatch, openAddToCard);
-    // dispatch(updateCartItems( cartItems));
-
   }
 
-  const calculateDiscountedPrice = (price, discountLabel) => {
-    const numericPart = discountLabel.match(/\d+/);
-    if (numericPart) {
-      const discount = parseFloat(numericPart[0]) / 100;
-      const discountedPrice = price * (1 - discount);
-      return discountedPrice.toFixed(2);
-    } else {
-      return price;
-    }
+  const DiscountedPrice = (price, discountLabel) => {
+     return calculateDiscountedPrice(price, discountLabel);
   };
   return (
     <div>
@@ -85,45 +67,37 @@ const AllItem = React.memo((props) => {
       />
         </div>
       )} */}
+
       <Modal
         open={openUserPage}
         onClose={handleCloseUserPage}
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
-
+        
       >
-        <Box sx={{ margin: "0 auto ", }} >
-          <UserPage />
+        <Box sx={{ margin: "0 auto ", }} className='bg-white'>
+          <Login />
         </Box>
       </Modal>
 
-      {openImgComp && (
-        <Modal
-          open={openImgComp}
-          onClose={handleCloseImgComp}
-          aria-labelledby="parent-modal-title"
-          aria-describedby="parent-modal-description"
-          style={{ backgroundColor: "white" }}
-        >
-          <Box
-            // sx={{
-            //   width: "1100px",
-            //   margin: "0 auto ",
-            //   backgroundColor: "white",
-            //   padding: "10px",
-            //   // marginTop: "10px",
-            // }}
-            className="eyes-box"
-          >
-            <div className='flex justify-end ' >
-              <IconButton onClick={handleCloseImgComp} className='text-3xl bg-white mt-5'>
-                <IoClose />
-              </IconButton>
-            </div>
-            {/* <Eyes style={{ marginTop: "0 !important" }} itemId={selectedItem} /> */}
-          </Box>
-        </Modal>
-      )}
+
+      <Modal
+        open={openImgComp}
+        onClose={handleCloseImgComp}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+      >
+        <Box className="eyes-box">
+          <div className='flex justify-end ' >
+            <IconButton onClick={handleCloseImgComp} className='text-3xl bg-white mt-5'>
+              <IoClose />
+            </IconButton>
+          </div>
+          <Eyes style={{ marginTop: "0 !important" }} itemId={selectedItem} />
+          {/* <ShopInfosection1 style={{ marginTop: "0 !important" }} itemId={selectedItem} /> */}
+        </Box>
+      </Modal>
+
 
       <Card className=" flex justify-center ">
         <div
@@ -150,7 +124,6 @@ const AllItem = React.memo((props) => {
 
               {props.prddiscount === "enable" && (
                 <p className="label1">{props.discountlable}</p>
-
               )}
 
               <p onClick={handleAddToCartClick}
@@ -180,7 +153,7 @@ const AllItem = React.memo((props) => {
             >
               <CiHeart style={{ fontSize: '20px' }} />
             </IconButton>
-            <div className='m-2'>
+            <div className='m-2' >
               <div
                 className="text-xl text-font mt-3 overflow-hidden flex justify-between  "
                 style={{ color: " rgb(157 68 28 )" }}
@@ -188,24 +161,24 @@ const AllItem = React.memo((props) => {
                 <div className="truncate " >
                   {props.prdname}
                 </div>
-                <span><Rating value={3} style={{ fontSize: "10px", }} readonly /></span>
+                <span><Rating value={3} style={{ fontSize: "10px", }} readOnly /></span>
               </div>
               <div className="flex justify-between overflow-hidden">
                 <div>
-                  <div  className="truncate ">
+                  <div className="truncate ">
                     <span>Material </span>
-                    <span> {props.material}</span>
+                    <span> {props.jwelleryMaterial}</span>
                   </div>
-                  <div  className="truncate w-32">
+                  <div className="truncate w-32">
                     <span>Diamond </span>
-                    <span className='text-ellipsis'> {props.diamond_type}</span>
+                    <span className='text-ellipsis'> {props.diamondType}</span>
                   </div>
                 </div>
                 <div>
                   <div>
                     {props.prddiscount === "enable" && (
-                      <span className="font-medium text-lg   text-red ">
-                        {calculateDiscountedPrice(props.prdprice, props.discountlable)}/-
+                      <span className="font-medium text-lg text-red ">
+                        € {DiscountedPrice(props.prdprice, props.discountlable)}
                       </span>
                     )}
                   </div>
@@ -213,11 +186,11 @@ const AllItem = React.memo((props) => {
                   <span className='flex justify-end'>
                     {props.prddiscount === "enable" ? (
                       <del className="font-medium text-base text-gray text-end">
-                        {props.prdprice}/-
+                        € {props.prdprice}
                       </del>
                     ) : (
                       <p className="font-medium text-xl text-gray text-end">
-                        {props.prdprice}/-
+                        € {props.prdprice}
                       </p>
                     )}
                   </span>

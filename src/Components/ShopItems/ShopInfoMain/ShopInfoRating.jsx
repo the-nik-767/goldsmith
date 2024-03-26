@@ -3,6 +3,7 @@ import { Rating } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getApidataOnePrdData } from "../../../Redux/Action/productAction";
 import { useLocation } from "react-router-dom";
+import { calculateDiscountedPrice } from "../../../utils";
 
 export const ShopInfoRating = () => {
   let dispatch = useDispatch()
@@ -14,7 +15,9 @@ export const ShopInfoRating = () => {
   //   dispatch(getApidataOnePrdData(imgid))
   // }, [])
   const data = useSelector(state => state.oneproduct.data);
-
+  const DiscountedPrice = (price, discountLabel) => {
+    return calculateDiscountedPrice(price, discountLabel);
+  };
   return (
     <div>
       {/* <Rating
@@ -28,11 +31,11 @@ export const ShopInfoRating = () => {
         <div key={i}>
           <div>
             <p className="mb-2 mt-2 text-slate-500 title-in-shoppage">{x.prdname}</p>
-            <p className="mb-3 text-slate-500">{x.prdprice}/-</p>
+            <p className="mb-3 text-slate-500">  € {DiscountedPrice(x.prdprice, x.discountlable)} </p>
           </div>
           <div className="flex mb-3 justify-center align-center rating">
             <div>
-            <Rating value={4} readonly />
+              <Rating value={4} readOnly />
             </div>
             <p className=" ms-2 text-md text-slate-500">reviews</p>
           </div>

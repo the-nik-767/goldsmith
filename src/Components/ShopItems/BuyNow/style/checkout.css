@@ -55,7 +55,9 @@
     width: 98.09% ;
     font-size: 25px,
   }
-
+  .react-tel-input .country-list .country-name{
+    color: black;
+  }
 @media (min-width: 640px) { 
     .checkout-info-container{
         padding: 0 !important;

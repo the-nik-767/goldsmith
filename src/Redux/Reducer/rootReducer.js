@@ -8,6 +8,7 @@ import { getOneProduct } from "./getOneProduct";
 import { categoryProductReducer } from "./categoryProductreducer";
 import { paymentReducer } from "./paymentReducer";
 import { loadingReducer } from "./loadingReducer";
+import { userInfoReducer } from "./userInfoReducer";
 
 export const rootReducer = combineReducers({
     cart: cartReducer,
@@ -16,7 +17,8 @@ export const rootReducer = combineReducers({
     newcollection:NewCollectionReducer,
     product: productReducer,
     oneproduct:getOneProduct,
-    categorywiseproduct:categoryProductReducer,
+    // categorywiseproduct:categoryProductReducer,
     payment:paymentReducer,
     loading:loadingReducer,
+    userinfo:userInfoReducer,
 })

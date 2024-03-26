@@ -1,24 +1,36 @@
-import { PRODUCT_GET, PRODUCT_GETONE } from "../Type/type";
+import {
+  CURRENT_FILTER_TYPE,
+  CURRENT_PRODUCT_FILTER,
+  PRODUCT_GET,
+  USER_HISTORY,
+} from "../Type/type";
 
 const initialState = {
-    data: [],
-    
-  };
+  data: [],
+  filterType: "",
+  userData: []
+};
 
-export const productReducer = (state = initialState, action) => {
-  switch (action.type) {
-
+export const productReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case PRODUCT_GET: {
-        if (action.data && action.data.newPrd && Array.isArray(action.data.newPrd)) {
-          return {
-            ...state,
-            data: action.data.newPrd,
-          };
-        } else {
-          return state;
-        }
+      return {
+        ...state,
+        data: payload,
+      };
+    }
+    case CURRENT_PRODUCT_FILTER: {
+      return {
+        ...state,
+        filterType: payload,
+      };
+    }
+    case USER_HISTORY:{
+      return{
+        ...state,
+        userData: payload
       }
-
+    }
     default: {
       return state;
     }

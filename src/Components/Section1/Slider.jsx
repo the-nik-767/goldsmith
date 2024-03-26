@@ -30,15 +30,12 @@ const Slider = () => {
     },
   ]);
   const onChange = (index) => {
-    // console.log("Slide changed to index", index);
   };
 
   const onClickItem = (index, item) => {
-    // console.log("Clicked item", index, item);
   };
 
   const onClickThumb = (index) => {
-    // console.log("Clicked thumb", index);
   };
   return (
     <div style={{ width: "100%" ,height:"100%",marginTop:'8px'}} className="silder">

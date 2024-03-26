@@ -36,7 +36,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
     addLine1: yup.string("addLine1").required("Please Your Addresss"),
     addLine2: yup.string("addLine2").required("Please Your Addresss"),
     pincode: yup.string("pincode").required("Please Your pincode"),
-    city: yup.string("city").required("Please Your city"),
+    // city: yup.string("city").required("Please Your city"),
     email: yup.string("email").required("Please Your email"),
     country: yup.string("country").required("Please select a country"),
     state: yup.string("state").required("Please select a state"),
@@ -44,6 +44,7 @@ const AllField = ({ onSubmit, setStep, step }) => {
   })
 
   const formik = useFormik({
+    // enableReinitialize: true,
     initialValues: {
       fname: '',
       lname: '',
@@ -64,18 +65,17 @@ const AllField = ({ onSubmit, setStep, step }) => {
 
   const handleSubmit = (values) => {
     const newUser = { ...values, phone, country: formik.values.country, state: formik.values.state };
-    localStorage.setItem("userArray", JSON.stringify([newUser]));
+    localStorage.setItem("userArray", JSON.stringify(newUser));
     onSubmit();
 
-    const payload = {
-     ...values,
-      metadata: cartItems,
-    }
-    dispatch(getApidataPaymentMethod(payload))
+    // const payload = {
+    //  ...values, 
+    //   metadata: cartItems,
+    //   pmdata:[]
+    // }
+    // dispatch(getApidataPaymentMethod(payload))
     setStep(step => step + 1);
   };
-  const data = useSelector(state => state.payment.data);
-  // console.log("payment method",data);
 
 
   const handleCountryChange = (item) => {
@@ -171,7 +171,6 @@ const AllField = ({ onSubmit, setStep, step }) => {
 
             />
           </Box>
-
           <Box >
             <Box >
               <TextField
@@ -348,7 +347,6 @@ const AllField = ({ onSubmit, setStep, step }) => {
               ) : null}
             </Box>
           </Box>
-
           <Box
             className="outer"
             onClick={(e) => {

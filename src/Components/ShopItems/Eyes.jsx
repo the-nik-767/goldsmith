@@ -9,9 +9,10 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import { useLocation } from 'react-router-dom';
-import { addToCartHandler } from '../addToCartHandler';
 import { openAddToCard } from '../../Redux/Action/action';
 import './ShopInfoMain/style/eyes.css'
+import { getApidataOnePrdData } from '../../Redux/Action/productAction';
+import { addToCartHandler, calculateDiscountedPrice } from '../../utils';
 
 function Icon({ id, open }) {
   return (
@@ -100,10 +101,10 @@ const accordionItems = [
   },
 ];
 
-function Eyes() {
+function Eyes({ itemId }) {
   const [leftImages, setLeftImages] = useState([]);
-  const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [open, setOpen] = useState(0);
 
   const data = useSelector(state => state.oneproduct.data);
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -113,15 +114,15 @@ function Eyes() {
 
   const dispatch = useDispatch();
   const location = useLocation();
-  const searchParams1 = new URLSearchParams(location.search);
-  const imgid = searchParams1.get("id");
-  console.log('imgid', imgid)
+  const searchParams = new URLSearchParams(location.search);
+  const paramId = searchParams.get("id");
+  const productId = paramId || itemId;
 
-  useEffect(() => {
-    if (data && data.length > 0) {
-      setLeftImages(data.slice(0, 4));
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data && data.length > 0) {
+  //     setLeftImages(data.slice(0, 4));
+  //   }
+  // }, [data]);
 
   const handleCarouselChange = (index) => {
     setLeftImages(data.slice(index, index + 4));
@@ -130,7 +131,13 @@ function Eyes() {
   const [state, setState] = useState({
     right: false,
   });
-
+  useEffect(() => {
+    // // setLoading(true)
+    if (productId) {
+      dispatch(getApidataOnePrdData(productId));
+    }
+    // // setLoading(false)
+  }, [])
   const toggleDrawer =
     (anchor, open) =>
       (event) => {
@@ -146,13 +153,6 @@ function Eyes() {
       };
 
 
-
-  const sizes = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
-
-  const handleSizeChange = (size) => {
-    setSelectedSize(size);
-  };
-
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -163,19 +163,18 @@ function Eyes() {
     </Box>
   );
   const handleAddToCart = () => {
-    console.log(imgid)
-    addToCartHandler(imgid, quantity, allPrdData, cartItems, dispatch, openAddToCard);
-
+    addToCartHandler(productId, quantity, allPrdData, cartItems, dispatch, openAddToCard);
   }
-
-  const [open, setOpen] = React.useState(0);
+  const DiscountedPrice = (price, discountLabel) => {
+    return calculateDiscountedPrice(price, discountLabel);
+  };
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   return (
     <div className="flex justify-center">
       <div className=" eyes-shop1 " style={{ direction: 'row' }}>
         <div className="eyes-image-info">
-          <div className="shopslider-container">
+          <div className="eyes-shopslider-container">
             <Carousel
               className="eyes-shopslider"
               onChange={handleCarouselChange}
@@ -212,11 +211,11 @@ function Eyes() {
                   <div key={i}>
                     <div>
                       <p className="mb-2 mt-2 text-slate-500 title-in-shoppage">{x.prdname}</p>
-                      <p className="mb-3 text-slate-500">{x.prdprice}/-</p>
+                      <p className="mb-3 text-slate-500">   € {DiscountedPrice(x.prdprice, x.discountlable) }</p>
                     </div>
                     <div className="flex mb-3 justify-center align-center rating">
                       <div>
-                        <Rating value={4} readonly />
+                        <Rating value={4} readOnly />
                       </div>
                       <p className=" ms-2 text-md text-slate-500">reviews</p>
                     </div>
@@ -225,7 +224,7 @@ function Eyes() {
               </div>
               <div>
                 <div className="flex flex-col gap-6 mb-5">
-                  <Select
+                  {/* <Select
                     size="lg"
                     label="Select Size"
                     value={selectedSize ? selectedSize.toString() : ""}
@@ -236,7 +235,7 @@ function Eyes() {
                         {size}
                       </Option>
                     ))}
-                  </Select>
+                  </Select> */}
                 </div>
                 <Button className="capitalize mb-5 eyes-addtocardbtn" onClick={handleAddToCart}>
                   Add to Cart

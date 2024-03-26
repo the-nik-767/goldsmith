@@ -7,18 +7,18 @@ const FooterDropDown = () => {
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState('');
 
-    useEffect(() => {
-        const fetchCountries = async () => {
-            try {
-                const response = await axios.get('https://restcountries.com/v2/all');
-                setCountries(response.data);
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchCountries = async () => {
+    //         try {
+    //             const response = await axios.get('https://restcountries.com/v2/all');
+    //             setCountries(response.data);
+    //         } catch (error) {
+    //             console.error('Error fetching countries:', error);
+    //         }
+    //     };
 
-        fetchCountries();
-    }, []);
+    //     fetchCountries();
+    // }, []);
 
     const handleCountryChange = (event) => {
         setSelectedCountry(event.target.value);

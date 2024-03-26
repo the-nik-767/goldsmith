@@ -4,20 +4,24 @@ import '../style/responsive.css'
 import { Card, CardBody } from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { getApidataAllProduct } from '../../Redux/Action/productAction';
 
 const AllFrenchCrown = (props) => {
-
+// console.log('props--->',props)
   let navigate = useNavigate()
   let dispatch = useDispatch()
+  const allPrdData = useSelector(state => state.product.data);
 
   const navigateCategory = (e) => {
-    if (props.id) {
-      const id = (props.id);
-      // console.log("id.......", id)
+    if (props.catename) {
+      const id = (props.catename);
+      const filterData=allPrdData.filter((x)=>x.prdcategory==id)
+      dispatch(getApidataAllProduct(filterData))
       navigate(`/category?id=${id}`);
     }
     else {
-      navigate('/category');
+      // navigate('/category');
+      // console.log('can not move category')
     }
 
     window.scrollTo(0, 0);

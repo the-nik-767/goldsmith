@@ -10,7 +10,6 @@ const ShowDataBook = () => {
             setBook(storedBookData);
         }
     }, [])
-    // console.log('book', book)
     return (
                 <div className="payment-info-container" >
                     <h2 className=" text-slate-700 text-font tracking-wide p-3"

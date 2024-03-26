@@ -7,6 +7,7 @@ import { removeFromCart } from '../../../Redux/Action/action';
 import { IconButton } from '@mui/material';
 import { GrClose } from "react-icons/gr";
 import { useTotalPrice } from '../../../CustomeHokkes/useTotalPrice ';
+import { calculateDiscountedPrice } from '../../../utils';
 
 const ByuNow = () => {
   const dispatch = useDispatch();
@@ -15,17 +16,28 @@ const ByuNow = () => {
     dispatch(removeFromCart(item));
   };
   const cartItems = useSelector((state) => state.cart.cartItems)
-  const totalPrice = useTotalPrice();
-  // const totalPrice = cartItems.reduce((acc, curr) =>
-  //   curr.prdprice * curr.quantity + acc
-  //   , 0);
+  // const totalPrice = useTotalPrice();
+  const totalPrice = cartItems.reduce((acc, curr) =>
+    curr.prdprice * curr.quantity + acc
+    , 0);
 
   const productId = 'yourProductId';
 
   const product = cartItems.find(item => item.id === productId);
 
   // const quantity = product ? product.quantity : 0;
+  const DiscountedPrice = (price, discountLabel) => {
+    return calculateDiscountedPrice(price, discountLabel);
+  };
+  const calculateItemTotal = (item) => {
+    return item.prddiscount === "enable" ?
+      calculateDiscountedPrice(item.prdprice, item.discountlable) * item.quantity :
+      item.prdprice * item.quantity;
+  };
 
+  // const totalPrice = cartItems.reduce((acc, item) => {
+  //   return acc + calculateItemTotal(item);
+  // }, 0);
 
   return (
 
@@ -35,11 +47,10 @@ const ByuNow = () => {
 
       <div className="receipt">
         <h2 className="receipt-heading text-center" style={{ fontFamily: 'monospace' }}>Receipt Summary</h2>
-        <div className=''>
+        <div>
           {/* <hr /> */}
 
           {cartItems.map((item, index) => (
-
             // <tr key={index}>
             //   <div className='flex justify-end'>
             //     <IconButton aria-label="delete" onClick={() => handleRemoveFromCart(item)} className="hover:text-black text-xs">
@@ -75,7 +86,7 @@ const ByuNow = () => {
 
             // </tr>
 
-            <div key={index} className='border m-2 p-2'>
+            <div key = { index } className = 'border m-2 p-2' >
               <div className='flex justify-end'>
                 <IconButton aria-label="delete" onClick={() => handleRemoveFromCart(item)} className="hover:text-black " style={{ fontSize: '10px' }}>
                   <GrClose fontSize="inherit" />
@@ -93,22 +104,46 @@ const ByuNow = () => {
                 <div>
                   <p><span className='text-lg font-semibold tracking-wide '>Name : </span> <span className='tracking-wide text-lg'>{item.prdname || 'Unknown Item'}</span></p>
                   <p><span className='text-lg font-semibold tracking-wide'>Quantity  :</span> <span className='tracking-wide text-lg'>{item.quantity}</span></p>
-                  <p><span className='text-lg font-semibold tracking-wide'>MRP  : </span><span className='tracking-wide text-lg'>{item.prdprice}/-</span></p>
-                  <p><span className='text-lg font-semibold tracking-wide'>Total : </span> <span className='tracking-wide text-lg'>{item.prdprice * item.quantity}/-</span></p>
+                  <p><span className='text-lg font-semibold tracking-wide'>MRP  : </span>
+                  <span className='tracking-wide text-lg'>
+                    {/* {item.prddiscount === "enable" ? (
+                      <span className="font-medium text-lg text-red">
+                        € {DiscountedPrice(item.prdprice, item.discountlable) }
+                      </span>
+                    ) : (
+                      <span className="font-medium text-lg text-red">
+                        € {DiscountedPrice(item.prdprice)}
+                      </span>
+                    )} */}{item.prdprice}
+                    </span></p>
+                  <p><span className='text-lg font-semibold tracking-wide'>Total : </span> <span className='tracking-wide text-lg'>
+                    {/* {item.prddiscount === "enable" ? (
+                      <span className="font-medium text-lg text-red">
+                        € {DiscountedPrice(item.prdprice, item.discountlable) * item.quantity}
+                      </span>
+                    ) : (
+                      <span className="font-medium text-lg text-red">
+                        € {DiscountedPrice(item.prdprice) * item.quantity}
+                      </span>
+                    )} */}
+                    {item.prdprice}
+                    </span></p>
                 </div>
               </div>
             </div>
           ))}
-          {/* <hr className='mt-5' /> */}
 
 
-          <p className=' text-end  tracking-wide  mt-5'><span className='text-xl font-semibold'>Main Total :</span> <span className='text-xl tracking-wide'>{totalPrice}/-</span></p>
+
+        <p className=' text-end  tracking-wide  mt-5'>
+          <span className='text-xl font-semibold'>Main Total :</span>
+          <span className='text-xl tracking-wide'>€ {totalPrice.toFixed(2)}/-</span></p>
 
 
-        </div>
       </div>
-
     </div>
+
+    </div >
 
 
   )

@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import products from "../../../product.json";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
-import { addToCartHandler } from "../../addToCartHandler";
+import { addToCartHandler } from "../../../utils";
 // import { addToCartHandler } from "../../commantFunction/addToCartHandler";
 
 
@@ -106,7 +106,7 @@ const ShopInfoDropdown = ({ props }) => {
   return (
     <div>
       <div className="flex flex-col gap-6 mb-5">
-        <Select
+        {/* <Select
           size="lg"
           label="Select Size"
           value={selectedSize ? selectedSize.toString() : ""}
@@ -117,7 +117,7 @@ const ShopInfoDropdown = ({ props }) => {
               {size}
             </Option>
           ))}
-        </Select>
+        </Select> */}
       </div>
       <Button className="capitalize mb-5 addtocardbtn" onClick={handleAddToCart}>
         Add to Cart

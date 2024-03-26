@@ -6,7 +6,6 @@ const initialState = {
   };
 
 export const loadingReducer = (state = initialState, action) => {
-  // console.log("action",action)
   switch (action.type) {
 
     case IS_LOADING_TRUE: {
